@@ -14,15 +14,18 @@ protocol HomeViewDelegate: AnyObject{
 
 class HomeViewController: UIViewController {
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1600)
+    var presenter: HomePresenterDelegate!
+    
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1300)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
         scrollV.contentSize = contentSize
-        scrollV.frame = view.bounds
+        scrollV.frame = self.view.bounds
         scrollV.contentInsetAdjustmentBehavior = .never
         return scrollV
     }()
+    
     
     private lazy var contentView: UIView = {
         let view = UIView()
@@ -31,18 +34,18 @@ class HomeViewController: UIViewController {
         return view
     }()
     
-    var presenter: HomePresenterDelegate!
+    
     
     private lazy var navigationParentView: UIView = {
         let view = UIView()
-        
-        let gradient = CAGradientLayer()
-        gradient.frame = view.bounds
-        gradient.colors = [UIColor.white.cgColor, UIColor.black.cgColor]
-        view.layer.insertSublayer(gradient, at: 0)
-        
         return view
     }()
+    
+    private lazy var gradientView: GradientView = {
+        let gradientV = GradientView(gradientStartColor: UIColor(red: 18/255, green: 77/255, blue: 193/255, alpha: 0.67), gradientEndColor: UIColor(red: 0/255, green: 20/255, blue: 58/255, alpha: 0.38))
+        return gradientV
+    }()
+    
     
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
@@ -59,9 +62,27 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    private lazy var gradientView: GradientView = {
-        let gradientV = GradientView(gradientStartColor: UIColor(red: 18/255, green: 77/255, blue: 193/255, alpha: 0.67), gradientEndColor: UIColor(red: 0/255, green: 20/255, blue: 58/255, alpha: 0.38))
-        return gradientV
+    private lazy var headerLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Слоган"
+        label.font = .systemFont(ofSize: 48, weight: .bold)
+        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
+        return label
+    }()
+    
+    private lazy var homeImage: UIImageView = {
+        let imageV = UIImageView()
+        imageV.image = UIImage(named: "homeImage")
+        return imageV
+    }()
+    
+    private lazy var booksTable: UITableView = {
+        let tableV = UITableView()
+        tableV.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
+        tableV.delegate = self
+        tableV.dataSource = self
+        tableV.separatorStyle = .none
+        return tableV
     }()
     
     override func viewDidLoad() {
@@ -71,14 +92,13 @@ class HomeViewController: UIViewController {
     }
     
     private func setupConstraints(){
-        view.backgroundColor = .white
         view.addSubview(scrollV)
         scrollV.addSubview(contentView)
         
         contentView.addSubview(navigationParentView)
         navigationParentView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(33)
+            make.top.equalToSuperview().offset(55)
             make.height.equalTo(63)
         }
         
@@ -99,18 +119,51 @@ class HomeViewController: UIViewController {
         burgerMenu.snp.makeConstraints { make in
             make.trailing.equalTo(-21)
             make.centerY.equalToSuperview()
-            make.height.equalTo(29)
-            make.width.equalTo(23)
+            make.height.equalTo(22)
+            make.width.equalTo(29)
         }
         
+        contentView.addSubview(headerLabel)
+        headerLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(navigationParentView.snp.bottom).offset(70)
+        }
         
+        contentView.addSubview(homeImage)
+        homeImage.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(headerLabel.snp.bottom).offset(16)
+            make.height.equalTo(331)
+        }
         
+        contentView.addSubview(booksTable)
+        booksTable.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
+            make.top.equalTo(homeImage.snp.bottom).offset(48)
+        }
+        
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = CustomTableViewCell()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 236.63
     }
     
 }
-
 
 extension HomeViewController: HomeViewDelegate{
     
     
 }
+
+

@@ -10,6 +10,7 @@
 		601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628C729EBFA1800BB2F67 /* HomePresenter.swift */; };
 		601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CA29EBFB9700BB2F67 /* Dependensy.swift */; };
 		601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CD29EC5B5A00BB2F67 /* Extensions.swift */; };
+		601628D129EC632600BB2F67 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D029EC632600BB2F67 /* CustomTableViewCell.swift */; };
 		60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0D29EBF8F200780255 /* AppDelegate.swift */; };
 		60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0F29EBF8F200780255 /* SceneDelegate.swift */; };
 		60B84D1229EBF8F200780255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		601628C729EBFA1800BB2F67 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		601628CA29EBFB9700BB2F67 /* Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependensy.swift; sourceTree = "<group>"; };
 		601628CD29EC5B5A00BB2F67 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		601628D029EC632600BB2F67 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		60B84D0A29EBF8F200780255 /* Math Education Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Math Education Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B84D0D29EBF8F200780255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B84D0F29EBF8F200780255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		601628C629EBF9B700BB2F67 /* Home Page */ = {
 			isa = PBXGroup;
 			children = (
+				601628CF29EC631100BB2F67 /* Table Cell */,
 				601628C929EBFB8B00BB2F67 /* Dependesy */,
 				60B84D1129EBF8F200780255 /* ViewController.swift */,
 				601628C729EBFA1800BB2F67 /* HomePresenter.swift */,
@@ -115,6 +118,14 @@
 				601628CD29EC5B5A00BB2F67 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		601628CF29EC631100BB2F67 /* Table Cell */ = {
+			isa = PBXGroup;
+			children = (
+				601628D029EC632600BB2F67 /* CustomTableViewCell.swift */,
+			);
+			path = "Table Cell";
 			sourceTree = "<group>";
 		};
 		60B84D0129EBF8F200780255 = {
@@ -275,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				60B84D1229EBF8F200780255 /* ViewController.swift in Sources */,
+				601628D129EC632600BB2F67 /* CustomTableViewCell.swift in Sources */,
 				60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */,
 				60B84D1829EBF8F200780255 /* Math_Education_Project.xcdatamodeld in Sources */,
 				601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */,
