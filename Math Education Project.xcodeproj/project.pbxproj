@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628C729EBFA1800BB2F67 /* HomePresenter.swift */; };
 		601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CA29EBFB9700BB2F67 /* Dependensy.swift */; };
+		601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CD29EC5B5A00BB2F67 /* Extensions.swift */; };
 		60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0D29EBF8F200780255 /* AppDelegate.swift */; };
 		60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0F29EBF8F200780255 /* SceneDelegate.swift */; };
 		60B84D1229EBF8F200780255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 		40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Math_Education_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		601628C729EBFA1800BB2F67 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		601628CA29EBFB9700BB2F67 /* Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependensy.swift; sourceTree = "<group>"; };
+		601628CD29EC5B5A00BB2F67 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		60B84D0A29EBF8F200780255 /* Math Education Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Math Education Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B84D0D29EBF8F200780255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B84D0F29EBF8F200780255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 			path = Dependesy;
 			sourceTree = "<group>";
 		};
+		601628CC29EC5B4C00BB2F67 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				601628CD29EC5B5A00BB2F67 /* Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		60B84D0129EBF8F200780255 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +138,7 @@
 		60B84D0C29EBF8F200780255 /* Math Education Project */ = {
 			isa = PBXGroup;
 			children = (
+				601628CC29EC5B4C00BB2F67 /* Extensions */,
 				601628C529EBF99F00BB2F67 /* Utils */,
 				601628C429EBF99A00BB2F67 /* Network */,
 				601628C329EBF99700BB2F67 /* Model */,
@@ -269,6 +280,7 @@
 				601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */,
 				601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */,
 				60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */,
+				601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
