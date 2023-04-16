@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628C729EBFA1800BB2F67 /* HomePresenter.swift */; };
+		601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CA29EBFB9700BB2F67 /* Dependensy.swift */; };
+		60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0D29EBF8F200780255 /* AppDelegate.swift */; };
+		60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0F29EBF8F200780255 /* SceneDelegate.swift */; };
+		60B84D1229EBF8F200780255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* ViewController.swift */; };
+		60B84D1529EBF8F200780255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B84D1329EBF8F200780255 /* Main.storyboard */; };
+		60B84D1829EBF8F200780255 /* Math_Education_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1629EBF8F200780255 /* Math_Education_Project.xcdatamodeld */; };
+		60B84D1A29EBF8F300780255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60B84D1929EBF8F300780255 /* Assets.xcassets */; };
+		60B84D1D29EBF8F300780255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B84D1B29EBF8F300780255 /* LaunchScreen.storyboard */; };
+		AA49FAD095E0A8E8501F4665 /* Pods_Math_Education_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Math_Education_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		601628C729EBFA1800BB2F67 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		601628CA29EBFB9700BB2F67 /* Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependensy.swift; sourceTree = "<group>"; };
+		60B84D0A29EBF8F200780255 /* Math Education Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Math Education Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		60B84D0D29EBF8F200780255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		60B84D0F29EBF8F200780255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		60B84D1129EBF8F200780255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60B84D1429EBF8F200780255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		60B84D1729EBF8F200780255 /* Math_Education_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Math_Education_Project.xcdatamodel; sourceTree = "<group>"; };
+		60B84D1929EBF8F300780255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		60B84D1C29EBF8F300780255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		60B84D1E29EBF8F300780255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71AF11216642B5A830CA7509 /* Pods-Math Education Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.release.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.release.xcconfig"; sourceTree = "<group>"; };
+		71DB70D14EBCC0A1C7165A76 /* Pods-Math Education Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.debug.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		60B84D0729EBF8F200780255 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA49FAD095E0A8E8501F4665 /* Pods_Math_Education_Project.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		16E1D3DFF286AB25E5DFAEC4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		601628C229EBF98F00BB2F67 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				601628C629EBF9B700BB2F67 /* Home Page */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		601628C329EBF99700BB2F67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		601628C429EBF99A00BB2F67 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		601628C529EBF99F00BB2F67 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				60B84D1B29EBF8F300780255 /* LaunchScreen.storyboard */,
+				60B84D1329EBF8F200780255 /* Main.storyboard */,
+				60B84D0D29EBF8F200780255 /* AppDelegate.swift */,
+				60B84D0F29EBF8F200780255 /* SceneDelegate.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		601628C629EBF9B700BB2F67 /* Home Page */ = {
+			isa = PBXGroup;
+			children = (
+				601628C929EBFB8B00BB2F67 /* Dependesy */,
+				60B84D1129EBF8F200780255 /* ViewController.swift */,
+				601628C729EBFA1800BB2F67 /* HomePresenter.swift */,
+			);
+			path = "Home Page";
+			sourceTree = "<group>";
+		};
+		601628C929EBFB8B00BB2F67 /* Dependesy */ = {
+			isa = PBXGroup;
+			children = (
+				601628CA29EBFB9700BB2F67 /* Dependensy.swift */,
+			);
+			path = Dependesy;
+			sourceTree = "<group>";
+		};
+		60B84D0129EBF8F200780255 = {
+			isa = PBXGroup;
+			children = (
+				60B84D0C29EBF8F200780255 /* Math Education Project */,
+				60B84D0B29EBF8F200780255 /* Products */,
+				7BC85ACDBEC5E610DA97F717 /* Pods */,
+				16E1D3DFF286AB25E5DFAEC4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		60B84D0B29EBF8F200780255 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				60B84D0A29EBF8F200780255 /* Math Education Project.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		60B84D0C29EBF8F200780255 /* Math Education Project */ = {
+			isa = PBXGroup;
+			children = (
+				601628C529EBF99F00BB2F67 /* Utils */,
+				601628C429EBF99A00BB2F67 /* Network */,
+				601628C329EBF99700BB2F67 /* Model */,
+				601628C229EBF98F00BB2F67 /* View */,
+				60B84D1929EBF8F300780255 /* Assets.xcassets */,
+				60B84D1E29EBF8F300780255 /* Info.plist */,
+				60B84D1629EBF8F200780255 /* Math_Education_Project.xcdatamodeld */,
+			);
+			path = "Math Education Project";
+			sourceTree = "<group>";
+		};
+		7BC85ACDBEC5E610DA97F717 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				71DB70D14EBCC0A1C7165A76 /* Pods-Math Education Project.debug.xcconfig */,
+				71AF11216642B5A830CA7509 /* Pods-Math Education Project.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		60B84D0929EBF8F200780255 /* Math Education Project */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 60B84D2129EBF8F300780255 /* Build configuration list for PBXNativeTarget "Math Education Project" */;
+			buildPhases = (
+				D70746C1E55E1BCB11B98520 /* [CP] Check Pods Manifest.lock */,
+				60B84D0629EBF8F200780255 /* Sources */,
+				60B84D0729EBF8F200780255 /* Frameworks */,
+				60B84D0829EBF8F200780255 /* Resources */,
+				F45DAA0A87129A8D4F4250AD /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Math Education Project";
+			productName = "Math Education Project";
+			productReference = 60B84D0A29EBF8F200780255 /* Math Education Project.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		60B84D0229EBF8F200780255 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					60B84D0929EBF8F200780255 = {
+						CreatedOnToolsVersion = 14.0;
+					};
+				};
+			};
+			buildConfigurationList = 60B84D0529EBF8F200780255 /* Build configuration list for PBXProject "Math Education Project" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 60B84D0129EBF8F200780255;
+			productRefGroup = 60B84D0B29EBF8F200780255 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				60B84D0929EBF8F200780255 /* Math Education Project */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		60B84D0829EBF8F200780255 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60B84D1D29EBF8F300780255 /* LaunchScreen.storyboard in Resources */,
+				60B84D1A29EBF8F300780255 /* Assets.xcassets in Resources */,
+				60B84D1529EBF8F200780255 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D70746C1E55E1BCB11B98520 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Math Education Project-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F45DAA0A87129A8D4F4250AD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Math Education Project/Pods-Math Education Project-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Math Education Project/Pods-Math Education Project-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Math Education Project/Pods-Math Education Project-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		60B84D0629EBF8F200780255 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				60B84D1229EBF8F200780255 /* ViewController.swift in Sources */,
+				60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */,
+				60B84D1829EBF8F200780255 /* Math_Education_Project.xcdatamodeld in Sources */,
+				601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */,
+				601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */,
+				60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		60B84D1329EBF8F200780255 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60B84D1429EBF8F200780255 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		60B84D1B29EBF8F300780255 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				60B84D1C29EBF8F300780255 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		60B84D1F29EBF8F300780255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		60B84D2029EBF8F300780255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		60B84D2229EBF8F300780255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71DB70D14EBCC0A1C7165A76 /* Pods-Math Education Project.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K8M5FXDJPU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Math Education Project/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shifu.Math-Education-Project";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		60B84D2329EBF8F300780255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71AF11216642B5A830CA7509 /* Pods-Math Education Project.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = K8M5FXDJPU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Math Education Project/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.shifu.Math-Education-Project";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		60B84D0529EBF8F200780255 /* Build configuration list for PBXProject "Math Education Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60B84D1F29EBF8F300780255 /* Debug */,
+				60B84D2029EBF8F300780255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		60B84D2129EBF8F300780255 /* Build configuration list for PBXNativeTarget "Math Education Project" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				60B84D2229EBF8F300780255 /* Debug */,
+				60B84D2329EBF8F300780255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		60B84D1629EBF8F200780255 /* Math_Education_Project.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				60B84D1729EBF8F200780255 /* Math_Education_Project.xcdatamodel */,
+			);
+			currentVersion = 60B84D1729EBF8F200780255 /* Math_Education_Project.xcdatamodel */;
+			path = Math_Education_Project.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 60B84D0229EBF8F200780255 /* Project object */;
+}

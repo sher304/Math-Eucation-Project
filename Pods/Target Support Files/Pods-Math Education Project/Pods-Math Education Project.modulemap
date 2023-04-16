@@ -1,0 +1,6 @@
+framework module Pods_Math_Education_Project {
+  umbrella header "Pods-Math Education Project-umbrella.h"
+
+  export *
+  module * { export * }
+}
