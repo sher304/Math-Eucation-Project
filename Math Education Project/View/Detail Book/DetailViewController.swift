@@ -1,22 +1,22 @@
 //
-//  ViewController.swift
+//  DetailViewController.swift
 //  Math Education Project
 //
-//  Created by Шермат Эшеров on 16/04/2023.
+//  Created by Шермат Эшеров on 17/04/2023.
 //
 
 import UIKit
 import SnapKit
 
-protocol HomeViewDelegate: AnyObject{
+protocol DetailViewDelegate: AnyObject{
     
 }
 
-class HomeViewController: UIViewController {
+class DetailViewController: UIViewController {
     
-    var presenter: HomePresenterDelegate!
+    var presenter: DetailPresenter!
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1300)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 400)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
 
     private lazy var navigationParentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .black
+        view.backgroundColor = .white
         return view
     }()
     
@@ -56,37 +56,55 @@ class HomeViewController: UIViewController {
         button.tintColor = .white
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
-        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
         return button
     }()
     
-    private lazy var headerLabel: UILabel = {
+    private lazy var mathTitle: UILabel = {
         let label = UILabel()
-        label.text = "Слоган"
+        label.text = "Математика"
         label.font = .systemFont(ofSize: 48, weight: .bold)
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         return label
     }()
     
-    private lazy var homeImage: UIImageView = {
-        let imageV = UIImageView()
-        imageV.image = UIImage(named: "homeImage")
-        return imageV
+
+    private lazy var degreeTitle: UILabel = {
+        let label = UILabel()
+        label.text = "1 класс"
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
+        return label
     }()
     
-    private lazy var booksTable: UITableView = {
-        let tableV = UITableView()
-        tableV.register(CustomTableViewCell.self, forCellReuseIdentifier: CustomTableViewCell.identifier)
-        tableV.delegate = self
-        tableV.dataSource = self
-        tableV.separatorStyle = .none
-        return tableV
+    private lazy var aboutCourse: UILabel = {
+        let label = UILabel()
+        label.text = "Об курсе"
+        label.font = .systemFont(ofSize: 48, weight: .bold)
+        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
+        return label
     }()
+    
+    private lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Описание"
+        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
+        return label
+    }()
+    
+    private lazy var coursesTable: UITableView = {
+        let table = UITableView()
+        table.register(DetailCustomCell.self, forCellReuseIdentifier: DetailCustomCell.identifier)
+        table.delegate = self
+        table.dataSource = self
+        return table
+    }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         setupConstraints()
+        
     }
     
     private func setupConstraints(){
@@ -121,51 +139,58 @@ class HomeViewController: UIViewController {
             make.width.equalTo(29)
         }
         
-        contentView.addSubview(headerLabel)
-        headerLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(navigationParentView.snp.bottom).offset(70)
+        contentView.addSubview(mathTitle)
+        mathTitle.snp.makeConstraints { make in
+            make.leading.equalTo(25)
+            make.top.equalTo(navigationParentView.snp.bottom).offset(38)
         }
         
-        contentView.addSubview(homeImage)
-        homeImage.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            make.top.equalTo(headerLabel.snp.bottom).offset(16)
-            make.height.equalTo(331)
+        contentView.addSubview(degreeTitle)
+        degreeTitle.snp.makeConstraints { make in
+            make.leading.equalTo(mathTitle)
+            make.top.equalTo(mathTitle.snp.bottom)
         }
         
-        contentView.addSubview(booksTable)
-        booksTable.snp.makeConstraints { make in
+        contentView.addSubview(aboutCourse)
+        aboutCourse.snp.makeConstraints { make in
+            make.leading.equalTo(degreeTitle)
+            make.top.equalTo(degreeTitle.snp.bottom).offset(53)
+        }
+        
+        contentView.addSubview(descriptionLabel)
+        descriptionLabel.snp.makeConstraints { make in
+            make.leading.equalTo(aboutCourse)
+            make.top.equalTo(aboutCourse.snp.bottom)
+        }
+        
+        contentView.addSubview(coursesTable)
+        coursesTable.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
-            make.top.equalTo(homeImage.snp.bottom).offset(48)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(80)
         }
-    }
-    
-    @objc func burgerDidTapped(){
-        present(MenuDependensy.build(), animated: true)
     }
 }
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
+
+extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = CustomTableViewCell()
-        cell.selectionStyle = .none
+        let cell = DetailCustomCell()
+
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 236.63
+        return 720
     }
     
 }
 
-extension HomeViewController: HomeViewDelegate{
+extension DetailViewController: DetailViewDelegate{
     
     
 }
-
 
