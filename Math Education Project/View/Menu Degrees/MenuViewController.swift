@@ -35,12 +35,12 @@ class MenuViewController: UIViewController {
         button.tintColor = .white
         button.contentVerticalAlignment = .fill
         button.contentHorizontalAlignment = .fill
+        button.addTarget(self, action: #selector(exitTapped), for: .touchUpInside)
         return button
     }()
     
     private lazy var degreeParent: UIView = {
         let view = UIView()
-        view.backgroundColor = .orange
         return view
     }()
     
@@ -100,6 +100,8 @@ class MenuViewController: UIViewController {
     }
     
     private func setupConstraints(){
+        view.backgroundColor = .black
+        
         view.addSubview(parentView)
         parentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
@@ -161,9 +163,11 @@ class MenuViewController: UIViewController {
             make.centerX.equalToSuperview()
             make.top.equalTo(degreeFive.snp.bottom).offset(20)
         }
-        
     }
     
+    @objc func exitTapped(){
+        dismiss(animated: true)
+    }
 }
 
 extension MenuViewController: MenuViewDelegate{

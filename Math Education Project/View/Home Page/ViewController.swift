@@ -26,18 +26,16 @@ class HomeViewController: UIViewController {
         return scrollV
     }()
     
-    
     private lazy var contentView: UIView = {
         let view = UIView()
         view.frame.size = contentSize
         view.backgroundColor = .white
         return view
     }()
-    
-    
-    
+
     private lazy var navigationParentView: UIView = {
         let view = UIView()
+        view.backgroundColor = .black
         return view
     }()
     
@@ -45,7 +43,6 @@ class HomeViewController: UIViewController {
         let gradientV = GradientView(gradientStartColor: UIColor(red: 18/255, green: 77/255, blue: 193/255, alpha: 0.67), gradientEndColor: UIColor(red: 0/255, green: 20/255, blue: 58/255, alpha: 0.38))
         return gradientV
     }()
-    
     
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
@@ -59,6 +56,7 @@ class HomeViewController: UIViewController {
         button.tintColor = .white
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
+        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -141,7 +139,10 @@ class HomeViewController: UIViewController {
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(homeImage.snp.bottom).offset(48)
         }
-        
+    }
+    
+    @objc func burgerDidTapped(){
+        present(MenuDependensy.build(), animated: true)
     }
 }
 
@@ -152,6 +153,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CustomTableViewCell()
+        cell.selectionStyle = .none
         return cell
     }
     
