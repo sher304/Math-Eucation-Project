@@ -8,9 +8,7 @@
 import Foundation
 
 protocol HomePresenterDelegate{
-    
     func viewDidLoad()
-
     init(homeView: HomeViewDelegate)
 
     
