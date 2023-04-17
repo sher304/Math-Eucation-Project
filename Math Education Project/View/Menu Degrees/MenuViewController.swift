@@ -50,6 +50,9 @@ class MenuViewController: UIViewController {
         label.text = "1 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -58,6 +61,9 @@ class MenuViewController: UIViewController {
         label.text = "2 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -66,6 +72,9 @@ class MenuViewController: UIViewController {
         label.text = "3 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -74,6 +83,9 @@ class MenuViewController: UIViewController {
         label.text = "4 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -82,6 +94,9 @@ class MenuViewController: UIViewController {
         label.text = "5 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         return label
     }()
     
@@ -90,6 +105,10 @@ class MenuViewController: UIViewController {
         label.text = "6 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        label.isUserInteractionEnabled = true
+        label.addGestureRecognizer(tap)
         return label
     }()
 
@@ -167,7 +186,12 @@ class MenuViewController: UIViewController {
     }
     
     @objc func exitTapped(){
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func degreeTapped(){
+        print("did tapped")
+        navigationController?.pushViewController(DetailDependensy.build(), animated: true)
     }
 }
 

@@ -31,9 +31,9 @@ class DetailCustomCell: UITableViewCell{
     private func setupConstraints(){
         contentView.addSubview(coursesCollection)
         coursesCollection.snp.makeConstraints { make in
-            make.trailing.bottom.top.equalToSuperview()
-            make.leading.equalTo(7)
-            make.trailing.equalTo(-7)
+            make.bottom.top.equalToSuperview()
+            make.leading.equalTo(8)
+            make.trailing.equalTo(-8)
             
         }
     }

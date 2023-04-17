@@ -90,6 +90,8 @@ class HomeViewController: UIViewController {
     }
     
     private func setupConstraints(){
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         view.addSubview(scrollV)
         scrollV.addSubview(contentView)
         
@@ -142,7 +144,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func burgerDidTapped(){
-        present(MenuDependensy.build(), animated: true)
+        self.navigationController?.pushViewController(MenuDependensy.build(), animated: true)
     }
 }
 
@@ -159,6 +161,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 236.63
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailDependensy.build()
+        navigationController?.pushViewController(detailVC, animated: true)
     }
     
 }

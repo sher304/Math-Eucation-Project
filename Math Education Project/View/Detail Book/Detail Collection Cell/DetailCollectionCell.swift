@@ -61,6 +61,5 @@ class DetailCollectionCell: UICollectionViewCell{
             make.leading.equalTo(chapterLabel)
             make.top.equalTo(chapterLabel.snp.bottom)
         }
-        
     }
 }

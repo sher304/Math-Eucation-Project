@@ -47,6 +47,9 @@ class DetailViewController: UIViewController {
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
         imageV.backgroundColor = .white
+        imageV.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(logoDidTapped))
+        imageV.addGestureRecognizer(tap)
         return imageV
     }()
     
@@ -56,6 +59,7 @@ class DetailViewController: UIViewController {
         button.tintColor = .white
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
+        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -103,6 +107,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
         setupConstraints()
         
     }
@@ -169,6 +174,18 @@ class DetailViewController: UIViewController {
             make.top.equalTo(descriptionLabel.snp.bottom).offset(80)
         }
     }
+    
+    @objc func burgerDidTapped(){
+        present(MenuDependensy.build(), animated: true)
+    }
+    
+    
+    @objc func logoDidTapped(){
+        navigationController?.popViewController(animated: true)
+    }
+                                         
+    
+    
 }
 
 
@@ -179,7 +196,6 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailCustomCell()
-
         return cell
     }
     
@@ -190,7 +206,6 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension DetailViewController: DetailViewDelegate{
-    
     
 }
 

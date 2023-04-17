@@ -9,6 +9,7 @@ import Foundation
 
 protocol DetailPresenterDelegate {
     init(view: DetailViewController)
+    func viewDidLoad()
     
 }
 
@@ -18,6 +19,10 @@ class DetailPresenter: DetailDependensy{
     
     required init(view: DetailViewController){
         self.view = view
+    }
+    
+    func viewDidLoad(){
+        print("View Did Load Detail Page")
     }
     
 }
