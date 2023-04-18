@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 
 protocol HomeViewDelegate: AnyObject{
-    
+    func fetchCourses(courses: Course)
 }
 
 class HomeViewController: UIViewController {
     
     var presenter: HomePresenterDelegate!
+    
+    var courses: Course? = nil
     
     private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1300)
     
@@ -86,6 +88,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        
         setupConstraints()
     }
     
@@ -150,11 +153,14 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        print(courses?.count)
+        return courses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CustomTableViewCell()
+        let data = courses?[indexPath.row].text ?? "nil"
+        cell.fillData(title: data)
         cell.selectionStyle = .none
         return cell
     }
@@ -172,7 +178,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 
 extension HomeViewController: HomeViewDelegate{
     
-    
+    func fetchCourses(courses: Course){
+        DispatchQueue.main.async {
+            self.courses = courses
+            self.booksTable.reloadData()
+        }
+    }
 }
 
 

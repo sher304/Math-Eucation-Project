@@ -22,21 +22,16 @@ class HomePresneter: HomePresenterDelegate{
         return Network()
     }()
     
-    var courses: Course = Course()
-    
     func viewDidLoad(){
         APiAuth().getAllCourses { data in
             switch data{
             case .success(let data):
-                self.courses = data
-                print(self.courses)
+                self.homeView?.fetchCourses(courses: data)
                 break
             case .failure(_):
                 break
             }
         }
-        print("did load")
-        
     }
     
     required init(homeView: HomeViewDelegate) {
