@@ -20,14 +20,14 @@ class QuizViewController: UIViewController {
         let label = UILabel()
         label.text = "Quiz 1"
         label.textColor = .black
-        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        label.font = .systemFont(ofSize: 32, weight: .semibold)
         return label
     }()
     
     private lazy var question: UILabel = {
         let label = UILabel()
-        label.text = "1 + 1, is equal to?"
-        label.font = .systemFont(ofSize: 20, weight: .black)
+        label.text = "1 + 1 is equal to?"
+        label.font = .systemFont(ofSize: 35, weight: .regular)
         label.textColor = .black
         return label
     }()
@@ -48,6 +48,7 @@ class QuizViewController: UIViewController {
         })
         
         let button = UIButton(configuration: configure)
+        button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
         return button
     }()
     
@@ -67,6 +68,7 @@ class QuizViewController: UIViewController {
         })
         
         let button = UIButton(configuration: configure)
+        button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
         return button
     }()
     
@@ -87,6 +89,7 @@ class QuizViewController: UIViewController {
         })
         
         let button = UIButton(configuration: configure)
+        button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
         return button
     }()
     
@@ -107,6 +110,7 @@ class QuizViewController: UIViewController {
         })
         
         let button = UIButton(configuration: configure)
+        button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
         return button
     }()
     
@@ -164,6 +168,15 @@ class QuizViewController: UIViewController {
             make.top.equalTo(answerThree.snp.bottom).offset(30)
             make.height.equalTo(60)
             make.width.equalTo(120)
+        }
+    }
+    
+    @objc func answerDidSelected(sender: UIButton){
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected{
+            sender.setImage(UIImage(systemName: "circle.circle.fill"), for: .normal)
+        }else{
+            sender.setImage(UIImage(systemName: "circle"), for: .normal)
         }
     }
 }
