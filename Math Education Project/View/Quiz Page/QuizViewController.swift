@@ -175,9 +175,52 @@ class QuizViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
             sender.setImage(UIImage(systemName: "circle.circle.fill"), for: .normal)
+            makeDisableEnable(sender: sender)
         }else{
             sender.setImage(UIImage(systemName: "circle"), for: .normal)
+            makeDisableEnable(sender: sender)
         }
+    }
+    
+    private func makeDisableEnable(sender: UIButton){
+        if sender.isSelected{
+            if sender == self.answerOne{
+                self.answerTwo.isEnabled = false
+                self.answerThree.isEnabled = false
+                self.answerFour.isEnabled = false
+            }else if sender == self.answerTwo {
+                self.answerOne.isEnabled = false
+                self.answerThree.isEnabled = false
+                self.answerFour.isEnabled = false
+            }else if sender == self.answerThree{
+                self.answerOne.isEnabled = false
+                self.answerTwo.isEnabled = false
+                self.answerFour.isEnabled = false
+            }else{
+                self.answerOne.isEnabled = false
+                self.answerTwo.isEnabled = false
+                self.answerThree.isEnabled = false
+            }
+        }else{
+            if sender == self.answerOne{
+                self.answerTwo.isEnabled = true
+                self.answerThree.isEnabled = true
+                self.answerFour.isEnabled = true
+            }else if sender == self.answerTwo {
+                self.answerOne.isEnabled = true
+                self.answerThree.isEnabled = true
+                self.answerFour.isEnabled = true
+            }else if sender == self.answerThree{
+                self.answerOne.isEnabled = true
+                self.answerTwo.isEnabled = true
+                self.answerFour.isEnabled = true
+            }else{
+                self.answerOne.isEnabled = true
+                self.answerTwo.isEnabled = true
+                self.answerThree.isEnabled = true
+            }
+        }
+        
     }
 }
 
