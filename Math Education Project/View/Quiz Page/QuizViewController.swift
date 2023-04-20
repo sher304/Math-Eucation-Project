@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 
 protocol QuizViewDelegate: AnyObject{
-    
+    func getQuizez(quizes: Quiz)
 }
 
 class QuizViewController: UIViewController {
     
     var presenter: QuizPresenterDelegate!
+    
+    var quizez = Dynamic(Quiz(id: Int(), title: String(), topic: Int(), questions: []))
     
     private lazy var questionsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +45,7 @@ class QuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        bind()
         setupConstraints()
         
     }
@@ -70,6 +72,8 @@ class QuizViewController: UIViewController {
     @objc func nextButtonDidSelected(){
         currentIndex += 1
         
+        let questions = self.quizez.value.questions
+        
         // Calculate the new index path for the cell by moving it to the end of the collection view
         let newIndexPath = IndexPath(row: currentIndex, section: 0)
         
@@ -81,7 +85,7 @@ class QuizViewController: UIViewController {
 
 extension QuizViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.quizez.value.questions.first?.answers.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -89,6 +93,7 @@ extension QuizViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionCell.identifier, for: indexPath) as? CustomCollectionCell else { return CustomCollectionCell()}
         cell.backgroundColor = colors[indexPath.row]
+        let questionsData = self.quizez.value.questions[indexPath.row].answers[indexPath.row].text
         return cell
     }
     
@@ -99,6 +104,18 @@ extension QuizViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
 
 
 extension QuizViewController: QuizViewDelegate{
-    
+    func getQuizez(quizes: Quiz){
+        self.quizez.value = quizes
+        bind()
+    }
 }
 
+
+extension QuizViewController{
+    func bind(){
+        presenter.viewDidLoad()
+        self.quizez.bind { _ in
+            self.questionsCollection.reloadData()
+        }
+    }
+}

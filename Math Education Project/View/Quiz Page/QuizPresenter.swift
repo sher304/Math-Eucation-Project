@@ -24,7 +24,7 @@ class QuizPresenter: QuizPresenterDelegate{
         APiAuth().getQuize(topic: 2) { data in
             switch data{
             case.success(let data):
-                
+                self.view?.getQuizez(quizes: data)
                 break
             case.failure(_):
                 break
