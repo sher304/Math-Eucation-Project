@@ -42,6 +42,12 @@ class CustomTableViewCell: UITableViewCell {
 
     }
     
+    public func fillData(title: String){
+        DispatchQueue.main.async {
+            self.degreeLabel.text = title
+        }
+    }
+    
     private func setupConstraints(){
         
         contentView.addSubview(parentView)
@@ -62,6 +68,7 @@ class CustomTableViewCell: UITableViewCell {
         mathLabel.snp.makeConstraints { make in
             make.leading.equalTo(21)
             make.top.equalTo(degreeLabel.snp.bottom).offset(7.2)
+            make.trailing.equalTo(-5)
         }
     }
 }

@@ -11,13 +11,27 @@
 		601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CA29EBFB9700BB2F67 /* Dependensy.swift */; };
 		601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CD29EC5B5A00BB2F67 /* Extensions.swift */; };
 		601628D129EC632600BB2F67 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D029EC632600BB2F67 /* CustomTableViewCell.swift */; };
+		601628D429ED060700BB2F67 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D329ED060700BB2F67 /* MenuViewController.swift */; };
+		601628D629ED062700BB2F67 /* Menu Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D529ED062700BB2F67 /* Menu Presenter.swift */; };
+		601628D929ED06AA00BB2F67 /* Menu Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D829ED06AA00BB2F67 /* Menu Dependensy.swift */; };
+		601628DC29ED1D6A00BB2F67 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628DB29ED1D6A00BB2F67 /* DetailViewController.swift */; };
+		601628DF29ED207000BB2F67 /* Detail Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628DE29ED207000BB2F67 /* Detail Dependensy.swift */; };
+		601628E129ED209000BB2F67 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E029ED209000BB2F67 /* DetailPresenter.swift */; };
+		601628E429ED219200BB2F67 /* DetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E329ED219200BB2F67 /* DetailCustomCell.swift */; };
+		601628E729ED225500BB2F67 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E629ED225500BB2F67 /* DetailCollectionCell.swift */; };
 		60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0D29EBF8F200780255 /* AppDelegate.swift */; };
 		60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0F29EBF8F200780255 /* SceneDelegate.swift */; };
-		60B84D1229EBF8F200780255 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* ViewController.swift */; };
+		60B84D1229EBF8F200780255 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* HomeViewController.swift */; };
 		60B84D1529EBF8F200780255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B84D1329EBF8F200780255 /* Main.storyboard */; };
 		60B84D1829EBF8F200780255 /* Math_Education_Project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1629EBF8F200780255 /* Math_Education_Project.xcdatamodeld */; };
 		60B84D1A29EBF8F300780255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60B84D1929EBF8F300780255 /* Assets.xcassets */; };
 		60B84D1D29EBF8F300780255 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60B84D1B29EBF8F300780255 /* LaunchScreen.storyboard */; };
+		60F3EABD29ED314F0010F5C8 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EABC29ED314E0010F5C8 /* Network.swift */; };
+		60F3EAC029ED31630010F5C8 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EABF29ED31630010F5C8 /* Models.swift */; };
+		60F3EAC229ED343A0010F5C8 /* APiAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAC129ED343A0010F5C8 /* APiAuth.swift */; };
+		60F3EAC629EF05640010F5C8 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAC529EF05640010F5C8 /* QuizViewController.swift */; };
+		60F3EAC829EF05850010F5C8 /* QuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAC729EF05850010F5C8 /* QuizPresenter.swift */; };
+		60F3EACA29EF063E0010F5C8 /* Quiz Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAC929EF063E0010F5C8 /* Quiz Dependensy.swift */; };
 		AA49FAD095E0A8E8501F4665 /* Pods_Math_Education_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,15 +41,29 @@
 		601628CA29EBFB9700BB2F67 /* Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependensy.swift; sourceTree = "<group>"; };
 		601628CD29EC5B5A00BB2F67 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		601628D029EC632600BB2F67 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		601628D329ED060700BB2F67 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		601628D529ED062700BB2F67 /* Menu Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Presenter.swift"; sourceTree = "<group>"; };
+		601628D829ED06AA00BB2F67 /* Menu Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Dependensy.swift"; sourceTree = "<group>"; };
+		601628DB29ED1D6A00BB2F67 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		601628DE29ED207000BB2F67 /* Detail Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Detail Dependensy.swift"; sourceTree = "<group>"; };
+		601628E029ED209000BB2F67 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
+		601628E329ED219200BB2F67 /* DetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomCell.swift; sourceTree = "<group>"; };
+		601628E629ED225500BB2F67 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
 		60B84D0A29EBF8F200780255 /* Math Education Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Math Education Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B84D0D29EBF8F200780255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B84D0F29EBF8F200780255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		60B84D1129EBF8F200780255 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		60B84D1129EBF8F200780255 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		60B84D1429EBF8F200780255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60B84D1729EBF8F200780255 /* Math_Education_Project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Math_Education_Project.xcdatamodel; sourceTree = "<group>"; };
 		60B84D1929EBF8F300780255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		60B84D1C29EBF8F300780255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		60B84D1E29EBF8F300780255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60F3EABC29ED314E0010F5C8 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		60F3EABF29ED31630010F5C8 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		60F3EAC129ED343A0010F5C8 /* APiAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APiAuth.swift; sourceTree = "<group>"; };
+		60F3EAC529EF05640010F5C8 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		60F3EAC729EF05850010F5C8 /* QuizPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPresenter.swift; sourceTree = "<group>"; };
+		60F3EAC929EF063E0010F5C8 /* Quiz Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quiz Dependensy.swift"; sourceTree = "<group>"; };
 		71AF11216642B5A830CA7509 /* Pods-Math Education Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.release.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.release.xcconfig"; sourceTree = "<group>"; };
 		71DB70D14EBCC0A1C7165A76 /* Pods-Math Education Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.debug.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +91,9 @@
 		601628C229EBF98F00BB2F67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				60F3EAC329EF052E0010F5C8 /* Quiz Page */,
+				601628DA29ED1D5200BB2F67 /* Detail Book */,
+				601628D229ED05EC00BB2F67 /* Menu Degrees */,
 				601628C629EBF9B700BB2F67 /* Home Page */,
 			);
 			path = View;
@@ -71,6 +102,7 @@
 		601628C329EBF99700BB2F67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				60F3EABF29ED31630010F5C8 /* Models.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +110,8 @@
 		601628C429EBF99A00BB2F67 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				60F3EABC29ED314E0010F5C8 /* Network.swift */,
+				60F3EAC129ED343A0010F5C8 /* APiAuth.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -98,7 +132,7 @@
 			children = (
 				601628CF29EC631100BB2F67 /* Table Cell */,
 				601628C929EBFB8B00BB2F67 /* Dependesy */,
-				60B84D1129EBF8F200780255 /* ViewController.swift */,
+				60B84D1129EBF8F200780255 /* HomeViewController.swift */,
 				601628C729EBFA1800BB2F67 /* HomePresenter.swift */,
 			);
 			path = "Home Page";
@@ -126,6 +160,60 @@
 				601628D029EC632600BB2F67 /* CustomTableViewCell.swift */,
 			);
 			path = "Table Cell";
+			sourceTree = "<group>";
+		};
+		601628D229ED05EC00BB2F67 /* Menu Degrees */ = {
+			isa = PBXGroup;
+			children = (
+				601628D729ED069F00BB2F67 /* Menu Dependensy */,
+				601628D329ED060700BB2F67 /* MenuViewController.swift */,
+				601628D529ED062700BB2F67 /* Menu Presenter.swift */,
+			);
+			path = "Menu Degrees";
+			sourceTree = "<group>";
+		};
+		601628D729ED069F00BB2F67 /* Menu Dependensy */ = {
+			isa = PBXGroup;
+			children = (
+				601628D829ED06AA00BB2F67 /* Menu Dependensy.swift */,
+			);
+			path = "Menu Dependensy";
+			sourceTree = "<group>";
+		};
+		601628DA29ED1D5200BB2F67 /* Detail Book */ = {
+			isa = PBXGroup;
+			children = (
+				601628E529ED224C00BB2F67 /* Detail Collection Cell */,
+				601628E229ED218700BB2F67 /* Detail Custom Cell */,
+				601628DD29ED206300BB2F67 /* Dependensy */,
+				601628DB29ED1D6A00BB2F67 /* DetailViewController.swift */,
+				601628E029ED209000BB2F67 /* DetailPresenter.swift */,
+			);
+			path = "Detail Book";
+			sourceTree = "<group>";
+		};
+		601628DD29ED206300BB2F67 /* Dependensy */ = {
+			isa = PBXGroup;
+			children = (
+				601628DE29ED207000BB2F67 /* Detail Dependensy.swift */,
+			);
+			path = Dependensy;
+			sourceTree = "<group>";
+		};
+		601628E229ED218700BB2F67 /* Detail Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				601628E329ED219200BB2F67 /* DetailCustomCell.swift */,
+			);
+			path = "Detail Custom Cell";
+			sourceTree = "<group>";
+		};
+		601628E529ED224C00BB2F67 /* Detail Collection Cell */ = {
+			isa = PBXGroup;
+			children = (
+				601628E629ED225500BB2F67 /* DetailCollectionCell.swift */,
+			);
+			path = "Detail Collection Cell";
 			sourceTree = "<group>";
 		};
 		60B84D0129EBF8F200780255 = {
@@ -159,6 +247,24 @@
 				60B84D1629EBF8F200780255 /* Math_Education_Project.xcdatamodeld */,
 			);
 			path = "Math Education Project";
+			sourceTree = "<group>";
+		};
+		60F3EAC329EF052E0010F5C8 /* Quiz Page */ = {
+			isa = PBXGroup;
+			children = (
+				60F3EAC429EF053D0010F5C8 /* Dependensy */,
+				60F3EAC529EF05640010F5C8 /* QuizViewController.swift */,
+				60F3EAC729EF05850010F5C8 /* QuizPresenter.swift */,
+			);
+			path = "Quiz Page";
+			sourceTree = "<group>";
+		};
+		60F3EAC429EF053D0010F5C8 /* Dependensy */ = {
+			isa = PBXGroup;
+			children = (
+				60F3EAC929EF063E0010F5C8 /* Quiz Dependensy.swift */,
+			);
+			path = Dependensy;
 			sourceTree = "<group>";
 		};
 		7BC85ACDBEC5E610DA97F717 /* Pods */ = {
@@ -285,12 +391,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				60B84D1229EBF8F200780255 /* ViewController.swift in Sources */,
+				60F3EAC229ED343A0010F5C8 /* APiAuth.swift in Sources */,
+				60B84D1229EBF8F200780255 /* HomeViewController.swift in Sources */,
+				601628D929ED06AA00BB2F67 /* Menu Dependensy.swift in Sources */,
 				601628D129EC632600BB2F67 /* CustomTableViewCell.swift in Sources */,
+				601628DC29ED1D6A00BB2F67 /* DetailViewController.swift in Sources */,
+				601628E729ED225500BB2F67 /* DetailCollectionCell.swift in Sources */,
+				601628D629ED062700BB2F67 /* Menu Presenter.swift in Sources */,
+				601628E129ED209000BB2F67 /* DetailPresenter.swift in Sources */,
 				60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */,
 				60B84D1829EBF8F200780255 /* Math_Education_Project.xcdatamodeld in Sources */,
+				601628DF29ED207000BB2F67 /* Detail Dependensy.swift in Sources */,
+				60F3EAC629EF05640010F5C8 /* QuizViewController.swift in Sources */,
+				60F3EABD29ED314F0010F5C8 /* Network.swift in Sources */,
+				601628E429ED219200BB2F67 /* DetailCustomCell.swift in Sources */,
+				60F3EAC829EF05850010F5C8 /* QuizPresenter.swift in Sources */,
+				601628D429ED060700BB2F67 /* MenuViewController.swift in Sources */,
+				60F3EACA29EF063E0010F5C8 /* Quiz Dependensy.swift in Sources */,
 				601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */,
 				601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */,
+				60F3EAC029ED31630010F5C8 /* Models.swift in Sources */,
 				60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */,
 				601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */,
 			);

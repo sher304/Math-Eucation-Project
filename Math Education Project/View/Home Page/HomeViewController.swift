@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 
 protocol HomeViewDelegate: AnyObject{
-    
+    func fetchCourses(courses: Course)
 }
 
 class HomeViewController: UIViewController {
     
     var presenter: HomePresenterDelegate!
+    
+    var courses: Course? = nil
     
     private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1300)
     
@@ -26,18 +28,16 @@ class HomeViewController: UIViewController {
         return scrollV
     }()
     
-    
     private lazy var contentView: UIView = {
         let view = UIView()
         view.frame.size = contentSize
         view.backgroundColor = .white
         return view
     }()
-    
-    
-    
+
     private lazy var navigationParentView: UIView = {
         let view = UIView()
+        view.backgroundColor = .white
         return view
     }()
     
@@ -45,7 +45,6 @@ class HomeViewController: UIViewController {
         let gradientV = GradientView(gradientStartColor: UIColor(red: 18/255, green: 77/255, blue: 193/255, alpha: 0.67), gradientEndColor: UIColor(red: 0/255, green: 20/255, blue: 58/255, alpha: 0.38))
         return gradientV
     }()
-    
     
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
@@ -59,6 +58,7 @@ class HomeViewController: UIViewController {
         button.tintColor = .white
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
+        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -88,10 +88,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
+        
         setupConstraints()
     }
     
     private func setupConstraints(){
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
         view.addSubview(scrollV)
         scrollV.addSubview(contentView)
         
@@ -141,17 +144,23 @@ class HomeViewController: UIViewController {
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(homeImage.snp.bottom).offset(48)
         }
-        
+    }
+    
+    @objc func burgerDidTapped(){
+        self.navigationController?.pushViewController(MenuDependensy.build(), animated: true)
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return courses?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CustomTableViewCell()
+        let data = courses?[indexPath.row].text ?? "nil"
+        cell.fillData(title: data)
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -159,11 +168,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         return 236.63
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = DetailDependensy.build()
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
 }
 
 extension HomeViewController: HomeViewDelegate{
     
-    
+    func fetchCourses(courses: Course){
+        DispatchQueue.main.async {
+            self.courses = courses
+            self.booksTable.reloadData()
+        }
+    }
 }
 
 

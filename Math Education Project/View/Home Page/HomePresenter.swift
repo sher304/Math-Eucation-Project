@@ -8,12 +8,8 @@
 import Foundation
 
 protocol HomePresenterDelegate{
-    
-    func viewDidLoad()
-
     init(homeView: HomeViewDelegate)
-
-    
+    func viewDidLoad()
 }
 
 
@@ -22,8 +18,20 @@ class HomePresneter: HomePresenterDelegate{
     
     private weak var homeView: HomeViewDelegate?
     
+    private lazy var network: Network = {
+        return Network()
+    }()
+    
     func viewDidLoad(){
-        print("did load")
+        APiAuth().getAllCourses { data in
+            switch data{
+            case .success(let data):
+                self.homeView?.fetchCourses(courses: data)
+                break
+            case .failure(_):
+                break
+            }
+        }
     }
     
     required init(homeView: HomeViewDelegate) {

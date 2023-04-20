@@ -8,9 +8,8 @@
 import UIKit
 
 
-class Dependensy{
-    
-    
+class HomeDependensy{
+
     static func build() -> UIViewController{
         let homeView = HomeViewController()
         let presenter = HomePresneter(homeView: homeView)
