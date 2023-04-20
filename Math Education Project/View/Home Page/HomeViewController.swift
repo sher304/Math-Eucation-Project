@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     
     var presenter: HomePresenterDelegate!
     
-    var courses: Course? = nil
+    var courses = Dynamic(Course())
     
     private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1300)
     
@@ -88,7 +88,6 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
-        
         setupConstraints()
     }
     
@@ -153,12 +152,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return courses?.count ?? 0
+        return courses.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CustomTableViewCell()
-        let data = courses?[indexPath.row].text ?? "nil"
+        let data = courses.value[indexPath.row].text
         cell.fillData(title: data)
         cell.selectionStyle = .none
         return cell
@@ -172,6 +171,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let detailVC = DetailDependensy.build()
         navigationController?.pushViewController(detailVC, animated: true)
     }
+}
+
+extension HomeViewController{
     
 }
 
@@ -179,7 +181,7 @@ extension HomeViewController: HomeViewDelegate{
     
     func fetchCourses(courses: Course){
         DispatchQueue.main.async {
-            self.courses = courses
+            self.courses.value = courses
             self.booksTable.reloadData()
         }
     }

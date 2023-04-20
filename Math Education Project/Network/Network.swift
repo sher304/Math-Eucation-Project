@@ -29,4 +29,16 @@ class Network: NetworkSerice{
             completion(.success(jsonOBJ))
         }
     }
+    
+    static func getQuiz<T: Codable>(id: Int, completion: @escaping(Result<T, Error>) -> Void){
+        guard let url = URL(string: "https://math-course.vercel.app/quiz/quiz/\(id)") else { return }
+        
+        AF.request(url).response { responce in
+            guard let data = responce.data,
+                  let jsonObj = try? JSONDecoder().decode(T.self, from: data) else {
+                print("Error Data")
+                return }
+            completion(.success(jsonObj))
+        }
+    }
 }

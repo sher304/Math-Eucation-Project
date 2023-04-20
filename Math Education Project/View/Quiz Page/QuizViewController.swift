@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 
 protocol QuizViewDelegate: AnyObject{
-    
+    func getQuizData(quiz: Quiz)
 }
 
 class QuizViewController: UIViewController {
     
     var presenter: QuizPresenterDelegate!
+    
+    var questions = ["1 + 1 is equal to?", "5 + 5 is equal to?", "5 * 5 is?"]
     
     private lazy var quizTitle: UILabel = {
         let label = UILabel()
@@ -114,6 +116,11 @@ class QuizViewController: UIViewController {
         return button
     }()
     
+    private lazy var tableV: UITableView = {
+        let tableV = UITableView()
+        
+        return tableV
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,7 +188,9 @@ class QuizViewController: UIViewController {
             makeDisableEnable(sender: sender)
         }
     }
-    
+}
+
+extension QuizViewController{
     private func makeDisableEnable(sender: UIButton){
         if sender.isSelected{
             if sender == self.answerOne{
@@ -220,10 +229,15 @@ class QuizViewController: UIViewController {
                 self.answerThree.isEnabled = true
             }
         }
-        
     }
 }
 
 extension QuizViewController: QuizViewDelegate{
-    
+    func getQuizData(quiz: Quiz){
+        self.question.text = quiz.questions.first?.text
+        self.answerOne.setTitle(quiz.questions.map({$0.answers.map({$0.text})}).description, for: .normal)
+        self.answerTwo.setTitle(quiz.questions.map({$0.answers.map({$0.text})}).description, for: .normal)
+        self.answerThree.setTitle(quiz.questions.map({$0.answers.map({$0.text})}).description, for: .normal)
+        self.answerFour.setTitle(quiz.questions.map({$0.answers.map({$0.text})}).description, for: .normal)
+    }
 }

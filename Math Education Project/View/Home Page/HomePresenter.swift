@@ -10,17 +10,15 @@ import Foundation
 protocol HomePresenterDelegate{
     init(homeView: HomeViewDelegate)
     func viewDidLoad()
+    
 }
 
 
 class HomePresneter: HomePresenterDelegate{
     
-    
     private weak var homeView: HomeViewDelegate?
     
-    private lazy var network: Network = {
-        return Network()
-    }()
+    var courses = Dynamic(Course())
     
     func viewDidLoad(){
         APiAuth().getAllCourses { data in
