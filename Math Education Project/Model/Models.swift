@@ -15,3 +15,33 @@ struct CourseElement: Codable {
 }
 
 typealias Course = [CourseElement]
+
+// MARK: - Quiz
+struct Quiz: Codable {
+    let id: Int
+    let title: String
+    let topic: Int
+    let questions: [Question]
+}
+
+// MARK: - Question
+struct Question: Codable {
+    let id: Int
+    let text: String
+    let quiz: Int
+    let answers: [Answer]
+}
+
+// MARK: - Answer
+struct Answer: Codable {
+    let id: Int
+    let text: String
+    let isCorrect: Bool
+    let question: Int
+
+    enum CodingKeys: String, CodingKey {
+        case id, text
+        case isCorrect = "is_correct"
+        case question
+    }
+}
