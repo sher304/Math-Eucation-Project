@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 
 class CustomTableViewCell: UITableViewCell {
     
     static let identifier = "CustomCell"
     
-    private lazy var parentView: UIView = {
-        let view = UIView()
+    private lazy var parentView: UIImageView = {
+        let view = UIImageView()
         view.backgroundColor = .orange
         view.layer.cornerRadius = 14
         view.layer.masksToBounds = true
@@ -42,9 +43,11 @@ class CustomTableViewCell: UITableViewCell {
 
     }
     
-    public func fillData(title: String){
+    public func fillData(title: String, image: String){
         DispatchQueue.main.async {
             self.degreeLabel.text = title
+            self.parentView.kf.indicatorType = .activity
+            self.parentView.kf.setImage(with: URL(string: image))
         }
     }
     

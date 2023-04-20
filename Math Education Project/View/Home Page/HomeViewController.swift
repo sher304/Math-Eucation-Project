@@ -157,8 +157,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CustomTableViewCell()
-        let data = courses.value[indexPath.row].text
-        cell.fillData(title: data)
+        let data = courses.value[indexPath.row]
+        cell.fillData(title: data.text, image: data.cover)
         cell.selectionStyle = .none
         return cell
     }
