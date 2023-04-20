@@ -21,10 +21,10 @@ class QuizPresenter: QuizPresenterDelegate{
     }
     
     func viewDidLoad(){
-        APiAuth().getQuize(topic: 1) { data in
+        APiAuth().getQuize(topic: 2) { data in
             switch data{
             case.success(let data):
-                self.view?.getQuizData(quiz: data)
+                
                 break
             case.failure(_):
                 break

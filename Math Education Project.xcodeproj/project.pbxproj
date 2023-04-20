@@ -33,6 +33,7 @@
 		60F3EAC829EF05850010F5C8 /* QuizPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAC729EF05850010F5C8 /* QuizPresenter.swift */; };
 		60F3EACA29EF063E0010F5C8 /* Quiz Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAC929EF063E0010F5C8 /* Quiz Dependensy.swift */; };
 		60F3EACD29F1AD370010F5C8 /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EACC29F1AD370010F5C8 /* Dynamic.swift */; };
+		60F3EAD029F1B9FB0010F5C8 /* Custom Collection Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EACF29F1B9FB0010F5C8 /* Custom Collection Cell.swift */; };
 		AA49FAD095E0A8E8501F4665 /* Pods_Math_Education_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		60F3EAC729EF05850010F5C8 /* QuizPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPresenter.swift; sourceTree = "<group>"; };
 		60F3EAC929EF063E0010F5C8 /* Quiz Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quiz Dependensy.swift"; sourceTree = "<group>"; };
 		60F3EACC29F1AD370010F5C8 /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		60F3EACF29F1B9FB0010F5C8 /* Custom Collection Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Collection Cell.swift"; sourceTree = "<group>"; };
 		71AF11216642B5A830CA7509 /* Pods-Math Education Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.release.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.release.xcconfig"; sourceTree = "<group>"; };
 		71DB70D14EBCC0A1C7165A76 /* Pods-Math Education Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.debug.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -265,6 +267,7 @@
 		60F3EAC429EF053D0010F5C8 /* Dependensy */ = {
 			isa = PBXGroup;
 			children = (
+				60F3EACE29F1B9F20010F5C8 /* Collection Cell */,
 				60F3EAC929EF063E0010F5C8 /* Quiz Dependensy.swift */,
 			);
 			path = Dependensy;
@@ -276,6 +279,14 @@
 				60F3EACC29F1AD370010F5C8 /* Dynamic.swift */,
 			);
 			path = Dynamic;
+			sourceTree = "<group>";
+		};
+		60F3EACE29F1B9F20010F5C8 /* Collection Cell */ = {
+			isa = PBXGroup;
+			children = (
+				60F3EACF29F1B9FB0010F5C8 /* Custom Collection Cell.swift */,
+			);
+			path = "Collection Cell";
 			sourceTree = "<group>";
 		};
 		7BC85ACDBEC5E610DA97F717 /* Pods */ = {
@@ -424,6 +435,7 @@
 				601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */,
 				60F3EAC029ED31630010F5C8 /* Models.swift in Sources */,
 				60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */,
+				60F3EAD029F1B9FB0010F5C8 /* Custom Collection Cell.swift in Sources */,
 				601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
