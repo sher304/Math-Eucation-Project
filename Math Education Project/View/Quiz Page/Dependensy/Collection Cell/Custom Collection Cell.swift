@@ -12,6 +12,8 @@ class CustomCollectionCell: UICollectionViewCell{
     
     static let identifier = "CustomCell"
     
+    weak var delegate: QuizViewDelegate?
+    
     private lazy var questionTitle: UILabel = {
         let label = UILabel()
         label.text = "Question"
@@ -106,13 +108,14 @@ class CustomCollectionCell: UICollectionViewCell{
         
     }
     
-    public func fillData(question: String, answers: [Answer]){
+    public func fillData(question: String, answers: [Answer], delegate: QuizViewDelegate){
         DispatchQueue.main.async {
             self.questionTitle.text = question
             self.answerOne.setTitle(answers[0].text, for: .normal)
             self.answerTwo.setTitle(answers[1].text, for: .normal)
             self.answerFour.setTitle(answers[2].text, for: .normal)
             self.answerThree.setTitle(answers[3].text, for: .normal)
+            self.delegate = delegate
         }
     }
     
@@ -159,6 +162,7 @@ class CustomCollectionCell: UICollectionViewCell{
     @objc func answerDidSelected(sender: UIButton){
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
+            delegate?.answerDidSelected(id: 0)
             sender.setImage(UIImage(systemName: "circle.circle.fill"), for: .normal)
             makeDisableEnable(sender: sender)
         }else{
