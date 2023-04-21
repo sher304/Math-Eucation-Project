@@ -183,9 +183,6 @@ class DetailViewController: UIViewController {
     @objc func logoDidTapped(){
         navigationController?.popViewController(animated: true)
     }
-                                         
-    
-    
 }
 
 
