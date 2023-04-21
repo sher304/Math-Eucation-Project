@@ -12,6 +12,8 @@ class CustomCollectionCell: UICollectionViewCell{
     
     static let identifier = "CustomCell"
     
+    weak var delegate: QuizViewDelegate?
+    
     private lazy var questionTitle: UILabel = {
         let label = UILabel()
         label.text = "Question"
@@ -100,10 +102,37 @@ class CustomCollectionCell: UICollectionViewCell{
         return button
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.answerOne.isEnabled = true
+        self.answerOne.setImage(UIImage(systemName: "circle"), for: .normal)
+        self.answerTwo.isEnabled = true
+        self.answerTwo.setImage(UIImage(systemName: "circle"), for: .normal)
+        self.answerThree.isEnabled = true
+        self.answerThree.setImage(UIImage(systemName: "circle"), for: .normal)
+        self.answerFour.isEnabled = true
+        self.answerFour.setImage(UIImage(systemName: "circle"), for: .normal)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
         
+    }
+    
+    public func fillData(question: String, answers: [Answer], delegate: QuizViewDelegate){
+        DispatchQueue.main.async {
+            self.questionTitle.text = question
+            self.answerOne.setTitle(answers[0].text, for: .normal)
+            self.answerOne.tag = answers[0].id
+            self.answerTwo.setTitle(answers[1].text, for: .normal)
+            self.answerTwo.tag = answers[1].id
+            self.answerFour.setTitle(answers[2].text, for: .normal)
+            self.answerFour.tag = answers[2].id
+            self.answerThree.setTitle(answers[3].text, for: .normal)
+            self.answerThree.tag = answers[3].id
+            self.delegate = delegate
+        }
     }
     
     private func setupConstraints(){
@@ -147,8 +176,11 @@ class CustomCollectionCell: UICollectionViewCell{
     }
     
     @objc func answerDidSelected(sender: UIButton){
+        var c = 0
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
+            c += 1
+            delegate?.answerDidSelected(id: sender.tag)
             sender.setImage(UIImage(systemName: "circle.circle.fill"), for: .normal)
             makeDisableEnable(sender: sender)
         }else{

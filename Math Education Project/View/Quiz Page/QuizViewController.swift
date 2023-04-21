@@ -10,6 +10,7 @@ import SnapKit
 
 protocol QuizViewDelegate: AnyObject{
     func getQuizez(quizes: Quiz)
+    func answerDidSelected(id: Int)
 }
 
 class QuizViewController: UIViewController {
@@ -32,17 +33,7 @@ class QuizViewController: UIViewController {
         return collectionV
     }()
     
-    private lazy var nextButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "greaterthan.square.fill"), for: .normal)
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
-        button.tintColor = .black
-        button.addTarget(self, action: #selector(nextButtonDidSelected), for: .touchUpInside)
-        return button
-    }()
-    
-    
+    var currentIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
@@ -59,41 +50,20 @@ class QuizViewController: UIViewController {
             make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
             make.bottom.equalTo(-130)
         }
-        
-        view.addSubview(nextButton)
-        nextButton.snp.makeConstraints { make in
-            make.width.height.equalTo(45)
-            make.trailing.equalTo(-24)
-            make.top.equalTo(questionsCollection.snp.bottom).offset(20)
-        }
-    }
-    
-    var currentIndex = 0
-    @objc func nextButtonDidSelected(){
-        currentIndex += 1
-        
-        let questions = self.quizez.value.questions
-        
-        // Calculate the new index path for the cell by moving it to the end of the collection view
-        let newIndexPath = IndexPath(row: currentIndex, section: 0)
-        
-        
-        // Move the cell from the current index path to the new index path
-        questionsCollection.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: true)
     }
 }
 
 extension QuizViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.quizez.value.questions.first?.answers.count ?? 0
+        return self.quizez.value.questions.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let colors = [UIColor.green, UIColor.black, UIColor.red, UIColor.orange, UIColor.white]
-        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionCell.identifier, for: indexPath) as? CustomCollectionCell else { return CustomCollectionCell()}
-        cell.backgroundColor = colors[indexPath.row]
-        let questionsData = self.quizez.value.questions[indexPath.row].answers[indexPath.row].text
+        let answersData = self.quizez.value.questions[indexPath.row].answers
+        let questions = self.quizez.value.questions[indexPath.row].text
+        
+        cell.fillData(question: questions, answers: answersData, delegate: self)
         return cell
     }
     
@@ -117,5 +87,26 @@ extension QuizViewController{
         self.quizez.bind { _ in
             self.questionsCollection.reloadData()
         }
+    }
+    
+
+    func answerDidSelected(id: Int){
+        DispatchQueue.main.async { [self] in
+            filterAnswers(id: id)
+            var currentIndex = 0
+            if currentIndex > self.quizez.value.questions.count{
+                currentIndex -= 1
+            }else{
+                currentIndex += 1
+                let newIndexPath = IndexPath(row: currentIndex, section: 0)
+                questionsCollection.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: true)
+                questionsCollection.panGestureRecognizer.reset()
+            }
+        }
+    }
+    
+    func filterAnswers(id: Int){
+        let correct = self.quizez.value.questions.map({$0.answers.first(where: {$0.id == id && $0.isCorrect == true})})
+        print(correct)
     }
 }

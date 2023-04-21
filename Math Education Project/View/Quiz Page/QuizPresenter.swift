@@ -10,6 +10,7 @@ import Foundation
 protocol QuizPresenterDelegate{
     init(view: QuizViewDelegate)
     func viewDidLoad()
+    func getAnswerId(id: Int)
 }
 
 class QuizPresenter: QuizPresenterDelegate{
@@ -30,6 +31,9 @@ class QuizPresenter: QuizPresenterDelegate{
                 break
             }
         }
+    }
+    
+    func getAnswerId(id: Int){
         
     }
 }
