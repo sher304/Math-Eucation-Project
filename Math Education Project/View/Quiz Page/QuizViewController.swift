@@ -96,6 +96,7 @@ extension QuizViewController{
             var currentIndex = 0
             if currentIndex > self.quizez.value.questions.count{
                 currentIndex -= 1
+                navigationController?.popViewController(animated: true)
             }else{
                 currentIndex += 1
                 let newIndexPath = IndexPath(row: currentIndex, section: 0)

@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
 
     private lazy var navigationParentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         return view
     }()
     

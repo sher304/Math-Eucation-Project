@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         let navigation = UINavigationController()
-        navigation.viewControllers = [QuizDependensy.build()]
+        navigation.viewControllers = [HomeDependensy.build()]
         window?.rootViewController = navigation
         self.window?.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }
