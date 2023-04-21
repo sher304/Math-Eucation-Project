@@ -102,6 +102,18 @@ class CustomCollectionCell: UICollectionViewCell{
         return button
     }()
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.answerOne.isEnabled = true
+        self.answerOne.setImage(UIImage(systemName: "circle"), for: .normal)
+        self.answerTwo.isEnabled = true
+        self.answerTwo.setImage(UIImage(systemName: "circle"), for: .normal)
+        self.answerThree.isEnabled = true
+        self.answerThree.setImage(UIImage(systemName: "circle"), for: .normal)
+        self.answerFour.isEnabled = true
+        self.answerFour.setImage(UIImage(systemName: "circle"), for: .normal)
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
