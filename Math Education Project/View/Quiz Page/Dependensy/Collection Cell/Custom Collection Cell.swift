@@ -106,6 +106,16 @@ class CustomCollectionCell: UICollectionViewCell{
         
     }
     
+    public func fillData(question: String, answers: [Answer]){
+        DispatchQueue.main.async {
+            self.questionTitle.text = question
+            self.answerOne.setTitle(answers[0].text, for: .normal)
+            self.answerTwo.setTitle(answers[1].text, for: .normal)
+            self.answerFour.setTitle(answers[2].text, for: .normal)
+            self.answerThree.setTitle(answers[3].text, for: .normal)
+        }
+    }
+    
     private func setupConstraints(){
         contentView.addSubview(questionTitle)
         questionTitle.snp.makeConstraints { make in

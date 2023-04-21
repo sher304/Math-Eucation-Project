@@ -46,7 +46,6 @@ class CustomTableViewCell: UITableViewCell {
     public func fillData(title: String, image: String){
         DispatchQueue.main.async {
             self.degreeLabel.text = title
-            self.parentView.kf.indicatorType = .activity
             self.parentView.kf.setImage(with: URL(string: image))
         }
     }

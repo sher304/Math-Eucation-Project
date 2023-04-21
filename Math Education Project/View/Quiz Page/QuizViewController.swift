@@ -89,11 +89,14 @@ extension QuizViewController: UICollectionViewDelegateFlowLayout, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let colors = [UIColor.green, UIColor.black, UIColor.red, UIColor.orange, UIColor.white]
+        let colors = [UIColor.green, UIColor.brown, UIColor.red, UIColor.orange, UIColor.white]
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionCell.identifier, for: indexPath) as? CustomCollectionCell else { return CustomCollectionCell()}
         cell.backgroundColor = colors[indexPath.row]
-        let questionsData = self.quizez.value.questions[indexPath.row].answers[indexPath.row].text
+        
+        let answersData = self.quizez.value.questions[indexPath.row].answers
+        let questions = self.quizez.value.questions[indexPath.row].text
+        cell.fillData(question: questions, answers: answersData)
         return cell
     }
     
