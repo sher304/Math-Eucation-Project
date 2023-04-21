@@ -92,6 +92,7 @@ extension QuizViewController{
 
     func answerDidSelected(id: Int){
         DispatchQueue.main.async { [self] in
+            filterAnswers(id: id)
             var currentIndex = 0
             if currentIndex > self.quizez.value.questions.count{
                 currentIndex -= 1
@@ -102,5 +103,10 @@ extension QuizViewController{
                 questionsCollection.panGestureRecognizer.reset()
             }
         }
+    }
+    
+    func filterAnswers(id: Int){
+        let correct = self.quizez.value.questions.map({$0.answers.first(where: {$0.id == id && $0.isCorrect == true})})
+        print(correct)
     }
 }

@@ -124,9 +124,13 @@ class CustomCollectionCell: UICollectionViewCell{
         DispatchQueue.main.async {
             self.questionTitle.text = question
             self.answerOne.setTitle(answers[0].text, for: .normal)
+            self.answerOne.tag = answers[0].id
             self.answerTwo.setTitle(answers[1].text, for: .normal)
+            self.answerTwo.tag = answers[1].id
             self.answerFour.setTitle(answers[2].text, for: .normal)
+            self.answerFour.tag = answers[2].id
             self.answerThree.setTitle(answers[3].text, for: .normal)
+            self.answerThree.tag = answers[3].id
             self.delegate = delegate
         }
     }
@@ -172,9 +176,11 @@ class CustomCollectionCell: UICollectionViewCell{
     }
     
     @objc func answerDidSelected(sender: UIButton){
+        var c = 0
         sender.isSelected = !sender.isSelected
         if sender.isSelected{
-            delegate?.answerDidSelected(id: 0)
+            c += 1
+            delegate?.answerDidSelected(id: sender.tag)
             sender.setImage(UIImage(systemName: "circle.circle.fill"), for: .normal)
             makeDisableEnable(sender: sender)
         }else{
