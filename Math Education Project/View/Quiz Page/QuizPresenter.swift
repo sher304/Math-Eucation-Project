@@ -10,7 +10,7 @@ import Foundation
 protocol QuizPresenterDelegate{
     init(view: QuizViewDelegate)
     func viewDidLoad()
-    func getAnswerId(id: Int)
+    func getAnswerId(id: [Answer?])
 }
 
 class QuizPresenter: QuizPresenterDelegate{
@@ -20,6 +20,8 @@ class QuizPresenter: QuizPresenterDelegate{
     required init(view: QuizViewDelegate) {
         self.view = view
     }
+    
+    var delegate: ResultPresenterDelegate!
     
     func viewDidLoad(){
         APiAuth().getQuize(topic: 2) { data in
@@ -33,7 +35,7 @@ class QuizPresenter: QuizPresenterDelegate{
         }
     }
     
-    func getAnswerId(id: Int){
-        
+    func getAnswerId(id: [Answer?]){
+        delegate.getAnswers(answers: id)
     }
 }

@@ -93,35 +93,19 @@ extension QuizViewController{
     func answerDidSelected(id: Int){
         DispatchQueue.main.async { [self] in
             filterAnswers(id: id)
-            
             if currentIndex == self.quizez.value.questions.count - 1{
-                navigationController?.popViewController(animated: true)
+                navigationController?.pushViewController(ResultDependensy.build(), animated: true)
             }else{
-                print(currentIndex)
                 currentIndex += 1
                 let newIndexPath = IndexPath(row: currentIndex, section: 0)
                 questionsCollection.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: true)
                 questionsCollection.panGestureRecognizer.reset()
             }
-            
-            
-            
-            
-            //            if  currentIndex < self.quizez.value.questions.count{
-            //                currentIndex += 1
-            //                let newIndexPath = IndexPath(row: currentIndex, section: 0)
-            //                questionsCollection.scrollToItem(at: newIndexPath, at: .centeredHorizontally, animated: true)
-            //                questionsCollection.panGestureRecognizer.reset()
-            //                print(currentIndex)
-            //            }else{
-            //                print("ELSE")
-            //                navigationController?.popViewController(animated: true)
-            //            }
         }
     }
     
     func filterAnswers(id: Int){
         let correct = self.quizez.value.questions.map({$0.answers.first(where: {$0.id == id && $0.isCorrect == true})})
-        //        print(correct)
+        presenter.getAnswerId(id: correct)
     }
 }
