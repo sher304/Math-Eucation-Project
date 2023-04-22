@@ -107,23 +107,20 @@ extension QuizViewController{
     }
     
     func filterAnswers(id: Int){
-//        let correct = self.quizez.value.questions.compactMap({$0.answers.first(where: {$0.isCorrect == true && $0.id == id})})
+        //        let correct = self.quizez.value.questions.compactMap({$0.answers.first(where: {$0.isCorrect == true && $0.id == id})})
         
-//        for counter in 0...self.filtredData.count {
-//            if counter == self.filtredData.count{
-//                correct.forEach { answer in
-//                    self.filtredData.append(answer)
-//                }
-//            }
-//            print(self.filtredData)
-//        }
+        let correct = self.quizez.value.questions.compactMap({$0.answers.first(where: {$0.id == id})})
         
-//        if self.filtredData.count == self.quizez.value.questions.count{
-//            print(self.filtredData)
-//            presenter.getAnswerId(answers: self.filtredData)
-//        }
+        for counter in 0...self.filtredData.count {
+            if counter == self.filtredData.count{
+                correct.forEach { answer in
+                    self.filtredData.append(answer)
+                }
+            }
+        }
         
-        
-        
+        if self.filtredData.count == self.quizez.value.questions.count{
+            presenter.getAnswerId(answers: self.filtredData)
+        }
     }
 }

@@ -25,6 +25,8 @@ class DetailCollectionCell: UICollectionViewCell{
         label.text = "Глава 1"
         label.font = .systemFont(ofSize: 20, weight: .semibold)
         label.textColor = .white
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -33,6 +35,8 @@ class DetailCollectionCell: UICollectionViewCell{
         label.text = "Название"
         label.font = .systemFont(ofSize: 26, weight: .bold)
         label.textColor = .white
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -44,6 +48,11 @@ class DetailCollectionCell: UICollectionViewCell{
         
     }
     
+    public func fillData(title: String, text: String){
+        self.chapterLabel.text = title
+        self.titleLabel.text = text
+    }
+    
     private func setupConstraints(){
         contentView.addSubview(parentView)
         parentView.snp.makeConstraints { make in
@@ -53,13 +62,15 @@ class DetailCollectionCell: UICollectionViewCell{
         parentView.addSubview(chapterLabel)
         chapterLabel.snp.makeConstraints { make in
             make.leading.equalTo(9)
-            make.top.equalTo(28)
+            make.top.equalTo(30)
+            make.trailing.equalTo(-2)
         }
         
         parentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(chapterLabel)
             make.top.equalTo(chapterLabel.snp.bottom)
+            make.trailing.equalTo(-2)
         }
     }
 }

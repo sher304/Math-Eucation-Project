@@ -38,8 +38,17 @@ class QuizPresenter: QuizPresenterDelegate{
         }
     }
     
+    var correct = 0
+    var incorrect = 0
     func getAnswerId(answers: [Answer]){
-        print(answers)
-//        delegate.getAnswers(answers: answers)
+        UserDefaults.resetStandardUserDefaults()
+        answers.forEach { answer in
+            if answer.isCorrect == true{
+                correct += 1
+            }else{
+                incorrect += 1
+            }
+        }
+        delegate.getAnswers(correct: correct, incorrect: incorrect)
     }
 }

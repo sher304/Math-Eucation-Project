@@ -10,8 +10,7 @@ import Foundation
 protocol ResultPresenterDelegate {
     init(view: ResultViewDelegate)
     func viewDidLoad()
-    func getAnswers(answers: [Answer])
-    var answersData: [Answer] { get set }
+    func getAnswers(correct: Int, incorrect:Int)
     
 }
 
@@ -20,27 +19,19 @@ protocol ResultPresenterDelegate {
 class ResultPresenter: ResultPresenterDelegate{    
     weak var view: ResultViewDelegate?
     
-    var answersData: [Answer] = []
-    
     let defaults = UserDefaults.standard
     
     func viewDidLoad(){
-//        if let data = UserDefaults.standard.object(forKey: "ResultsData") as? Data,
-//           let answers = try? JSONDecoder().decode([Answer].self, from: data) {
-//            view?.getAnswersData(answers: answers)
-//        }
-        print(answersData)
+        view?.getAnswersData(correct: defaults.integer(forKey: "Correct"), overall: defaults.integer(forKey: "InCorrect"))
     }
     
     required init(view: ResultViewDelegate) {
         self.view = view
     }
     
-    func getAnswers(answers: [Answer]){
-        print(answers)
-    
-//        if let encoded = try? JSONEncoder().encode(answers) {
-//            UserDefaults.standard.set(encoded, forKey: "ResultsData")
-//        }
+    func getAnswers(correct: Int, incorrect:Int){
+        defaults.set(correct, forKey: "Correct")
+        let overall = correct + incorrect
+        defaults.set(overall, forKey: "InCorrect")
     }
 }

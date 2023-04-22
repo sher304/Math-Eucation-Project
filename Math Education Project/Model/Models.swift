@@ -45,3 +45,12 @@ struct Answer: Codable {
         case question
     }
 }
+
+// MARK: - Topic
+struct Topic: Codable {
+    let id: Int
+    let title, text: String
+    let unit: Int
+}
+
+typealias Topics = [Topic]

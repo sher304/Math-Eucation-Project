@@ -22,7 +22,15 @@ class DetailPresenter: DetailDependensy{
     }
     
     func viewDidLoad(){
-        print("View Did Load Detail Page")
+        APiAuth().getTopics { data in
+            switch data{
+            case.success(let data):
+                self.view?.fetchTopics(topics: data)
+                break
+            case.failure(_):
+                break
+            }
+        }
     }
     
 }

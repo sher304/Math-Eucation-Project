@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol ResultViewDelegate: AnyObject{
-    func getAnswersData(answers: [Answer])
+    func getAnswersData(correct: Int, overall: Int)
     var answersResults: [Answer] {get set}
 }
 
@@ -97,12 +97,10 @@ class ResultViewController: UIViewController {
 }
 
 extension ResultViewController: ResultViewDelegate{
-    func getAnswersData(answers: [Answer]){
+    func getAnswersData(correct: Int, overall: Int){
         DispatchQueue.main.async {
-            answers.forEach { answer in
-                self.resultLabel.text = "Result is \(answers.count)"
+                self.resultLabel.text = "Result is \(correct) /\(overall)"
             }
-        }
     }
 }
 
