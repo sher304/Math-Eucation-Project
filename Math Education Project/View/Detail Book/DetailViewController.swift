@@ -12,6 +12,7 @@ protocol DetailViewDelegate: AnyObject{
     func fetchTopics(topics: Topics)
 }
 
+
 class DetailViewController: UIViewController {
     
     var presenter: DetailPresenter!
@@ -195,7 +196,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailCustomCell()
-        cell.fillData(topics: self.topics.value)
+        cell.fillData(topics: self.topics.value, delegate: self)
         return cell
     }
     
@@ -211,6 +212,12 @@ extension DetailViewController: DetailViewDelegate{
             self.topics.value = topics
             self.coursesTable.reloadData()
         }
+    }
+}
+
+extension DetailViewController: DetailCellDelegate{
+    func didTapped(id: Int) {
+        
     }
 }
 

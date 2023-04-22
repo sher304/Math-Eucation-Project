@@ -54,3 +54,52 @@ struct Topic: Codable {
 }
 
 typealias Topics = [Topic]
+
+
+// MARK: - SingleTopic
+struct SingleTopic: Codable {
+    let id: Int
+    let title, text: String
+    let unit: Int
+    let photos: [Photo]
+    let examples: [Example]
+    let quizes: [Quiz]
+}
+
+// MARK: - Example
+struct Example: Codable {
+    let id: Int
+    let text: String
+    let topic: Int
+    let examplePhotos: [ExamplePhoto]
+    let exampleNumbers: [ExampleNumber]
+
+    enum CodingKeys: String, CodingKey {
+        case id, text, topic
+        case examplePhotos = "example_photos"
+        case exampleNumbers = "example_numbers"
+    }
+}
+
+// MARK: - ExampleNumber
+struct ExampleNumber: Codable {
+    let id: Int
+    let text: String
+    let example: Int
+}
+
+// MARK: - ExamplePhoto
+struct ExamplePhoto: Codable {
+    let id: Int
+    let photo: String
+    let example: Int
+}
+
+// MARK: - Photo
+struct Photo: Codable {
+    let id: Int
+    let photo: String
+    let topic: Int
+}
+
+
