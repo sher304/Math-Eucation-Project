@@ -13,6 +13,8 @@ class DetailCustomCell: UITableViewCell{
     
     static let identifier = "CustomCell"
     
+    var topics = Dynamic(Topics())
+    
     private lazy var coursesCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -28,6 +30,12 @@ class DetailCustomCell: UITableViewCell{
         setupConstraints()
     }
     
+    
+    public func fillData(topics: Topics){
+        self.topics.value = topics
+        self.coursesCollection.reloadData()
+    }
+    
     private func setupConstraints(){
         contentView.addSubview(coursesCollection)
         coursesCollection.snp.makeConstraints { make in
@@ -41,12 +49,15 @@ class DetailCustomCell: UITableViewCell{
 
 extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 12
+        return self.topics.value.count
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as? DetailCollectionCell else { return DetailCollectionCell()}
-        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as? 
+                DetailCollectionCell else { return DetailCollectionCell()}
+        let data = self.topics.value
+        cell.fillData(title: data[indexPath.row].title, text: data[indexPath.row].text)
         return cell
     }
     

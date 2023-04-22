@@ -11,10 +11,14 @@ import Foundation
 class APiAuth{
     
     func getAllCourses(completion: @escaping(Result<Course, Error>) -> Void){
-        Network.getCourses(methid: "GET", completion: completion)
+        Network.getCourses(method: "GET", completion: completion)
     }
     
     func getQuize(topic: Int, completion: @escaping(Result<Quiz, Error>) -> Void){
         Network.getQuiz(id: topic, completion: completion)
+    }
+    
+    func getTopics(completion: @escaping(Result<Topics,Error>) -> Void){
+        Network.getTopics(method: "GET", completion: completion)
     }
 }

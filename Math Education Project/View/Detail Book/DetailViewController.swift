@@ -9,12 +9,14 @@ import UIKit
 import SnapKit
 
 protocol DetailViewDelegate: AnyObject{
-    
+    func fetchTopics(topics: Topics)
 }
 
 class DetailViewController: UIViewController {
     
     var presenter: DetailPresenter!
+    
+    var topics = Dynamic(Topics())
     
     private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 400)
     
@@ -188,11 +190,12 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.topics.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailCustomCell()
+        cell.fillData(topics: self.topics.value)
         return cell
     }
     
@@ -203,6 +206,11 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension DetailViewController: DetailViewDelegate{
-    
+    func fetchTopics(topics: Topics){
+        DispatchQueue.main.async {
+            self.topics.value = topics
+            self.coursesTable.reloadData()
+        }
+    }
 }
 
