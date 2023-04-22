@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
 
     private lazy var navigationParentView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .black
         return view
     }()
     
@@ -146,7 +146,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func burgerDidTapped(){
-        self.navigationController?.pushViewController(MenuDependensy.build(), animated: true)
+        self.navigationController?.pushViewController(QuizDependensy.build(), animated: true)
     }
 }
 
@@ -158,7 +158,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = CustomTableViewCell()
         let data = courses.value[indexPath.row]
-        cell.fillData(title: data.text, image: data.cover)
+        cell.fillData(title: data.title, image: data.cover)
         cell.selectionStyle = .none
         return cell
     }

@@ -19,6 +19,8 @@ class QuizViewController: UIViewController {
     
     var quizez = Dynamic(Quiz(id: Int(), title: String(), topic: Int(), questions: []))
     
+    var filtredData: [Answer] = []
+    
     private lazy var questionsCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -89,13 +91,12 @@ extension QuizViewController{
         }
     }
     
-
+    
     func answerDidSelected(id: Int){
         DispatchQueue.main.async { [self] in
             filterAnswers(id: id)
-            var currentIndex = 0
-            if currentIndex > self.quizez.value.questions.count{
-                currentIndex -= 1
+            if currentIndex == self.quizez.value.questions.count - 1{
+                navigationController?.pushViewController(ResultDependensy.build(), animated: true)
             }else{
                 currentIndex += 1
                 let newIndexPath = IndexPath(row: currentIndex, section: 0)
@@ -106,7 +107,23 @@ extension QuizViewController{
     }
     
     func filterAnswers(id: Int){
-        let correct = self.quizez.value.questions.map({$0.answers.first(where: {$0.id == id && $0.isCorrect == true})})
-        print(correct)
+//        let correct = self.quizez.value.questions.compactMap({$0.answers.first(where: {$0.isCorrect == true && $0.id == id})})
+        
+//        for counter in 0...self.filtredData.count {
+//            if counter == self.filtredData.count{
+//                correct.forEach { answer in
+//                    self.filtredData.append(answer)
+//                }
+//            }
+//            print(self.filtredData)
+//        }
+        
+//        if self.filtredData.count == self.quizez.value.questions.count{
+//            print(self.filtredData)
+//            presenter.getAnswerId(answers: self.filtredData)
+//        }
+        
+        
+        
     }
 }
