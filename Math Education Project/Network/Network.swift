@@ -12,7 +12,7 @@ import Alamofire
 
 protocol NetworkSerice{
     static func getCourses<T: Codable>(methid: String, completion: @escaping(Result<T, Error>) -> Void)
-    
+    static func getQuiz<T: Codable>(id: Int, completion: @escaping(Result<T, Error>) -> Void)
 }
 
 

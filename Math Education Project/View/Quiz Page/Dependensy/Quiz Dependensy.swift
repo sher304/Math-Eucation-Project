@@ -18,5 +18,4 @@ class QuizDependensy{
         presenter.delegate = presenterResult
         return view
     }
-    
 }

@@ -9,12 +9,16 @@ import UIKit
 import SnapKit
 
 protocol ResultViewDelegate: AnyObject{
-    
+    func getAnswersData(answers: [Answer])
+    var answersResults: [Answer] {get set}
 }
 
 class ResultViewController: UIViewController {
     
     var presenter: ResultPresenterDelegate!
+    
+    var answersResults: [Answer] = []
+//    var answersResults = Dynamic([Answer]())
     
     private lazy var resultLabel: UILabel = {
         let label = UILabel()
@@ -39,11 +43,13 @@ class ResultViewController: UIViewController {
         button.backgroundColor = .black
         button.layer.cornerRadius = 19
         button.layer.masksToBounds = true
+        button.addTarget(self, action: #selector(homeDidTapped), for: .touchUpInside)
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.viewDidLoad()
         setupConstraints()
         checkAnimation()
     }
@@ -74,7 +80,7 @@ class ResultViewController: UIViewController {
         }
     }
     
-    @objc func checkAnimation(){
+    func checkAnimation(){
         let positionY = checkMarkImage.frame.origin.y - 15
         let positionX = checkMarkImage.frame.origin.x
         let height = checkMarkImage.frame.height
@@ -84,8 +90,19 @@ class ResultViewController: UIViewController {
             self.checkMarkImage.frame = CGRect(x: positionX, y: positionY, width: width, height: height)
         } completion: { _ in }
     }
+    
+    @objc func homeDidTapped(){
+        self.navigationController?.pushViewController(HomeDependensy.build(), animated: true)
+    }
 }
 
 extension ResultViewController: ResultViewDelegate{
-    
+    func getAnswersData(answers: [Answer]){
+        DispatchQueue.main.async {
+            answers.forEach { answer in
+                self.resultLabel.text = "Result is \(answers.count)"
+            }
+        }
+    }
 }
+

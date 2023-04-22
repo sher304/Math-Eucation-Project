@@ -9,19 +9,38 @@ import Foundation
 
 protocol ResultPresenterDelegate {
     init(view: ResultViewDelegate)
-    func getAnswers(answers: [Answer?])
+    func viewDidLoad()
+    func getAnswers(answers: [Answer])
+    var answersData: [Answer] { get set }
+    
 }
 
 
 
 class ResultPresenter: ResultPresenterDelegate{    
     weak var view: ResultViewDelegate?
-
+    
+    var answersData: [Answer] = []
+    
+    let defaults = UserDefaults.standard
+    
+    func viewDidLoad(){
+//        if let data = UserDefaults.standard.object(forKey: "ResultsData") as? Data,
+//           let answers = try? JSONDecoder().decode([Answer].self, from: data) {
+//            view?.getAnswersData(answers: answers)
+//        }
+        print(answersData)
+    }
+    
     required init(view: ResultViewDelegate) {
         self.view = view
     }
     
-    func getAnswers(answers: [Answer?]){
-        print(answers, "results presenter")
+    func getAnswers(answers: [Answer]){
+        print(answers)
+    
+//        if let encoded = try? JSONEncoder().encode(answers) {
+//            UserDefaults.standard.set(encoded, forKey: "ResultsData")
+//        }
     }
 }
