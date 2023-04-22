@@ -107,10 +107,8 @@ extension QuizViewController{
     }
     
     func filterAnswers(id: Int){
-        //        let correct = self.quizez.value.questions.compactMap({$0.answers.first(where: {$0.isCorrect == true && $0.id == id})})
-        
         let correct = self.quizez.value.questions.compactMap({$0.answers.first(where: {$0.id == id})})
-        
+
         for counter in 0...self.filtredData.count {
             if counter == self.filtredData.count{
                 correct.forEach { answer in

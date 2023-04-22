@@ -21,4 +21,8 @@ class APiAuth{
     func getTopics(completion: @escaping(Result<Topics,Error>) -> Void){
         Network.getTopics(method: "GET", completion: completion)
     }
+    
+    func getTopics(id: Int, completion: @escaping(Result<SingleTopic,Error>) -> Void){
+        Network.getTopics(id: id, method: "GET", completion: completion)
+    }
 }

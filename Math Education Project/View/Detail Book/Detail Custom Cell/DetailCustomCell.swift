@@ -8,6 +8,10 @@
 import UIKit
 import SnapKit
 
+protocol DetailCellDelegate {
+    func didTapped(id: Int)
+}
+
 
 class DetailCustomCell: UITableViewCell{
     
@@ -25,14 +29,17 @@ class DetailCustomCell: UITableViewCell{
         return collectionV
     }()
     
+    var delegate: DetailCellDelegate!
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
     }
     
     
-    public func fillData(topics: Topics){
+    public func fillData(topics: Topics, delegate: DetailCellDelegate){
         self.topics.value = topics
+        self.delegate = delegate
         self.coursesCollection.reloadData()
     }
     
@@ -50,7 +57,6 @@ class DetailCustomCell: UITableViewCell{
 extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.topics.value.count
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,5 +71,8 @@ extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegate
         return CGSize(width: 183, height: 111)
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegate.didTapped(id: self.topics.value[indexPath.row].id)
+    }
 }
+

@@ -40,8 +40,6 @@ class DetailCollectionCell: UICollectionViewCell{
         return label
     }()
     
-    
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraints()
