@@ -48,7 +48,9 @@ class HomeViewController: UIViewController {
     
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
-        imageV.backgroundColor = .white
+        imageV.image = UIImage(systemName: "homekit")
+        imageV.tintColor = .white
+        imageV.contentMode = .center
         return imageV
     }()
     

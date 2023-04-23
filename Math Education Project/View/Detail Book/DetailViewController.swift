@@ -49,7 +49,9 @@ class DetailViewController: UIViewController {
     
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
-        imageV.backgroundColor = .white
+        imageV.image = UIImage(systemName: "homekit")
+        imageV.contentMode = .center
+        imageV.tintColor = .white
         imageV.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(logoDidTapped))
         imageV.addGestureRecognizer(tap)
@@ -217,7 +219,8 @@ extension DetailViewController: DetailViewDelegate{
 
 extension DetailViewController: DetailCellDelegate{
     func didTapped(id: Int) {
-        
+        self.navigationController?.pushViewController(BookDependensy.build(), animated: true)
+        presenter.getById(id: id)
     }
 }
 

@@ -17,6 +17,9 @@ class DetailPresenter: DetailDependensy{
     
     private weak var view: DetailViewDelegate?
     
+    var delegate: BookPresenterDelegate!
+    let defautls = UserDefaults.standard
+    
     required init(view: DetailViewController){
         self.view = view
     }
@@ -33,4 +36,8 @@ class DetailPresenter: DetailDependensy{
         }
     }
     
+    func getById(id: Int){
+        UserDefaults.resetStandardUserDefaults()
+        delegate.getId(id: id)
+    }
 }
