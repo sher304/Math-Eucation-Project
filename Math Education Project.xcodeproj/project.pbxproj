@@ -41,6 +41,7 @@
 		60F3EADE29F4532F0010F5C8 /* Book Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EADD29F4532F0010F5C8 /* Book Presenter.swift */; };
 		60F3EAE129F453500010F5C8 /* BookDependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAE029F453500010F5C8 /* BookDependensy.swift */; };
 		60F3EAE429F4590B0010F5C8 /* CustomBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAE329F4590B0010F5C8 /* CustomBookCell.swift */; };
+		60F3EAEB29F58B7C0010F5C8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60F3EAEA29F58B7C0010F5C8 /* Extension.swift */; };
 		AA49FAD095E0A8E8501F4665 /* Pods_Math_Education_Project.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,7 @@
 		60F3EADD29F4532F0010F5C8 /* Book Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book Presenter.swift"; sourceTree = "<group>"; };
 		60F3EAE029F453500010F5C8 /* BookDependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDependensy.swift; sourceTree = "<group>"; };
 		60F3EAE329F4590B0010F5C8 /* CustomBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBookCell.swift; sourceTree = "<group>"; };
+		60F3EAEA29F58B7C0010F5C8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		71AF11216642B5A830CA7509 /* Pods-Math Education Project.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.release.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.release.xcconfig"; sourceTree = "<group>"; };
 		71DB70D14EBCC0A1C7165A76 /* Pods-Math Education Project.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Math Education Project.debug.xcconfig"; path = "Target Support Files/Pods-Math Education Project/Pods-Math Education Project.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +259,7 @@
 		60B84D0C29EBF8F200780255 /* Math Education Project */ = {
 			isa = PBXGroup;
 			children = (
+				60F3EAE929F58B700010F5C8 /* Extension */,
 				60F3EACB29F1AD2E0010F5C8 /* Dynamic */,
 				601628CC29EC5B4C00BB2F67 /* Extensions */,
 				601628C529EBF99F00BB2F67 /* Utils */,
@@ -345,9 +348,25 @@
 		60F3EAE229F458FB0010F5C8 /* Custom Book Collection Cell */ = {
 			isa = PBXGroup;
 			children = (
+				60F3EAE829F582F60010F5C8 /* Custom Images Cell */,
 				60F3EAE329F4590B0010F5C8 /* CustomBookCell.swift */,
 			);
 			path = "Custom Book Collection Cell";
+			sourceTree = "<group>";
+		};
+		60F3EAE829F582F60010F5C8 /* Custom Images Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Custom Images Cell";
+			sourceTree = "<group>";
+		};
+		60F3EAE929F58B700010F5C8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				60F3EAEA29F58B7C0010F5C8 /* Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		7BC85ACDBEC5E610DA97F717 /* Pods */ = {
@@ -481,6 +500,7 @@
 				601628DC29ED1D6A00BB2F67 /* DetailViewController.swift in Sources */,
 				601628E729ED225500BB2F67 /* DetailCollectionCell.swift in Sources */,
 				601628D629ED062700BB2F67 /* Menu Presenter.swift in Sources */,
+				60F3EAEB29F58B7C0010F5C8 /* Extension.swift in Sources */,
 				601628E129ED209000BB2F67 /* DetailPresenter.swift in Sources */,
 				60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */,
 				60B84D1829EBF8F200780255 /* Math_Education_Project.xcdatamodeld in Sources */,

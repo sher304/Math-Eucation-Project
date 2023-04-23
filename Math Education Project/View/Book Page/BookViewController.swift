@@ -13,6 +13,10 @@ protocol BookViewDelegate: AnyObject{
     
 }
 
+protocol BookCellDelegate {
+    func backDidTapped()
+}
+
 class BookViewController: UIViewController {
     
     var topic = Dynamic([SingleTopic]())
@@ -77,6 +81,38 @@ class BookViewController: UIViewController {
         return collectionV
     }()
     
+    
+    private lazy var bottomParentView: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        view.backgroundColor = .white
+        view.addTopShadow()
+
+        return view
+    }()
+
+    private lazy var previusButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Предыдущий ", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = UIColor(red: 4/255, green: 31/255, blue: 82/255, alpha: 1)
+        button.layer.cornerRadius = 14
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
+        return button
+    }()
+    
+    
+    private lazy var nextButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Следующий ", for: .normal)
+        button.tintColor = .white
+        button.backgroundColor = UIColor(red: 4/255, green: 31/255, blue: 82/255, alpha: 1)
+        button.layer.cornerRadius = 14
+        button.titleLabel?.font = .systemFont(ofSize: 15, weight: .bold)
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.viewDidLoad()
@@ -122,6 +158,28 @@ class BookViewController: UIViewController {
             make.top.equalTo(burgerMenu.snp.bottom).offset(15)
         }
         
+        view.addSubview(bottomParentView)
+        bottomParentView.snp.makeConstraints { make in
+            make.bottom.equalToSuperview()
+            make.height.equalTo(100)
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        bottomParentView.addSubview(previusButton)
+        previusButton.snp.makeConstraints { make in
+            make.leading.equalTo(20)
+            make.top.equalTo(17)
+            make.bottom.equalTo(-16)
+            make.width.equalTo(167)
+        }
+        
+        bottomParentView.addSubview(nextButton)
+        nextButton.snp.makeConstraints { make in
+            make.leading.equalTo(previusButton.snp.trailing).offset(15)
+            make.top.equalTo(17)
+            make.bottom.equalTo(-16)
+            make.width.equalTo(167)
+        }
     }
 }
 
@@ -132,7 +190,10 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
-
+        let data = self.topic.value[indexPath.row]
+        let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
+        let examplePhotos = self.topic.value[indexPath.row].examples[indexPath.row].examplePhotos[indexPath.row].photo
+        cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos, delegate: self)
         return cell
     }
     
@@ -147,5 +208,12 @@ extension BookViewController: BookViewDelegate{
     func getTopic(topic: [SingleTopic]){
         self.topic.value = topic
         self.bookCollection.reloadData()
+    }
+}
+
+
+extension BookViewController: BookCellDelegate{
+    func backDidTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
