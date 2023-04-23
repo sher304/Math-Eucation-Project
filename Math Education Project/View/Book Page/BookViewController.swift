@@ -53,7 +53,12 @@ class BookViewController: UIViewController {
     
     private lazy var logoImage: UIImageView = {
         let imageV = UIImageView()
-        imageV.backgroundColor = .white
+        imageV.image = UIImage(systemName: "homekit")
+        imageV.tintColor = .white
+        imageV.contentMode = .center
+        imageV.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(logoDidTapped))
+        imageV.addGestureRecognizer(tap)
         return imageV
     }()
     
@@ -180,6 +185,10 @@ class BookViewController: UIViewController {
             make.bottom.equalTo(-16)
             make.width.equalTo(167)
         }
+    }
+    
+    @objc func logoDidTapped(){
+        self.navigationController?.pushViewController(HomeDependensy.build(), animated: true)
     }
 }
 
