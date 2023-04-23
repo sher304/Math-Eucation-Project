@@ -10,18 +10,22 @@ import Foundation
 protocol BookPresenterDelegate{
     init(view: BookViewDelegate)
     func viewDidLoad()
+    func getId(id: Int)
 }
 
 class BookPresenter: BookPresenterDelegate{
     
     weak var view: BookViewDelegate?
     
+    let defautls = UserDefaults.standard
+    
     required init(view: BookViewDelegate){
         self.view = view
     }
     
     func viewDidLoad(){
-        APiAuth().getTopics(id: 2) { data in
+        let id = defautls.integer(forKey: "topicId") 
+        APiAuth().getTopics(id: id) { data in
             switch data{
             case.success(let data):
                 self.view?.getTopic(topic: [data])
@@ -30,5 +34,9 @@ class BookPresenter: BookPresenterDelegate{
                 break
             }
         }
+    }
+    
+    func getId(id: Int){
+        defautls.set(id, forKey: "topicId")
     }
 }

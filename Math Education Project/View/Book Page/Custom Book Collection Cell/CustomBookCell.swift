@@ -31,6 +31,7 @@ class CustomBookCell: UICollectionViewCell{
         button.tintColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
+        button.addTarget(self, action: #selector(backDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -191,7 +192,7 @@ class CustomBookCell: UICollectionViewCell{
     }
     
     @objc func backDidTapped(){
-        
+        delegate.backDidTapped()
     }
 }
 

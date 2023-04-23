@@ -18,7 +18,6 @@ class ResultViewController: UIViewController {
     var presenter: ResultPresenterDelegate!
     
     var answersResults: [Answer] = []
-//    var answersResults = Dynamic([Answer]())
     
     private lazy var resultLabel: UILabel = {
         let label = UILabel()
