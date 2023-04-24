@@ -25,8 +25,6 @@ View: The user interface of the application is implemented using storyboards and
 Presenter: The logic of the application is implemented in the presenters.</br>
 The application uses the delegation pattern to communicate between view controllers and presenters.</br>
 
-Screenshots
-
 Home Screen
 
 Book Screen
