@@ -47,6 +47,7 @@ Quiz Result Screen
 
 <img src="https://user-images.githubusercontent.com/87121837/234064740-0f1e04f7-aedf-417d-a447-da36ad5ad7fa.png" alt="Girl in a jacket" width="300" height="600">
 
-Conclusion
+
+<h1>Conclusion</h1>
 
 Math-Eucation-Project is a great educational application for learning mathematics. With its intuitive and engaging interface, users can enjoy learning while improving their mathematical skills. The application can be further extended by adding more books, topics, and quizzes for different grades.
