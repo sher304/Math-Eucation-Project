@@ -41,11 +41,11 @@ Topic Screen
 
 Quiz Screen
 
-<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
+<img src="https://user-images.githubusercontent.com/87121837/234064661-eb4db75f-824c-4582-b2b1-eec0b7051e40.png" alt="Girl in a jacket" width="300" height="600">
 
 Quiz Result Screen
 
-<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
+<img src="https://user-images.githubusercontent.com/87121837/234064740-0f1e04f7-aedf-417d-a447-da36ad5ad7fa.png" alt="Girl in a jacket" width="300" height="600">
 
 Conclusion
 
