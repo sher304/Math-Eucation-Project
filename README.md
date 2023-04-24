@@ -4,7 +4,8 @@
 
 
 
-Math-Eucation-Project is an educational application for mathematics. The application follows the MVP (Model-View-Presenter) architecture pattern, and has been designed using Figma. The application contains books and quizzes for grades one to six, with different topics for each grade. The application is built using Swift and Xcode.
+Math-Eucation-Project is an educational application for mathematics. The application follows the MVP (Model-View-Presenter) architecture pattern, and has been designed using Figma. Application works by API Server. 
+The application contains books and quizzes for grades one to six, with different topics for each grade. The application is built using Swift and Xcode.
 
 <h2>Features</h2>
 
