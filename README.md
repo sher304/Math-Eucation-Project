@@ -25,15 +25,26 @@ View: The user interface of the application is implemented using storyboards and
 Presenter: The logic of the application is implemented in the presenters.</br>
 The application uses the delegation pattern to communicate between view controllers and presenters.</br>
 
+
+
 Home Screen
 
+<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
+
 Book Screen
+<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
 
 Topic Screen
 
+<img src="https://user-images.githubusercontent.com/87121837/234062969-b1b9baf8-d002-4679-8478-8c30f10c81df.png" alt="Girl in a jacket" width="300" height="600">
+
 Quiz Screen
 
+<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
+
 Quiz Result Screen
+
+<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
 
 Conclusion
 
