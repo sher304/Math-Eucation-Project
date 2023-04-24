@@ -32,7 +32,8 @@ Home Screen
 <img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
 
 Book Screen
-<img src="https://user-images.githubusercontent.com/87121837/234062353-c5026ec7-81e7-41a4-9483-741c3f59f63c.png" alt="Girl in a jacket" width="300" height="600">
+
+<img src="https://user-images.githubusercontent.com/87121837/234064373-5b1330e4-54c7-4c78-9f02-e64a5378a0ac.png" alt="Girl in a jacket" width="300" height="600">
 
 Topic Screen
 
