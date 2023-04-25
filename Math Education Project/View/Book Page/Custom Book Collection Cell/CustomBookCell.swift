@@ -39,7 +39,9 @@ class CustomBookCell: UICollectionViewCell{
         let label = UILabel()
         label.text = "Название темы"
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
-        label.font = .systemFont(ofSize: 40, weight: .bold)
+        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.numberOfLines = 0
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -71,6 +73,7 @@ class CustomBookCell: UICollectionViewCell{
         let imageV = UIImageView()
         imageV.backgroundColor = .systemGray4
         imageV.layer.cornerRadius = 15
+        imageV.layer.masksToBounds = true
         return imageV
     }()
     
@@ -141,7 +144,9 @@ class CustomBookCell: UICollectionViewCell{
         topParentView.addSubview(headerTitle)
         headerTitle.snp.makeConstraints { make in
             make.leading.equalTo(backButton.snp.trailing).offset(8)
+            make.trailing.equalTo(-10)
             make.centerY.equalTo(backButton)
+            make.height.equalTo(40)
         }
         
         topParentView.addSubview(descriptionLabel)

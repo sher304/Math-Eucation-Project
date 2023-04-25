@@ -201,8 +201,8 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
         let data = self.topic.value[indexPath.row]
         let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
-        let examplePhotos = self.topic.value[indexPath.row].examples[indexPath.row].examplePhotos[indexPath.row].photo
-        cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos, delegate: self)
+        let examplePhotos: String? = self.topic.value[indexPath.row].examples[indexPath.row].examplePhotos[indexPath.row].photo
+        cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos ?? "nil", delegate: self)
         return cell
     }
     
