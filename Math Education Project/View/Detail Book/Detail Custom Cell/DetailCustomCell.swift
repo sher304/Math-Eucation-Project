@@ -26,6 +26,8 @@ class DetailCustomCell: UITableViewCell{
         collectionV.register(DetailCollectionCell.self, forCellWithReuseIdentifier: DetailCollectionCell.identifier)
         collectionV.delegate = self
         collectionV.dataSource = self
+        collectionV.showsHorizontalScrollIndicator = false
+        collectionV.isScrollEnabled = false 
         return collectionV
     }()
     

@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     var topics = Dynamic(Topics())
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 250)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 320)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -190,7 +190,7 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.topics.value.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
