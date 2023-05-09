@@ -45,7 +45,7 @@ class CustomTableViewCell: UITableViewCell {
     
     public func fillData(title: String, image: String){
         DispatchQueue.main.async {
-            self.degreeLabel.text = title
+            self.degreeLabel.text = title.replacingOccurrences(of: "Математика", with: "").trimmingCharacters(in: .whitespaces)
             self.parentView.kf.setImage(with: URL(string: image))
         }
     }

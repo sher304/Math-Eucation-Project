@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     var topics = Dynamic(Topics())
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 400)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 250)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -106,6 +106,8 @@ class DetailViewController: UIViewController {
         table.register(DetailCustomCell.self, forCellReuseIdentifier: DetailCustomCell.identifier)
         table.delegate = self
         table.dataSource = self
+        table.isScrollEnabled = false
+        table.showsHorizontalScrollIndicator = false
         return table
     }()
 
@@ -155,16 +157,11 @@ class DetailViewController: UIViewController {
             make.top.equalTo(navigationParentView.snp.bottom).offset(38)
         }
         
-        contentView.addSubview(degreeTitle)
-        degreeTitle.snp.makeConstraints { make in
-            make.leading.equalTo(mathTitle)
-            make.top.equalTo(mathTitle.snp.bottom)
-        }
         
         contentView.addSubview(aboutCourse)
         aboutCourse.snp.makeConstraints { make in
-            make.leading.equalTo(degreeTitle)
-            make.top.equalTo(degreeTitle.snp.bottom).offset(53)
+            make.leading.equalTo(mathTitle)
+            make.top.equalTo(mathTitle.snp.bottom).offset(33)
         }
         
         contentView.addSubview(descriptionLabel)
@@ -211,6 +208,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 extension DetailViewController: DetailViewDelegate{
     func fetchTopics(topics: Topics){
         DispatchQueue.main.async {
+            self.degreeTitle.text = topics.first?.text
             self.topics.value = topics
             self.coursesTable.reloadData()
         }

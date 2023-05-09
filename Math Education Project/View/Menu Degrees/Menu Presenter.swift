@@ -9,7 +9,6 @@ import Foundation
 
 protocol MenuPresenterDelegate{
     init(view: MenuViewDelegate)
-    
     func viewDidLoad()
 }
 
@@ -22,9 +21,6 @@ class MenuPresenter: MenuPresenterDelegate{
     }
     
     func viewDidLoad(){
-        print("View Did Load")
-        
+                
     }
-    
-    
 }

@@ -93,10 +93,10 @@ class BookViewController: UIViewController {
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         view.backgroundColor = .white
         view.addTopShadow()
-
+        
         return view
     }()
-
+    
     private lazy var previusButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Предыдущий ", for: .normal)
@@ -200,9 +200,17 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
         let data = self.topic.value[indexPath.row]
-        let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
-        let examplePhotos: String? = self.topic.value[indexPath.row].examples[indexPath.row].examplePhotos[indexPath.row].photo
-        cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos ?? "nil", delegate: self)
+        if indexPath.row < data.examples[indexPath.row].examplePhotos.count{
+            let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
+            if indexPath.row < data.photos.count{
+                let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
+                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos ?? "nil", delegate: self)
+            }else{
+                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
+            }
+        }else{
+            cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
+        }
         return cell
     }
     
