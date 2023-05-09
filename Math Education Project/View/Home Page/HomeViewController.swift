@@ -66,7 +66,6 @@ class HomeViewController: UIViewController {
     
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
-//        label.text = "Слоган"
         label.font = .systemFont(ofSize: 48, weight: .bold)
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         return label
@@ -173,10 +172,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         let detailVC = DetailDependensy.build()
         navigationController?.pushViewController(detailVC, animated: true)
     }
-}
-
-extension HomeViewController{
-    
 }
 
 extension HomeViewController: HomeViewDelegate{
