@@ -10,10 +10,11 @@ import Foundation
 protocol DetailPresenterDelegate {
     init(view: DetailViewController)
     func viewDidLoad()
+    func getUnitId(id: Int)
     
 }
 
-class DetailPresenter: DetailDependensy{
+class DetailPresenter: DetailPresenterDelegate{
     
     private weak var view: DetailViewDelegate?
     
@@ -25,15 +26,20 @@ class DetailPresenter: DetailDependensy{
     }
     
     func viewDidLoad(){
-        APiAuth().getTopics { data in
+        let unitId = defautls.integer(forKey: "unitID")
+        APiAuth().getUnit(id: unitId) { data in
             switch data{
             case.success(let data):
-                self.view?.fetchTopics(topics: data)
+                self.view?.fetchTopics(unit: [data])
                 break
             case.failure(_):
                 break
             }
         }
+    }
+    
+    func getUnitId(id: Int){
+        defautls.set(id, forKey: "unitID")
     }
     
     func getById(id: Int){

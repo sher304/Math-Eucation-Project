@@ -39,9 +39,10 @@ class CustomBookCell: UICollectionViewCell{
         let label = UILabel()
         label.text = "Название темы"
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
-        label.font = .systemFont(ofSize: 30, weight: .bold)
+        label.font = .systemFont(ofSize: 22, weight: .bold)
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
+        label.textAlignment = .center
         return label
     }()
     
@@ -79,7 +80,7 @@ class CustomBookCell: UICollectionViewCell{
     
     private lazy var expampleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Пример"
+        label.text = "Мисалы"
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         label.font = .systemFont(ofSize: 20, weight: .bold)
         return label
@@ -90,6 +91,7 @@ class CustomBookCell: UICollectionViewCell{
         label.text = "Описание "
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -108,6 +110,7 @@ class CustomBookCell: UICollectionViewCell{
     override func layoutSubviews() {
         super.layoutSubviews()
         setupCostraints()
+        
     }
     
     public func fillData(title: String, theory: String,
@@ -115,12 +118,12 @@ class CustomBookCell: UICollectionViewCell{
         self.delegate = delegate
         DispatchQueue.main.async {
             self.headerTitle.text = title
-            self.descriptionLabel.text = descirption
+//            self.descriptionLabel.text = descirption
+//
+//            self.theoryLabel.text = theory
+//            self.descirptionTheoryLabel.text = descirption
             
-            self.theoryLabel.text = theory
-            self.descirptionTheoryLabel.text = descirption
-            
-            self.expampleLabel.text = theory
+//            self.expampleLabel.text = theory
             self.descirptionExampleLabel.text = descirption
             self.mainImage.kf.setImage(with: URL(string: mainImage))
         }
@@ -136,24 +139,25 @@ class CustomBookCell: UICollectionViewCell{
         
         topParentView.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(20)
+//            make.centerY.equalToSuperview()
+            make.leading.equalTo(10)
             make.height.width.equalTo(37)
+            make.top.equalToSuperview()
         }
         
         topParentView.addSubview(headerTitle)
         headerTitle.snp.makeConstraints { make in
-            make.leading.equalTo(backButton.snp.trailing).offset(8)
-            make.trailing.equalTo(-10)
-            make.centerY.equalTo(backButton)
-            make.height.equalTo(40)
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview().offset(-5)
+            make.trailing.equalTo(-15)
+//            make.bottom.equalTo(-10)
         }
         
-        topParentView.addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(headerTitle.snp.bottom).offset(9)
-        }
+//        topParentView.addSubview(descriptionLabel)
+//        descriptionLabel.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.top.equalTo(headerTitle.snp.bottom).offset(9)
+//        }
         
         contentView.addSubview(theoryLabel)
         theoryLabel.snp.makeConstraints { make in
@@ -185,6 +189,7 @@ class CustomBookCell: UICollectionViewCell{
         descirptionExampleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(expampleLabel.snp.bottom).offset(5)
+            make.trailing.equalTo(-20)
         }
         
         contentView.addSubview(imagesCollection)
@@ -195,6 +200,7 @@ class CustomBookCell: UICollectionViewCell{
             make.top.equalTo(descirptionExampleLabel.snp.bottom).offset(54)
         }
     }
+    
     
     @objc func backDidTapped(){
         delegate.backDidTapped()

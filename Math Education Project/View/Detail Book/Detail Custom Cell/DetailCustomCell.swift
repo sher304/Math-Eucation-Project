@@ -17,7 +17,9 @@ class DetailCustomCell: UITableViewCell{
     
     static let identifier = "CustomCell"
     
-    var topics = Dynamic(Topics())
+    var delegate: DetailCellDelegate!
+    
+    var unit = Dynamic([Unit]())
     
     private lazy var coursesCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,10 +28,11 @@ class DetailCustomCell: UITableViewCell{
         collectionV.register(DetailCollectionCell.self, forCellWithReuseIdentifier: DetailCollectionCell.identifier)
         collectionV.delegate = self
         collectionV.dataSource = self
+        collectionV.showsHorizontalScrollIndicator = false
+        collectionV.isScrollEnabled = false 
         return collectionV
     }()
     
-    var delegate: DetailCellDelegate!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -37,8 +40,8 @@ class DetailCustomCell: UITableViewCell{
     }
     
     
-    public func fillData(topics: Topics, delegate: DetailCellDelegate){
-        self.topics.value = topics
+    public func fillData(unit: [Unit], delegate: DetailCellDelegate){
+        self.unit.value = unit
         self.delegate = delegate
         self.coursesCollection.reloadData()
     }
@@ -49,21 +52,20 @@ class DetailCustomCell: UITableViewCell{
             make.bottom.top.equalToSuperview()
             make.leading.equalTo(8)
             make.trailing.equalTo(-8)
-            
         }
     }
 }
 
 extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.topics.value.count
+        return self.unit.value.first?.topics.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as? 
                 DetailCollectionCell else { return DetailCollectionCell()}
-        let data = self.topics.value
-        cell.fillData(title: data[indexPath.row].title, text: data[indexPath.row].text)
+        let data = self.unit.value.first?.topics[indexPath.row]
+        cell.fillData(title: data?.title ?? "")
         return cell
     }
     
@@ -72,7 +74,8 @@ extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate.didTapped(id: self.topics.value[indexPath.row].id)
+
+        delegate.didTapped(id: self.unit.value.first?.topics[indexPath.row].id ?? 0)
     }
 }
 

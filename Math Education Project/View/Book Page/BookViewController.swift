@@ -122,6 +122,8 @@ class BookViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         setupConstraints()
+        enableBackSwipe()
+        
     }
     
     private func setupConstraints(){
@@ -184,6 +186,18 @@ class BookViewController: UIViewController {
             make.top.equalTo(17)
             make.bottom.equalTo(-16)
             make.width.equalTo(167)
+        }
+    }
+    
+    func enableBackSwipe() {
+        let backSwipeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleBackSwipe(_:)))
+        backSwipeGesture.edges = .left
+        self.view.addGestureRecognizer(backSwipeGesture)
+    }
+
+    @objc func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        if gestureRecognizer.state == .recognized {
+            navigationController?.popViewController(animated: true)
         }
     }
     

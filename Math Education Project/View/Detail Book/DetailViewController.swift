@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol DetailViewDelegate: AnyObject{
-    func fetchTopics(topics: Topics)
+    func fetchTopics(unit: [Unit])
 }
 
 
@@ -17,9 +17,9 @@ class DetailViewController: UIViewController {
     
     var presenter: DetailPresenter!
     
-    var topics = Dynamic(Topics())
+    var unit = Dynamic([Unit]())
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 250)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 320)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         return view
     }()
-
+    
     private lazy var navigationParentView: UIView = {
         let view = UIView()
         view.backgroundColor = .black
@@ -76,7 +76,7 @@ class DetailViewController: UIViewController {
         return label
     }()
     
-
+    
     private lazy var degreeTitle: UILabel = {
         let label = UILabel()
         label.text = "1 класс"
@@ -110,7 +110,7 @@ class DetailViewController: UIViewController {
         table.showsHorizontalScrollIndicator = false
         return table
     }()
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,12 +190,12 @@ class DetailViewController: UIViewController {
 
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.topics.value.count
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailCustomCell()
-        cell.fillData(topics: self.topics.value, delegate: self)
+        cell.fillData(unit: self.unit.value, delegate: self)
         return cell
     }
     
@@ -206,10 +206,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension DetailViewController: DetailViewDelegate{
-    func fetchTopics(topics: Topics){
+    func fetchTopics(unit: [Unit]){
         DispatchQueue.main.async {
-            self.degreeTitle.text = topics.first?.text
-            self.topics.value = topics
+            self.unit.value = unit
             self.coursesTable.reloadData()
         }
     }
