@@ -98,7 +98,6 @@ class CustomBookCell: UICollectionViewCell{
         DispatchQueue.main.async {
             self.headerTitle.text = title
             self.theoryLabel.text = theory
-            self.expampleLabel.text = example.first?.text
 
             self.mainImage.kf.setImage(with: URL(string: "https://imgbox.com/qXqzktkW"))
 
@@ -131,9 +130,9 @@ class CustomBookCell: UICollectionViewCell{
         
         contentView.addSubview(theoryLabel)
         theoryLabel.snp.makeConstraints { make in
-            make.leading.equalTo(5)
             make.top.equalTo(topParentView.snp.bottom).offset(33)
-            make.trailing.equalTo(-5)
+            make.width.equalTo(contentView.frame.width - 20)
+            make.centerX.equalToSuperview()
         }
         
         
@@ -149,7 +148,6 @@ class CustomBookCell: UICollectionViewCell{
         expampleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(mainImage.snp.bottom).offset(12)
-            make.trailing.equalTo(-5)
         }
         
         contentView.addSubview(imagesCollection)
