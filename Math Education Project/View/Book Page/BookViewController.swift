@@ -23,7 +23,7 @@ class BookViewController: UIViewController {
     
     var presenter: BookPresenterDelegate!
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 1300)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * 15)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -230,8 +230,7 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
         
 //        let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
 //        let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
-
-        cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "mainPhotos", example: self.topic.value[indexPath.row].examples, delegate: self)
+        cell.fillData(title: data.title, theory: data.text, mainImage: "mainPhotos", example: self.topic.value[indexPath.row].examples, delegate: self)
         return cell
     }
     

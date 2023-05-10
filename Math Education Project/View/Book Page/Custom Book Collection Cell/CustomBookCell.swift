@@ -46,28 +46,13 @@ class CustomBookCell: UICollectionViewCell{
         label.textAlignment = .center
         return label
     }()
-    
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Математика | 1 класс | Глава 2"
-        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
-        label.font = .systemFont(ofSize: 15, weight: .semibold)
-        return label
-    }()
-    
+
     private lazy var theoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Теория"
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         label.font = .systemFont(ofSize: 20, weight: .bold)
-        return label
-    }()
-    
-    private lazy var descirptionTheoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Описание "
-        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -84,14 +69,6 @@ class CustomBookCell: UICollectionViewCell{
         label.text = "Мисалы"
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         label.font = .systemFont(ofSize: 20, weight: .bold)
-        return label
-    }()
-    
-    private lazy var descirptionExampleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Описание "
-        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
-        label.font = .systemFont(ofSize: 16, weight: .regular)
         label.numberOfLines = 0
         return label
     }()
@@ -103,6 +80,7 @@ class CustomBookCell: UICollectionViewCell{
         collectionV.register(CustomExamplesCell.self, forCellWithReuseIdentifier: CustomExamplesCell.identifier)
         collectionV.delegate = self
         collectionV.dataSource = self
+        collectionV.isScrollEnabled = false
         return collectionV
     }()
     
@@ -114,20 +92,16 @@ class CustomBookCell: UICollectionViewCell{
         
     }
     
-    public func fillData(title: String, theory: String,
-                         descirption: String, mainImage: String, example: [Example], delegate: BookCellDelegate){
+    public func fillData(title: String, theory: String, mainImage: String,
+                         example: [Example], delegate: BookCellDelegate){
         self.delegate = delegate
         DispatchQueue.main.async {
             self.headerTitle.text = title
-//            self.descriptionLabel.text = descirption
-            
             self.theoryLabel.text = theory
-            self.descirptionTheoryLabel.text = descirption
-            
-            self.expampleLabel.text = theory
-            self.descirptionExampleLabel.text = descirption
-            
-            self.mainImage.kf.setImage(with: URL(string: mainImage))
+            self.expampleLabel.text = example.first?.text
+
+            self.mainImage.kf.setImage(with: URL(string: "https://imgbox.com/qXqzktkW"))
+
             self.exmaplesData.value = example
             self.imagesCollection.reloadData()
         }
@@ -157,21 +131,17 @@ class CustomBookCell: UICollectionViewCell{
         
         contentView.addSubview(theoryLabel)
         theoryLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.leading.equalTo(5)
             make.top.equalTo(topParentView.snp.bottom).offset(33)
+            make.trailing.equalTo(-5)
         }
         
-        contentView.addSubview(descirptionTheoryLabel)
-        descirptionTheoryLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(theoryLabel.snp.bottom).offset(5)
-        }
         
         contentView.addSubview(mainImage)
         mainImage.snp.makeConstraints { make in
             make.leading.equalTo(21)
             make.trailing.equalTo(-22)
-            make.top.equalTo(descirptionTheoryLabel.snp.bottom).offset(54)
+            make.top.equalTo(theoryLabel.snp.bottom).offset(54)
             make.height.equalTo(152)
         }
         
@@ -179,13 +149,7 @@ class CustomBookCell: UICollectionViewCell{
         expampleLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(mainImage.snp.bottom).offset(12)
-        }
-        
-        contentView.addSubview(descirptionExampleLabel)
-        descirptionExampleLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(expampleLabel.snp.bottom).offset(5)
-            make.trailing.equalTo(-20)
+            make.trailing.equalTo(-5)
         }
         
         contentView.addSubview(imagesCollection)
@@ -193,7 +157,7 @@ class CustomBookCell: UICollectionViewCell{
             make.leading.equalTo(10)
             make.trailing.equalTo(-10)
             make.bottom.equalToSuperview()
-            make.top.equalTo(descirptionExampleLabel.snp.bottom).offset(54)
+            make.top.equalTo(expampleLabel.snp.bottom).offset(54)
         }
     }
     
@@ -211,12 +175,13 @@ extension CustomBookCell: UICollectionViewDataSource, UICollectionViewDelegateFl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomExamplesCell.identifier, for: indexPath) as? CustomExamplesCell else { return CustomExamplesCell()}
         let imagesData = self.exmaplesData.value.first?.examplePhotos[indexPath.row].photo ?? "nil"
-        cell.setExmapleImage(image: imagesData)
+        let data = self.exmaplesData.value.first
+        cell.setExmapleImage(image: imagesData,
+                             text: data?.exampleNumbers[indexPath.row].text ?? "zero")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 84)
+        return CGSize(width: self.contentView.frame.width - 20, height: 290)
     }
-    
 }
