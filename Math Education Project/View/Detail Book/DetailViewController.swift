@@ -114,6 +114,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        enableBackSwipe()
         presenter.viewDidLoad()
         setupConstraints()
         
@@ -174,6 +175,18 @@ class DetailViewController: UIViewController {
         coursesTable.snp.makeConstraints { make in
             make.leading.trailing.bottom.equalToSuperview()
             make.top.equalTo(descriptionLabel.snp.bottom).offset(80)
+        }
+    }
+    
+    func enableBackSwipe(){
+        let backSwipeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleBackSwipe(_:)))
+        backSwipeGesture.edges = .left
+        self.view.addGestureRecognizer(backSwipeGesture)
+    }
+
+    @objc func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        if gestureRecognizer.state == .recognized {
+            navigationController?.popViewController(animated: true)
         }
     }
     

@@ -212,19 +212,26 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
         let data = self.topic.value[indexPath.row]
-        if indexPath.row < data.examples[indexPath.row].examplePhotos.count{
-            let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
-            if indexPath.row < data.photos.count{
-                let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
-                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos ?? "nil", delegate: self)
-            }else{
-                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
-            }
-        }else{
-            cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
-        }
+//        if indexPath.row < data.examples[indexPath.row].examplePhotos.count{
+//            let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
+//            if indexPath.row < data.photos.count{
+//                let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
+//                print(mainPhotos, examplePhotos)
+//                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos ?? "nil", delegate: self)
+//            }else{
+//                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
+//            }
+//        }else{
+//            cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
+//        }
+        
+//        let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
+//        let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
+
+        cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "mainPhotos", example: self.topic.value[indexPath.row].examples, delegate: self)
         return cell
     }
     
