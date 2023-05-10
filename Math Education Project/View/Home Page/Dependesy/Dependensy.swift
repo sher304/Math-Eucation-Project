@@ -14,6 +14,10 @@ class HomeDependensy{
         let homeView = HomeViewController()
         let presenter = HomePresneter(homeView: homeView)
         homeView.presenter = presenter
+        
+        let detailV = DetailViewController()
+        let detailPresenter = DetailPresenter(view: detailV)
+        presenter.delegate = detailPresenter
         return homeView
     }
 }

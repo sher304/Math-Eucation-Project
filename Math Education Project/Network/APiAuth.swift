@@ -18,8 +18,8 @@ class APiAuth{
         Network.getQuiz(id: topic, completion: completion)
     }
     
-    func getTopics(completion: @escaping(Result<Topics,Error>) -> Void){
-        Network.getTopics(method: "GET", completion: completion)
+    func getUnit(id: Int, completion: @escaping(Result<Unit,Error>) -> Void){
+        Network.getUnits(id: id, method: "GET", completion: completion)
     }
     
     func getTopics(id: Int, completion: @escaping(Result<SingleTopic,Error>) -> Void){

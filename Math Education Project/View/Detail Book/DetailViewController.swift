@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol DetailViewDelegate: AnyObject{
-    func fetchTopics(topics: Topics)
+    func fetchTopics(unit: Unit)
 }
 
 
@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
     
     var presenter: DetailPresenter!
     
-    var topics = Dynamic(Topics())
+    var unit = Dynamic(Unit(id: Int(), title: String(), text: String(), course: Int(), topics: []))
     
     private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 320)
     
@@ -195,7 +195,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = DetailCustomCell()
-        cell.fillData(topics: self.topics.value, delegate: self)
+        cell.fillData(topics: self.unit.value, delegate: self)
         return cell
     }
     
@@ -206,10 +206,10 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 }
 
 extension DetailViewController: DetailViewDelegate{
-    func fetchTopics(topics: Topics){
+    func fetchTopics(unit: Unit){
         DispatchQueue.main.async {
-            self.degreeTitle.text = topics.first?.text
-            self.topics.value = topics
+            self.degreeTitle.text = unit.title
+            self.unit.value = unit
             self.coursesTable.reloadData()
         }
     }

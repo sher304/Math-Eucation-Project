@@ -103,3 +103,10 @@ struct Photo: Codable {
 }
 
 
+// MARK: - Unit
+struct Unit: Codable {
+    let id: Int
+    let title, text: String
+    let course: Int
+    let topics: [Topic]
+}

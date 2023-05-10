@@ -117,7 +117,6 @@ class CustomBookCell: UICollectionViewCell{
                          descirption: String, mainImage: String, otherImages: String, delegate: BookCellDelegate){
         self.delegate = delegate
         DispatchQueue.main.async {
-            print(title, descirption)
             self.headerTitle.text = title
 //            self.descriptionLabel.text = descirption
 //

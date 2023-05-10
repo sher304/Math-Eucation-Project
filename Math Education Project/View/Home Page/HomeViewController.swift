@@ -169,6 +169,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.getUnitId(id: self.courses.value[indexPath.row].id)
         let detailVC = DetailDependensy.build()
         navigationController?.pushViewController(detailVC, animated: true)
     }

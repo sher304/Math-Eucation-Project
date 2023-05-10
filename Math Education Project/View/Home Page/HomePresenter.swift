@@ -10,6 +10,7 @@ import Foundation
 protocol HomePresenterDelegate{
     init(homeView: HomeViewDelegate)
     func viewDidLoad()
+    func getUnitId(id: Int)
     
 }
 
@@ -17,6 +18,7 @@ protocol HomePresenterDelegate{
 class HomePresneter: HomePresenterDelegate{
     
     private weak var homeView: HomeViewDelegate?
+    var delegate: DetailPresenterDelegate!
     
     var courses = Dynamic(Course())
     
@@ -34,6 +36,12 @@ class HomePresneter: HomePresenterDelegate{
     
     required init(homeView: HomeViewDelegate) {
         self.homeView = homeView
+    }
+    
+    func getUnitId(id: Int){
+        print(id)
+        UserDefaults.resetStandardUserDefaults()
+        delegate.getUnitId(id: id)
     }
     
 }
