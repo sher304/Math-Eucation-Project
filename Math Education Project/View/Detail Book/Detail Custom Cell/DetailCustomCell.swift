@@ -40,8 +40,8 @@ class DetailCustomCell: UITableViewCell{
     }
     
     
-    public func fillData(topics: Unit, delegate: DetailCellDelegate){
-        self.unit.value = [topics]
+    public func fillData(unit: [Unit], delegate: DetailCellDelegate){
+        self.unit.value = unit
         self.delegate = delegate
         self.coursesCollection.reloadData()
     }
@@ -52,21 +52,20 @@ class DetailCustomCell: UITableViewCell{
             make.bottom.top.equalToSuperview()
             make.leading.equalTo(8)
             make.trailing.equalTo(-8)
-            
         }
     }
 }
 
 extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.unit.value.count
+        return self.unit.value.first?.topics.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as? 
                 DetailCollectionCell else { return DetailCollectionCell()}
-        let data = self.unit.value
-        cell.fillData(title: data[indexPath.row].title)
+        let data = self.unit.value.first?.topics[indexPath.row]
+        cell.fillData(title: data?.title ?? "")
         return cell
     }
     
@@ -75,8 +74,8 @@ extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(self.unit.value[indexPath.row].id)
-        delegate.didTapped(id: self.unit.value[indexPath.row].id)
+
+        delegate.didTapped(id: self.unit.value.first?.topics[indexPath.row].id ?? 0)
     }
 }
 

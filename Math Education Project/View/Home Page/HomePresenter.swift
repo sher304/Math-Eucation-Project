@@ -39,7 +39,6 @@ class HomePresneter: HomePresenterDelegate{
     }
     
     func getUnitId(id: Int){
-        print(id)
         UserDefaults.resetStandardUserDefaults()
         delegate.getUnitId(id: id)
     }

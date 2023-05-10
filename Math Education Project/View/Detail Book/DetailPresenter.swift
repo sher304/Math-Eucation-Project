@@ -30,8 +30,7 @@ class DetailPresenter: DetailPresenterDelegate{
         APiAuth().getUnit(id: unitId) { data in
             switch data{
             case.success(let data):
-                print(data)
-                self.view?.fetchTopics(unit: data)
+                self.view?.fetchTopics(unit: [data])
                 break
             case.failure(_):
                 break
