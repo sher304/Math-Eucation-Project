@@ -14,6 +14,11 @@ class BookDependensy {
         let view = BookViewController()
         let presenter = BookPresenter(view: view)
         view.presenter = presenter
+        
+        let quizVC = QuizViewController()
+        let quizPresenter = QuizPresenter(view: quizVC)
+        presenter.quizPresenter = quizPresenter
+        
         return view
     }
 }

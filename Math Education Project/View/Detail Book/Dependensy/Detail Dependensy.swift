@@ -17,6 +17,7 @@ class DetailDependensy{
         let bookVC = BookViewController()
         let bookPresneter = BookPresenter(view: bookVC)
         presenter.delegate = bookPresneter
+        
         return view
     }
 }

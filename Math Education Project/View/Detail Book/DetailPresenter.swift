@@ -11,7 +11,6 @@ protocol DetailPresenterDelegate {
     init(view: DetailViewController)
     func viewDidLoad()
     func getUnitId(id: Int)
-    
 }
 
 class DetailPresenter: DetailPresenterDelegate{
@@ -46,4 +45,5 @@ class DetailPresenter: DetailPresenterDelegate{
         UserDefaults.resetStandardUserDefaults()
         delegate.getId(id: id)
     }
+
 }

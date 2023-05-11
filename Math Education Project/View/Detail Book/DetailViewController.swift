@@ -191,7 +191,7 @@ class DetailViewController: UIViewController {
     }
     
     @objc func burgerDidTapped(){
-        present(MenuDependensy.build(), animated: true)
+        navigationController?.pushViewController(MenuDependensy.build(), animated: true)
     }
     
     
