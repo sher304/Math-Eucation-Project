@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628C729EBFA1800BB2F67 /* HomePresenter.swift */; };
 		601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CA29EBFB9700BB2F67 /* Dependensy.swift */; };
-		601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628CD29EC5B5A00BB2F67 /* Extensions.swift */; };
 		601628D129EC632600BB2F67 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D029EC632600BB2F67 /* CustomTableViewCell.swift */; };
 		601628D429ED060700BB2F67 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D329ED060700BB2F67 /* MenuViewController.swift */; };
 		601628D629ED062700BB2F67 /* Menu Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628D529ED062700BB2F67 /* Menu Presenter.swift */; };
@@ -20,6 +19,7 @@
 		601628E429ED219200BB2F67 /* DetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E329ED219200BB2F67 /* DetailCustomCell.swift */; };
 		601628E729ED225500BB2F67 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E629ED225500BB2F67 /* DetailCollectionCell.swift */; };
 		608E2D032A0C0E9A00DD7D7F /* Custom Examples Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D022A0C0E9A00DD7D7F /* Custom Examples Cell.swift */; };
+		608E2D082A0D796B00DD7D7F /* testV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D072A0D796B00DD7D7F /* testV.swift */; };
 		60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0D29EBF8F200780255 /* AppDelegate.swift */; };
 		60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0F29EBF8F200780255 /* SceneDelegate.swift */; };
 		60B84D1229EBF8F200780255 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* HomeViewController.swift */; };
@@ -50,7 +50,6 @@
 		40EE60902D8697B4192DB453 /* Pods_Math_Education_Project.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Math_Education_Project.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		601628C729EBFA1800BB2F67 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		601628CA29EBFB9700BB2F67 /* Dependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependensy.swift; sourceTree = "<group>"; };
-		601628CD29EC5B5A00BB2F67 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		601628D029EC632600BB2F67 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		601628D329ED060700BB2F67 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		601628D529ED062700BB2F67 /* Menu Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Menu Presenter.swift"; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		601628E329ED219200BB2F67 /* DetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomCell.swift; sourceTree = "<group>"; };
 		601628E629ED225500BB2F67 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
 		608E2D022A0C0E9A00DD7D7F /* Custom Examples Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Examples Cell.swift"; sourceTree = "<group>"; };
+		608E2D072A0D796B00DD7D7F /* testV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testV.swift; sourceTree = "<group>"; };
 		60B84D0A29EBF8F200780255 /* Math Education Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Math Education Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B84D0D29EBF8F200780255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B84D0F29EBF8F200780255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +119,7 @@
 				601628DA29ED1D5200BB2F67 /* Detail Book */,
 				601628D229ED05EC00BB2F67 /* Menu Degrees */,
 				601628C629EBF9B700BB2F67 /* Home Page */,
+				608E2D072A0D796B00DD7D7F /* testV.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,14 +169,6 @@
 				601628CA29EBFB9700BB2F67 /* Dependensy.swift */,
 			);
 			path = Dependesy;
-			sourceTree = "<group>";
-		};
-		601628CC29EC5B4C00BB2F67 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				601628CD29EC5B5A00BB2F67 /* Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		601628CF29EC631100BB2F67 /* Table Cell */ = {
@@ -263,7 +256,6 @@
 			children = (
 				60F3EAE929F58B700010F5C8 /* Extension */,
 				60F3EACB29F1AD2E0010F5C8 /* Dynamic */,
-				601628CC29EC5B4C00BB2F67 /* Extensions */,
 				601628C529EBF99F00BB2F67 /* Utils */,
 				601628C429EBF99A00BB2F67 /* Network */,
 				601628C329EBF99700BB2F67 /* Model */,
@@ -510,6 +502,7 @@
 				601628DF29ED207000BB2F67 /* Detail Dependensy.swift in Sources */,
 				60F3EAD329F2F18A0010F5C8 /* Result Presenter.swift in Sources */,
 				60F3EAC629EF05640010F5C8 /* QuizViewController.swift in Sources */,
+				608E2D082A0D796B00DD7D7F /* testV.swift in Sources */,
 				60F3EADE29F4532F0010F5C8 /* Book Presenter.swift in Sources */,
 				60F3EAD629F2F1970010F5C8 /* ResultViewController.swift in Sources */,
 				608E2D032A0C0E9A00DD7D7F /* Custom Examples Cell.swift in Sources */,
@@ -528,7 +521,6 @@
 				60F3EAC029ED31630010F5C8 /* Models.swift in Sources */,
 				60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */,
 				60F3EAD029F1B9FB0010F5C8 /* Custom Collection Cell.swift in Sources */,
-				601628CE29EC5B5A00BB2F67 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
