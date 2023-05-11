@@ -40,16 +40,6 @@ class CustomCollectionCell: UICollectionViewCell{
         
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
-        
-        let maxWidth: CGFloat = 200
-        let maxHeight: CGFloat = 170
-        if button.frame.width > maxWidth {
-            button.frame.size.width = maxWidth
-        }
-        if button.frame.height > maxHeight {
-            button.frame.size.width = maxHeight
-        }
-
         return button
     }()
     
@@ -69,17 +59,6 @@ class CustomCollectionCell: UICollectionViewCell{
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
         button.sizeToFit()
-        
-        let maxWidth: CGFloat = 200
-        let maxHeight: CGFloat = 170
-        if button.frame.width > maxWidth {
-            button.frame.size.width = maxWidth
-        }
-        if button.frame.height > maxHeight {
-            button.frame.size.width = maxHeight
-        }
-
-        
         return button
     }()
     
@@ -100,17 +79,6 @@ class CustomCollectionCell: UICollectionViewCell{
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
         button.sizeToFit()
-        
-        let maxWidth: CGFloat = 200
-        let maxHeight: CGFloat = 170
-        if button.frame.width > maxWidth {
-            button.frame.size.width = maxWidth
-        }
-        
-        if button.frame.height > maxHeight {
-            button.frame.size.width = maxHeight
-        }
-
         return button
     }()
     
@@ -130,15 +98,6 @@ class CustomCollectionCell: UICollectionViewCell{
         
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
-        let maxWidth: CGFloat = 150
-        let maxHeight: CGFloat = 170
-        if button.frame.width > maxWidth {
-            button.frame.size.width = maxWidth
-        }
-        if button.frame.height > maxHeight {
-            button.frame.size.width = maxHeight
-        }
-
         return button
     }()
     
@@ -192,7 +151,7 @@ class CustomCollectionCell: UICollectionViewCell{
             make.leading.equalTo(20)
             make.centerY.equalToSuperview()
             make.height.equalTo(90)
-            make.width.equalTo(130)
+            make.width.equalTo(170)
         }
         
         contentView.addSubview(answerTwo)
@@ -200,7 +159,7 @@ class CustomCollectionCell: UICollectionViewCell{
             make.leading.equalTo(answerOne)
             make.top.equalTo(answerOne.snp.bottom).offset(30)
             make.height.equalTo(90)
-            make.width.equalTo(130)
+            make.width.equalTo(170)
         }
         
         contentView.addSubview(answerThree)
@@ -208,7 +167,7 @@ class CustomCollectionCell: UICollectionViewCell{
             make.trailing.equalTo(-20)
             make.centerY.equalTo(answerOne)
             make.height.equalTo(90)
-            make.width.equalTo(130)
+            make.width.equalTo(170)
         }
         
         contentView.addSubview(answerFour)
@@ -216,7 +175,7 @@ class CustomCollectionCell: UICollectionViewCell{
             make.trailing.equalTo(answerThree)
             make.centerY.equalTo(answerTwo)
             make.height.equalTo(90)
-            make.width.equalTo(130)
+            make.width.equalTo(170)
         }
     }
     
