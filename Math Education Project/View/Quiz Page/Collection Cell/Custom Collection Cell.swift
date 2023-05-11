@@ -19,6 +19,8 @@ class CustomCollectionCell: UICollectionViewCell{
         label.text = "Question"
         label.textColor = .black
         label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.numberOfLines = 0
+        label.textAlignment = .center
         return label
     }()
     
@@ -33,7 +35,7 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
         configure.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer({ incoming in
             var outcoming = incoming
-            outcoming.font = .systemFont(ofSize: 22, weight: .semibold)
+            outcoming.font = .systemFont(ofSize: 14, weight: .semibold)
             return outcoming
         })
         
@@ -53,7 +55,7 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
         configure.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer({ incoming in
             var outcoming = incoming
-            outcoming.font = .systemFont(ofSize: 22, weight: .semibold)
+            outcoming.font = .systemFont(ofSize: 14, weight: .semibold)
             return outcoming
         })
         
@@ -73,7 +75,7 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
         configure.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer({ incoming in
             var outcoming = incoming
-            outcoming.font = .systemFont(ofSize: 22, weight: .semibold)
+            outcoming.font = .systemFont(ofSize: 14, weight: .semibold)
             return outcoming
         })
         
@@ -93,7 +95,7 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
         configure.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer({ incoming in
             var outcoming = incoming
-            outcoming.font = .systemFont(ofSize: 22, weight: .semibold)
+            outcoming.font = .systemFont(ofSize: 14, weight: .semibold)
             return outcoming
         })
         
@@ -138,7 +140,8 @@ class CustomCollectionCell: UICollectionViewCell{
     private func setupConstraints(){
         contentView.addSubview(questionTitle)
         questionTitle.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
+            make.leading.equalTo(5)
+            make.trailing.equalTo(-5)
             make.top.equalTo(contentView.safeAreaLayoutGuide).offset(40)
         }
         

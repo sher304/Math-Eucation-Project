@@ -27,7 +27,7 @@ class QuizPresenter: QuizPresenterDelegate{
     let defaults = UserDefaults.standard
     
     func viewDidLoad(){
-        APiAuth().getQuize(topic: 2) { data in
+        APiAuth().getQuize(topic: 9) { data in
             switch data{
             case.success(let data):
                 self.view?.getQuizez(quizes: data)
