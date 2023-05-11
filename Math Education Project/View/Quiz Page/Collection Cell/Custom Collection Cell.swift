@@ -29,7 +29,6 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.title = "15"
         configure.buttonSize = .large
         configure.image = UIImage(systemName: "circle")
-        configure.baseBackgroundColor = .orange
         configure.cornerStyle = .fixed
         configure.imagePadding = 15
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
@@ -41,6 +40,16 @@ class CustomCollectionCell: UICollectionViewCell{
         
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
+        
+        let maxWidth: CGFloat = 200
+        let maxHeight: CGFloat = 170
+        if button.frame.width > maxWidth {
+            button.frame.size.width = maxWidth
+        }
+        if button.frame.height > maxHeight {
+            button.frame.size.width = maxHeight
+        }
+
         return button
     }()
     
@@ -49,7 +58,6 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.title = "15"
         configure.buttonSize = .large
         configure.image = UIImage(systemName: "circle")
-        configure.baseBackgroundColor = .orange
         configure.cornerStyle = .fixed
         configure.imagePadding = 15
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
@@ -58,9 +66,20 @@ class CustomCollectionCell: UICollectionViewCell{
             outcoming.font = .systemFont(ofSize: 14, weight: .semibold)
             return outcoming
         })
-        
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
+        button.sizeToFit()
+        
+        let maxWidth: CGFloat = 200
+        let maxHeight: CGFloat = 170
+        if button.frame.width > maxWidth {
+            button.frame.size.width = maxWidth
+        }
+        if button.frame.height > maxHeight {
+            button.frame.size.width = maxHeight
+        }
+
+        
         return button
     }()
     
@@ -69,7 +88,6 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.title = "15"
         configure.buttonSize = .large
         configure.image = UIImage(systemName: "circle")
-        configure.baseBackgroundColor = .orange
         configure.cornerStyle = .fixed
         configure.imagePadding = 15
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
@@ -81,6 +99,18 @@ class CustomCollectionCell: UICollectionViewCell{
         
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
+        button.sizeToFit()
+        
+        let maxWidth: CGFloat = 200
+        let maxHeight: CGFloat = 170
+        if button.frame.width > maxWidth {
+            button.frame.size.width = maxWidth
+        }
+        
+        if button.frame.height > maxHeight {
+            button.frame.size.width = maxHeight
+        }
+
         return button
     }()
     
@@ -89,7 +119,6 @@ class CustomCollectionCell: UICollectionViewCell{
         configure.title = "15"
         configure.buttonSize = .large
         configure.image = UIImage(systemName: "circle")
-        configure.baseBackgroundColor = .orange
         configure.cornerStyle = .fixed
         configure.imagePadding = 15
         configure.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .large)
@@ -101,6 +130,15 @@ class CustomCollectionCell: UICollectionViewCell{
         
         let button = UIButton(configuration: configure)
         button.addTarget(self, action: #selector(answerDidSelected), for: .touchUpInside)
+        let maxWidth: CGFloat = 150
+        let maxHeight: CGFloat = 170
+        if button.frame.width > maxWidth {
+            button.frame.size.width = maxWidth
+        }
+        if button.frame.height > maxHeight {
+            button.frame.size.width = maxHeight
+        }
+
         return button
     }()
     
@@ -127,12 +165,16 @@ class CustomCollectionCell: UICollectionViewCell{
             self.questionTitle.text = question
             self.answerOne.setTitle(answers[0].text, for: .normal)
             self.answerOne.tag = answers[0].id
+            
             self.answerTwo.setTitle(answers[1].text, for: .normal)
             self.answerTwo.tag = answers[1].id
-            self.answerFour.setTitle(answers[2].text, for: .normal)
-            self.answerFour.tag = answers[2].id
+            
             self.answerThree.setTitle(answers[3].text, for: .normal)
             self.answerThree.tag = answers[3].id
+            
+            self.answerFour.setTitle(answers[2].text, for: .normal)
+            self.answerFour.tag = answers[2].id
+            
             self.delegate = delegate
         }
     }
@@ -149,32 +191,32 @@ class CustomCollectionCell: UICollectionViewCell{
         answerOne.snp.makeConstraints { make in
             make.leading.equalTo(20)
             make.centerY.equalToSuperview()
-            make.height.equalTo(60)
-            make.width.equalTo(120)
+            make.height.equalTo(90)
+            make.width.equalTo(130)
         }
         
         contentView.addSubview(answerTwo)
         answerTwo.snp.makeConstraints { make in
             make.leading.equalTo(answerOne)
             make.top.equalTo(answerOne.snp.bottom).offset(30)
-            make.height.equalTo(60)
-            make.width.equalTo(120)
+            make.height.equalTo(90)
+            make.width.equalTo(130)
         }
         
         contentView.addSubview(answerThree)
         answerThree.snp.makeConstraints { make in
             make.trailing.equalTo(-20)
             make.centerY.equalTo(answerOne)
-            make.height.equalTo(60)
-            make.width.equalTo(120)
+            make.height.equalTo(90)
+            make.width.equalTo(130)
         }
         
         contentView.addSubview(answerFour)
         answerFour.snp.makeConstraints { make in
             make.trailing.equalTo(answerThree)
             make.centerY.equalTo(answerTwo)
-            make.height.equalTo(60)
-            make.width.equalTo(120)
+            make.height.equalTo(90)
+            make.width.equalTo(130)
         }
     }
     

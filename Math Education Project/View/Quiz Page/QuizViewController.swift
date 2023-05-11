@@ -40,7 +40,20 @@ class QuizViewController: UIViewController {
         super.viewDidLoad()
         bind()
         setupConstraints()
+        enableBackSwipe()
         
+    }
+    
+    func enableBackSwipe() {
+        let backSwipeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleBackSwipe(_:)))
+        backSwipeGesture.edges = .left
+        self.view.addGestureRecognizer(backSwipeGesture)
+    }
+
+    @objc func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
+        if gestureRecognizer.state == .recognized {
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     private func setupConstraints() {

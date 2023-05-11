@@ -11,11 +11,13 @@ protocol BookPresenterDelegate{
     init(view: BookViewDelegate)
     func viewDidLoad()
     func getId(id: Int)
+    func getQuizId(id: Int)
 }
 
 class BookPresenter: BookPresenterDelegate{
     
     weak var view: BookViewDelegate?
+    var quizPresenter: QuizPresenterDelegate!
     
     let defautls = UserDefaults.standard
     
@@ -37,6 +39,12 @@ class BookPresenter: BookPresenterDelegate{
     }
     
     func getId(id: Int){
+        UserDefaults.resetStandardUserDefaults()
         defautls.set(id, forKey: "topicId")
     }
+    
+    func getQuizId(id: Int){
+        quizPresenter.getQuizId(id: id)
+    }
+    
 }

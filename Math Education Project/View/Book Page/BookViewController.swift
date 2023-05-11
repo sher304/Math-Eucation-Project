@@ -62,13 +62,12 @@ class BookViewController: UIViewController {
         return imageV
     }()
     
-    private lazy var burgerMenu: UIButton = {
+    private lazy var quizIcon: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(systemName: "line.3.horizontal"), for: .normal)
+        button.setImage(UIImage(systemName: "q.circle"), for: .normal)
         button.tintColor = .white
-        button.contentHorizontalAlignment = .fill
-        button.contentVerticalAlignment = .fill
-        //        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
+        button.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(quizDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -150,8 +149,8 @@ class BookViewController: UIViewController {
             make.width.equalTo(25)
         }
         
-        gradientView.addSubview(burgerMenu)
-        burgerMenu.snp.makeConstraints { make in
+        gradientView.addSubview(quizIcon)
+        quizIcon.snp.makeConstraints { make in
             make.trailing.equalTo(-21)
             make.centerY.equalToSuperview()
             make.height.equalTo(22)
@@ -162,7 +161,7 @@ class BookViewController: UIViewController {
         bookCollection.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview()
-            make.top.equalTo(burgerMenu.snp.bottom).offset(15)
+            make.top.equalTo(quizIcon.snp.bottom).offset(15)
         }
         
         view.addSubview(bottomParentView)
@@ -194,7 +193,7 @@ class BookViewController: UIViewController {
         backSwipeGesture.edges = .left
         self.view.addGestureRecognizer(backSwipeGesture)
     }
-
+    
     @objc func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         if gestureRecognizer.state == .recognized {
             navigationController?.popViewController(animated: true)
@@ -203,6 +202,32 @@ class BookViewController: UIViewController {
     
     @objc func logoDidTapped(){
         self.navigationController?.pushViewController(HomeDependensy.build(), animated: true)
+    }
+    
+    @objc func quizDidTapped(){
+        showAlert()
+    }
+    
+    
+    private func showAlert(){
+        let alertController = UIAlertController(title: "ТЕСТ", message: "Сиз тест откунуз келеби.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "ООБА", style: .default) { _ in
+            // Handle OK button tap
+            let quizId = self.topic.value.first?.quizes.first?.id
+            self.presenter.getQuizId(id: quizId ?? 0)
+            self.navigationController?.pushViewController(QuizDependensy.build(), animated: true)
+        }
+        alertController.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "ЖОК", style: .cancel) { _ in
+            // Handle cancel button tap
+            print("Cancel button tapped")
+        }
+        alertController.addAction(cancelAction)
+        
+        // Present the alert
+        UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
 
@@ -215,21 +240,6 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
         let data = self.topic.value[indexPath.row]
-//        if indexPath.row < data.examples[indexPath.row].examplePhotos.count{
-//            let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
-//            if indexPath.row < data.photos.count{
-//                let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
-//                print(mainPhotos, examplePhotos)
-//                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: mainPhotos, otherImages: examplePhotos ?? "nil", delegate: self)
-//            }else{
-//                cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
-//            }
-//        }else{
-//            cell.fillData(title: data.title, theory: data.text, descirption: data.text, mainImage: "", otherImages: "", delegate: self)
-//        }
-        
-//        let examplePhotos: String? = data.examples[indexPath.row].examplePhotos[indexPath.row].photo
-//        let mainPhotos = self.topic.value[indexPath.row].photos[indexPath.row].photo
         cell.fillData(title: data.title, theory: data.text, mainImage: "mainPhotos", example: self.topic.value[indexPath.row].examples, delegate: self)
         return cell
     }
@@ -244,6 +254,9 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension BookViewController: BookViewDelegate{
     func getTopic(topic: [SingleTopic]){
         self.topic.value = topic
+        if topic.first?.quizes.first?.id == nil{
+            self.quizIcon.isHidden = true
+        }
         self.bookCollection.reloadData()
     }
 }

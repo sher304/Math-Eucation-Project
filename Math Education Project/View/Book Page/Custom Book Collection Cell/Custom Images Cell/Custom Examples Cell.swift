@@ -29,9 +29,9 @@ class CustomExamplesCell: UICollectionViewCell{
     
     private lazy var examplePhoto: UIImageView = {
         let imageV = UIImageView()
-        imageV.backgroundColor = .red
         imageV.layer.cornerRadius = 15
         imageV.layer.masksToBounds = true
+        imageV.contentMode = .scaleAspectFit
         return imageV
     }()
     

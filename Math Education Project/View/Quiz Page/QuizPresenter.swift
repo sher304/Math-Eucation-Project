@@ -11,6 +11,7 @@ protocol QuizPresenterDelegate{
     init(view: QuizViewDelegate)
     func viewDidLoad()
     func getAnswerId(answers: [Answer])
+    func getQuizId(id: Int)
 }
 
 class QuizPresenter: QuizPresenterDelegate{
@@ -27,7 +28,8 @@ class QuizPresenter: QuizPresenterDelegate{
     let defaults = UserDefaults.standard
     
     func viewDidLoad(){
-        APiAuth().getQuize(topic: 9) { data in
+        let quizId = defaults.integer(forKey: "quizId")
+        APiAuth().getQuize(topic: quizId) { data in
             switch data{
             case.success(let data):
                 self.view?.getQuizez(quizes: data)
@@ -51,4 +53,11 @@ class QuizPresenter: QuizPresenterDelegate{
         }
         delegate.getAnswers(correct: correct, incorrect: incorrect)
     }
+    
+    func getQuizId(id: Int){
+        UserDefaults.resetStandardUserDefaults()
+        defaults.set(id, forKey: "quizId")
+    }
 }
+
+
