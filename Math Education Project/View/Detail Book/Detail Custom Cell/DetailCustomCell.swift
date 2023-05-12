@@ -19,7 +19,6 @@ class DetailCustomCell: UITableViewCell{
     
     var delegate: DetailCellDelegate!
     
-//    var unit = Dynamic([Unit]())
     var unit = Dynamic(Units())
     
     private lazy var coursesCollection: UICollectionView = {
@@ -30,7 +29,7 @@ class DetailCustomCell: UITableViewCell{
         collectionV.delegate = self
         collectionV.dataSource = self
         collectionV.showsHorizontalScrollIndicator = false
-        collectionV.isScrollEnabled = false 
+        collectionV.isScrollEnabled = false
         return collectionV
     }()
     
@@ -59,14 +58,12 @@ class DetailCustomCell: UITableViewCell{
 
 extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.unit.value.first?.topics.count ?? 0
         return self.unit.value.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as? 
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as?
                 DetailCollectionCell else { return DetailCollectionCell()}
-//        let data = self.unit.value.first?.topics[indexPath.row]
         let data = self.unit.value[indexPath.row]
         cell.fillData(title: data.title )
         return cell
@@ -77,8 +74,8 @@ extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        delegate.didTapped(id: self.unit.value.first?.topics[indexPath.row].id ?? 0)
-        delegate.didTapped(id: self.unit.value[indexPath.row].id)
+        let data = self.unit.value[indexPath.row]
+        delegate.didTapped(id: data.id)
     }
 }
 

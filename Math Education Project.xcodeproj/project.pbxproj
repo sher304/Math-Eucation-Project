@@ -19,7 +19,9 @@
 		601628E429ED219200BB2F67 /* DetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E329ED219200BB2F67 /* DetailCustomCell.swift */; };
 		601628E729ED225500BB2F67 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601628E629ED225500BB2F67 /* DetailCollectionCell.swift */; };
 		608E2D032A0C0E9A00DD7D7F /* Custom Examples Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D022A0C0E9A00DD7D7F /* Custom Examples Cell.swift */; };
-		608E2D082A0D796B00DD7D7F /* testV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D072A0D796B00DD7D7F /* testV.swift */; };
+		608E2D0B2A0E765900DD7D7F /* TopicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D0A2A0E765900DD7D7F /* TopicViewController.swift */; };
+		608E2D0D2A0E768C00DD7D7F /* TopicDependensy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D0C2A0E768C00DD7D7F /* TopicDependensy.swift */; };
+		608E2D102A0E76E500DD7D7F /* TopicPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 608E2D0F2A0E76E500DD7D7F /* TopicPresenter.swift */; };
 		60B84D0E29EBF8F200780255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0D29EBF8F200780255 /* AppDelegate.swift */; };
 		60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D0F29EBF8F200780255 /* SceneDelegate.swift */; };
 		60B84D1229EBF8F200780255 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B84D1129EBF8F200780255 /* HomeViewController.swift */; };
@@ -60,7 +62,9 @@
 		601628E329ED219200BB2F67 /* DetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCustomCell.swift; sourceTree = "<group>"; };
 		601628E629ED225500BB2F67 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
 		608E2D022A0C0E9A00DD7D7F /* Custom Examples Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Custom Examples Cell.swift"; sourceTree = "<group>"; };
-		608E2D072A0D796B00DD7D7F /* testV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testV.swift; sourceTree = "<group>"; };
+		608E2D0A2A0E765900DD7D7F /* TopicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewController.swift; sourceTree = "<group>"; };
+		608E2D0C2A0E768C00DD7D7F /* TopicDependensy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicDependensy.swift; sourceTree = "<group>"; };
+		608E2D0F2A0E76E500DD7D7F /* TopicPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicPresenter.swift; sourceTree = "<group>"; };
 		60B84D0A29EBF8F200780255 /* Math Education Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Math Education Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60B84D0D29EBF8F200780255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60B84D0F29EBF8F200780255 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -113,13 +117,13 @@
 		601628C229EBF98F00BB2F67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				608E2D092A0E764B00DD7D7F /* Topics Page */,
 				60F3EADA29F453000010F5C8 /* Book Page */,
 				60F3EAD129F2F1720010F5C8 /* Result Page */,
 				60F3EAC329EF052E0010F5C8 /* Quiz Page */,
 				601628DA29ED1D5200BB2F67 /* Detail Book */,
 				601628D229ED05EC00BB2F67 /* Menu Degrees */,
 				601628C629EBF9B700BB2F67 /* Home Page */,
-				608E2D072A0D796B00DD7D7F /* testV.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,6 +235,24 @@
 				601628E629ED225500BB2F67 /* DetailCollectionCell.swift */,
 			);
 			path = "Detail Collection Cell";
+			sourceTree = "<group>";
+		};
+		608E2D092A0E764B00DD7D7F /* Topics Page */ = {
+			isa = PBXGroup;
+			children = (
+				608E2D0E2A0E768E00DD7D7F /* Dependensy */,
+				608E2D0A2A0E765900DD7D7F /* TopicViewController.swift */,
+				608E2D0F2A0E76E500DD7D7F /* TopicPresenter.swift */,
+			);
+			path = "Topics Page";
+			sourceTree = "<group>";
+		};
+		608E2D0E2A0E768E00DD7D7F /* Dependensy */ = {
+			isa = PBXGroup;
+			children = (
+				608E2D0C2A0E768C00DD7D7F /* TopicDependensy.swift */,
+			);
+			path = Dependensy;
 			sourceTree = "<group>";
 		};
 		60B84D0129EBF8F200780255 = {
@@ -492,6 +514,7 @@
 				60B84D1229EBF8F200780255 /* HomeViewController.swift in Sources */,
 				601628D929ED06AA00BB2F67 /* Menu Dependensy.swift in Sources */,
 				601628D129EC632600BB2F67 /* CustomTableViewCell.swift in Sources */,
+				608E2D0D2A0E768C00DD7D7F /* TopicDependensy.swift in Sources */,
 				601628DC29ED1D6A00BB2F67 /* DetailViewController.swift in Sources */,
 				601628E729ED225500BB2F67 /* DetailCollectionCell.swift in Sources */,
 				601628D629ED062700BB2F67 /* Menu Presenter.swift in Sources */,
@@ -502,7 +525,6 @@
 				601628DF29ED207000BB2F67 /* Detail Dependensy.swift in Sources */,
 				60F3EAD329F2F18A0010F5C8 /* Result Presenter.swift in Sources */,
 				60F3EAC629EF05640010F5C8 /* QuizViewController.swift in Sources */,
-				608E2D082A0D796B00DD7D7F /* testV.swift in Sources */,
 				60F3EADE29F4532F0010F5C8 /* Book Presenter.swift in Sources */,
 				60F3EAD629F2F1970010F5C8 /* ResultViewController.swift in Sources */,
 				608E2D032A0C0E9A00DD7D7F /* Custom Examples Cell.swift in Sources */,
@@ -518,9 +540,11 @@
 				60F3EACA29EF063E0010F5C8 /* Quiz Dependensy.swift in Sources */,
 				601628C829EBFA1800BB2F67 /* HomePresenter.swift in Sources */,
 				601628CB29EBFB9700BB2F67 /* Dependensy.swift in Sources */,
+				608E2D102A0E76E500DD7D7F /* TopicPresenter.swift in Sources */,
 				60F3EAC029ED31630010F5C8 /* Models.swift in Sources */,
 				60B84D1029EBF8F200780255 /* SceneDelegate.swift in Sources */,
 				60F3EAD029F1B9FB0010F5C8 /* Custom Collection Cell.swift in Sources */,
+				608E2D0B2A0E765900DD7D7F /* TopicViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

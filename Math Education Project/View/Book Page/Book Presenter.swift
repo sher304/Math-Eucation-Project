@@ -26,11 +26,11 @@ class BookPresenter: BookPresenterDelegate{
     }
     
     func viewDidLoad(){
-        let id = defautls.integer(forKey: "topicId") 
+        let id = defautls.integer(forKey: "topicId")
         APiAuth().getTopics(id: id) { data in
             switch data{
             case.success(let data):
-                self.view?.getTopic(topic: [data])
+//                self.view?.getTopic(topic: [data])
                 break
             case.failure(_):
                 break
