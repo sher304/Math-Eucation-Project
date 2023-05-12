@@ -24,12 +24,13 @@ class DetailPresenter: DetailPresenterDelegate{
         self.view = view
     }
     
+    //MARK: TO DO MAKE NEW SCREEN OF TOPIC 
     func viewDidLoad(){
         let unitId = defautls.integer(forKey: "unitID")
-        APiAuth().getUnit(id: unitId) { data in
+        APiAuth().getUnit { data in
             switch data{
-            case.success(let data):
-                self.view?.fetchTopics(unit: [data])
+            case.success(let datas):
+                self.view?.fetchTopics(unit: datas.filter({$0.course == unitId}))
                 break
             case.failure(_):
                 break

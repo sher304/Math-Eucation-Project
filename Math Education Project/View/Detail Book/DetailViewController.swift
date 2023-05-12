@@ -230,7 +230,7 @@ extension DetailViewController: DetailViewDelegate{
 extension DetailViewController: DetailCellDelegate{
     func didTapped(id: Int) {
         self.navigationController?.pushViewController(BookDependensy.build(), animated: true)
-        presenter.getById(id: id)
+        presenter.getUnitId(id: id)
     }
 }
 
