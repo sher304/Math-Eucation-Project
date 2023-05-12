@@ -61,6 +61,7 @@ class CustomBookCell: UICollectionViewCell{
         imageV.backgroundColor = .systemGray4
         imageV.layer.cornerRadius = 15
         imageV.layer.masksToBounds = true
+        imageV.isHidden = true
         return imageV
     }()
     
@@ -92,15 +93,17 @@ class CustomBookCell: UICollectionViewCell{
         
     }
     
-    public func fillData(title: String, theory: String, mainImage: String,
+    public func fillData(title: String, theory: String, mainImage: String?,
                          example: [Example], delegate: BookCellDelegate){
         self.delegate = delegate
         DispatchQueue.main.async {
             self.headerTitle.text = title
             self.theoryLabel.text = theory
-
-            self.mainImage.kf.setImage(with: URL(string: mainImage))
-
+            if mainImage != ""{
+                self.mainImage.kf.setImage(with: URL(string: mainImage ?? ""))
+            }else{
+                self.mainImage.isHidden = true
+            }
             self.exmaplesData.value = example
             self.imagesCollection.reloadData()
         }
@@ -174,8 +177,10 @@ extension CustomBookCell: UICollectionViewDataSource, UICollectionViewDelegateFl
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomExamplesCell.identifier, for: indexPath) as? CustomExamplesCell else { return CustomExamplesCell()}
         let imagesData = self.exmaplesData.value.first?.examplePhotos[indexPath.row].photo ?? "nil"
         let data = self.exmaplesData.value.first
-        cell.setExmapleImage(image: imagesData,
-                             text: data?.exampleNumbers[indexPath.row].text ?? "zero")
+        if indexPath.row < data?.exampleNumbers.count ?? 0{
+            cell.setExmapleImage(image: imagesData,
+                                 text: data?.exampleNumbers[indexPath.row].text ?? "")
+        }
         return cell
     }
     

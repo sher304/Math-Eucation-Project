@@ -23,7 +23,7 @@ class BookViewController: UIViewController {
     
     var presenter: BookPresenterDelegate!
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * 15)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * 5)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -213,17 +213,13 @@ class BookViewController: UIViewController {
         let alertController = UIAlertController(title: "ТЕСТ", message: "Сиз тест откунуз келеби.", preferredStyle: .alert)
         
         let okAction = UIAlertAction(title: "ООБА", style: .default) { _ in
-            // Handle OK button tap
             let quizId = self.topic.value.first?.quizes.first?.id
             self.presenter.getQuizId(id: quizId ?? 0)
             self.navigationController?.pushViewController(QuizDependensy.build(), animated: true)
         }
         alertController.addAction(okAction)
         
-        let cancelAction = UIAlertAction(title: "ЖОК", style: .cancel) { _ in
-            // Handle cancel button tap
-            print("Cancel button tapped")
-        }
+        let cancelAction = UIAlertAction(title: "ЖОК", style: .cancel) {_ in}
         alertController.addAction(cancelAction)
         
         // Present the alert
@@ -240,7 +236,7 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
         let data = self.topic.value[indexPath.row]
-        cell.fillData(title: data.title, theory: data.text, mainImage: "mainPhotos", example: self.topic.value[indexPath.row].examples, delegate: self)
+        cell.fillData(title: data.title, theory: data.text, mainImage: data.photos.first?.photo , example: data.examples, delegate: self)
         return cell
     }
     

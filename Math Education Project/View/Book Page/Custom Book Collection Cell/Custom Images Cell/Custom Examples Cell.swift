@@ -32,6 +32,7 @@ class CustomExamplesCell: UICollectionViewCell{
         imageV.layer.cornerRadius = 15
         imageV.layer.masksToBounds = true
         imageV.contentMode = .scaleAspectFit
+        imageV.isHidden = true
         return imageV
     }()
     
@@ -58,9 +59,14 @@ class CustomExamplesCell: UICollectionViewCell{
             make.top.equalTo(exampleText.snp.bottom).offset(10)
         }
     }
-
+    
     public func setExmapleImage(image: String, text: String){
         exampleText.text = text
-        examplePhoto.kf.setImage(with: URL(string: image))
+        print(image)
+        if image != ""{
+            examplePhoto.kf.setImage(with: URL(string: image))
+        }else{
+            self.examplePhoto.isHidden = true
+        }
     }
 }
