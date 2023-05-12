@@ -25,7 +25,7 @@ class TopicPresenter: TopicPresenterDelegate{
         APiAuth().getTopics { data in
             switch data{
             case.success(let data):
-                self.view?.getTopics(topic: data.filter({$0.id == unitId}))
+                self.view?.getTopics(topic: data.filter({$0.unit == unitId}))
                 break
             case.failure(_):
                 break

@@ -34,8 +34,8 @@ class TopicViewController: UIViewController {
         imageV.contentMode = .center
         imageV.tintColor = .white
         imageV.isUserInteractionEnabled = true
-        //        let tap = UITapGestureRecognizer(target: self, action: #selector(logoDidTapped))
-        //        imageV.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(logoDidTapped))
+        imageV.addGestureRecognizer(tap)
         return imageV
     }()
     
@@ -45,7 +45,7 @@ class TopicViewController: UIViewController {
         button.tintColor = .white
         button.contentHorizontalAlignment = .fill
         button.contentVerticalAlignment = .fill
-        //        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(burgerDidTapped), for: .touchUpInside)
         return button
     }()
     
@@ -108,7 +108,7 @@ class TopicViewController: UIViewController {
         backSwipeGesture.edges = .left
         self.view.addGestureRecognizer(backSwipeGesture)
     }
-
+    
     @objc func handleBackSwipe(_ gestureRecognizer: UIScreenEdgePanGestureRecognizer) {
         if gestureRecognizer.state == .recognized {
             navigationController?.popViewController(animated: true)
