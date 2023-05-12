@@ -99,7 +99,7 @@ class CustomBookCell: UICollectionViewCell{
             self.headerTitle.text = title
             self.theoryLabel.text = theory
 
-            self.mainImage.kf.setImage(with: URL(string: "https://imgbox.com/qXqzktkW"))
+            self.mainImage.kf.setImage(with: URL(string: mainImage))
 
             self.exmaplesData.value = example
             self.imagesCollection.reloadData()

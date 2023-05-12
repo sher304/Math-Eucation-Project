@@ -13,7 +13,8 @@ import Alamofire
 protocol NetworkSerice{
     static func getCourses<T: Codable>(method: String, completion: @escaping(Result<T, Error>) -> Void)
     static func getQuiz<T: Codable>(id: Int, completion: @escaping(Result<T, Error>) -> Void)
-    static func getUnits<T: Codable>(id: Int, method: String, completion: @escaping(Result<T, Error>) -> Void)
+//    static func getUnits<T: Codable>(id: Int, method: String, completion: @escaping(Result<T, Error>) -> Void)
+    static func getUnits<T: Codable>(method: String, completion: @escaping(Result<T, Error>) -> Void)
     static func getTopics<T: Codable>(id: Int, method: String, completion: @escaping(Result<T, Error>) -> Void)
 }
 
@@ -43,8 +44,18 @@ class Network: NetworkSerice{
         }
     }
     
-    static func getUnits<T: Codable>(id: Int, method: String, completion: @escaping(Result<T, Error>) -> Void){
-        guard let url = URL(string: "https://math-course.vercel.app/course/unit/\(id)") else { return }
+//    static func getUnits<T: Codable>(id: Int, method: String, completion: @escaping(Result<T, Error>) -> Void){
+//        guard let url = URL(string: "https://math-course.vercel.app/course/unit/\(id)") else { return }
+//        print(url)
+//        AF.request(url).response { responce in
+//            guard let data = responce.data,
+//                  let jsonObj = try? JSONDecoder().decode(T.self, from: data) else { return }
+//            completion(.success(jsonObj))
+//        }
+//    }
+    
+    static func getUnits<T: Codable>(method: String, completion: @escaping(Result<T, Error>) -> Void){
+        guard let url = URL(string: "https://math-course.vercel.app/course/unit/") else { return }
         AF.request(url).response { responce in
             guard let data = responce.data,
                   let jsonObj = try? JSONDecoder().decode(T.self, from: data) else { return }
