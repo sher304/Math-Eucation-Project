@@ -30,7 +30,7 @@ class BookPresenter: BookPresenterDelegate{
         APiAuth().getTopics(id: id) { data in
             switch data{
             case.success(let data):
-//                self.view?.getTopic(topic: [data])
+                self.view?.getTopic(topic: [data])
                 break
             case.failure(_):
                 break
