@@ -23,7 +23,9 @@ class BookViewController: UIViewController {
     
     var presenter: BookPresenterDelegate!
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * 5)
+//    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * CGFloat((self.topic.value.first?.examples.count ?? 4) * 290) + 230)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + CGFloat((self.topic.value.first?.examples.count ?? 5) * 290) + 530)
+
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -254,12 +256,17 @@ extension BookViewController: BookViewDelegate{
         if topic.first?.quizes.first?.id != nil{
             self.quizIcon.isHidden = false
         }
-        
-        if ((topic.first?.examples.isEmpty) != nil){
-            self.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
-            self.scrollV.contentSize = contentSize
-            self.scrollV.updateConstraintsIfNeeded()
-        }
+        print(self.topic.value.first?.examples.first?.exampleNumbers.first)
+//        print(self.scrollV.contentSize)
+//        if ((topic.first?.examples.isEmpty) != nil){
+//            self.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 340)
+//            self.scrollV.contentSize = contentSize
+//            self.scrollV.updateConstraintsIfNeeded()
+//            print(self.scrollV.contentSize)
+//        }else{
+//            print(self.scrollV.contentSize)
+//            self.scrollV.updateConstraintsIfNeeded()
+//        }
         self.bookCollection.reloadData()
     }
 }
