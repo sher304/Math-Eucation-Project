@@ -23,7 +23,6 @@ class DetailPresenter: DetailPresenterDelegate{
         self.view = view
     }
     
-    //MARK: TO DO MAKE NEW SCREEN OF TOPIC 
     func viewDidLoad(){
         let unitId = defautls.integer(forKey: "unitID")
         APiAuth().getUnit { data in

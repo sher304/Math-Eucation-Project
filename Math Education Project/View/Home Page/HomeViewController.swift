@@ -10,6 +10,7 @@ import SnapKit
 
 protocol HomeViewDelegate: AnyObject{
     func fetchCourses(courses: Course)
+    func courseDidTapped(id: Int, didTapped: Bool)
 }
 
 class HomeViewController: UIViewController {
@@ -147,7 +148,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc func burgerDidTapped(){
-        self.navigationController?.pushViewController(QuizDependensy.build(), animated: true)
+        present(MenuDependensy.build(), animated: true)
     }
 }
 
@@ -182,6 +183,16 @@ extension HomeViewController: HomeViewDelegate{
             self.courses.value = courses
             self.booksTable.reloadData()
         }
+    }
+
+    func courseDidTapped(id: Int, didTapped: Bool){
+        print("tapped")
+        print(id, didTapped)
+//        if didTapped{
+            let indexPath = IndexPath(item: id, section: .zero)
+            booksTable.scrollToRow(at: indexPath, at: .middle, animated: true)
+            booksTable.reloadData()
+//        }
     }
 }
 

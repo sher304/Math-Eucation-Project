@@ -67,6 +67,7 @@ class BookViewController: UIViewController {
         button.setImage(UIImage(systemName: "q.circle"), for: .normal)
         button.tintColor = .white
         button.contentMode = .scaleAspectFit
+        button.isHidden = true
         button.addTarget(self, action: #selector(quizDidTapped), for: .touchUpInside)
         return button
     }()
@@ -250,8 +251,14 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
 extension BookViewController: BookViewDelegate{
     func getTopic(topic: [SingleTopic]){
         self.topic.value = topic
-        if topic.first?.quizes.first?.id == nil{
-            self.quizIcon.isHidden = true
+        if topic.first?.quizes.first?.id != nil{
+            self.quizIcon.isHidden = false
+        }
+        
+        if ((topic.first?.examples.isEmpty) != nil){
+            self.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 200)
+            self.scrollV.contentSize = contentSize
+            self.scrollV.updateConstraintsIfNeeded()
         }
         self.bookCollection.reloadData()
     }

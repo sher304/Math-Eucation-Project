@@ -104,6 +104,10 @@ class CustomBookCell: UICollectionViewCell{
             }else{
                 self.mainImage.isHidden = true
             }
+            
+            if example.isEmpty{
+                self.expampleLabel.isHidden = true
+            }
             self.exmaplesData.value = example
             self.imagesCollection.reloadData()
         }

@@ -50,8 +50,10 @@ class MenuViewController: UIViewController {
         label.text = "1 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        
+        let tap = TaggedTapGestureRecognizer(target: self, action: #selector(degreeTapped))
         label.isUserInteractionEnabled = true
+        tap.tag = 9
         label.addGestureRecognizer(tap)
         return label
     }()
@@ -61,8 +63,10 @@ class MenuViewController: UIViewController {
         label.text = "2 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        
+        let tap = TaggedTapGestureRecognizer(target: self, action: #selector(degreeTapped(tapped:)))
         label.isUserInteractionEnabled = true
+        tap.tag = 11
         label.addGestureRecognizer(tap)
         return label
     }()
@@ -72,7 +76,9 @@ class MenuViewController: UIViewController {
         label.text = "3 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        
+        let tap = TaggedTapGestureRecognizer(target: self, action: #selector(degreeTapped(tapped:)))
+        tap.tag = 12
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(tap)
         return label
@@ -83,7 +89,9 @@ class MenuViewController: UIViewController {
         label.text = "4 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        
+        let tap = TaggedTapGestureRecognizer(target: self, action: #selector(degreeTapped(tapped:)))
+        tap.tag = 13
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(tap)
         return label
@@ -94,7 +102,9 @@ class MenuViewController: UIViewController {
         label.text = "5 класс"
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
-        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        
+        let tap = TaggedTapGestureRecognizer(target: self, action: #selector(degreeTapped(tapped:)))
+        tap.tag = 14
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(tap)
         return label
@@ -106,7 +116,8 @@ class MenuViewController: UIViewController {
         label.textColor = .white
         label.font = .systemFont(ofSize: 40, weight: .bold)
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(degreeTapped))
+        let tap = TaggedTapGestureRecognizer(target: self, action: #selector(degreeTapped(tapped:)))
+        tap.tag = 15
         label.isUserInteractionEnabled = true
         label.addGestureRecognizer(tap)
         return label
@@ -114,7 +125,6 @@ class MenuViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
         setupConstraints()
         
     }
@@ -189,9 +199,24 @@ class MenuViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func degreeTapped(){
-        print("did tapped")
-        navigationController?.pushViewController(DetailDependensy.build(), animated: true)
+    @objc func degreeTapped(tapped: TaggedTapGestureRecognizer){
+        switch tapped.tag{
+        case 9:
+            presenter.getCourseId(id: 9)
+        case 11:
+            presenter.getCourseId(id: 11)
+        case 12:
+            presenter.getCourseId(id: 12)
+        case 13:
+            presenter.getCourseId(id: 13)
+        case 14:
+            presenter.getCourseId(id: 14)
+        case 15:
+            presenter.getCourseId(id: 15)
+        default:
+            break
+        }
+        self.dismiss(animated: true)
     }
 }
 

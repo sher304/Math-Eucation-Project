@@ -62,7 +62,6 @@ class CustomExamplesCell: UICollectionViewCell{
     
     public func setExmapleImage(image: String, text: String){
         exampleText.text = text
-        print(image)
         if image != ""{
             examplePhoto.kf.setImage(with: URL(string: image))
         }else{

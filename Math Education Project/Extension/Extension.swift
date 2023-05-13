@@ -7,6 +7,10 @@
 
 import UIKit
 
+class TaggedTapGestureRecognizer: UITapGestureRecognizer {
+    var tag: Int = 0
+}
+
 class GradientView: UIView {
 
     private let gradient : CAGradientLayer = CAGradientLayer()
