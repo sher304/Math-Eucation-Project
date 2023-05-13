@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     var unit = Dynamic([Unit]())
     
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 320)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + CGFloat(self.unit.value.count * 111) + 250)
     
     private lazy var scrollV: UIScrollView = {
         let scrollV = UIScrollView()
@@ -111,13 +111,14 @@ class DetailViewController: UIViewController {
     }
     
     private func setupConstraints(){
+        view.backgroundColor = .white
         view.addSubview(scrollV)
         scrollV.addSubview(contentView)
         
         contentView.addSubview(navigationParentView)
         navigationParentView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(55)
+            make.top.equalTo(contentView.safeAreaLayoutGuide)
             make.height.equalTo(63)
         }
         
@@ -211,6 +212,9 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 extension DetailViewController: DetailViewDelegate{
     func fetchTopics(unit: [Unit]){
         DispatchQueue.main.async {
+            let contentSize =  CGSize(width: self.view.frame.width, height: self.view.frame.height + CGFloat(unit.count * 111) + 230)
+            self.scrollV.contentSize = contentSize
+            self.contentView.frame.size = contentSize
             
             switch unit.first?.course{
             case 9:

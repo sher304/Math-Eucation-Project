@@ -196,7 +196,7 @@ class MenuViewController: UIViewController {
     }
     
     @objc func exitTapped(){
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
     
     @objc func degreeTapped(tapped: TaggedTapGestureRecognizer){

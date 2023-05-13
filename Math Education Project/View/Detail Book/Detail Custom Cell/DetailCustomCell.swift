@@ -24,6 +24,7 @@ class DetailCustomCell: UITableViewCell{
     private lazy var coursesCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
+        
         let collectionV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionV.register(DetailCollectionCell.self, forCellWithReuseIdentifier: DetailCollectionCell.identifier)
         collectionV.delegate = self
@@ -64,8 +65,22 @@ extension DetailCustomCell: UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailCollectionCell.identifier, for: indexPath) as?
                 DetailCollectionCell else { return DetailCollectionCell()}
+        let colors = [UIColor(red: 219/255, green: 76/255, blue: 64/266, alpha: 1),
+                      UIColor(red: 76/2, green: 61/255, blue: 61/255, alpha: 1),
+                      UIColor(red: 85/2, green: 61/255, blue: 54/255, alpha: 1),
+                      UIColor(red: 139/255, green: 30/255, blue: 63/255, alpha: 1),
+                      UIColor(red: 18/255, green: 41/255, blue: 50/255, alpha: 1),
+                      UIColor(red: 44/255, green: 81/255, blue: 76/255, alpha: 1),
+                      UIColor(red: 44/255, green: 81/255, blue: 76/255, alpha: 1),
+                      UIColor(red: 219/255, green: 76/255, blue: 64/266, alpha: 1),
+                      UIColor(red: 18/255, green: 41/255, blue: 50/255, alpha: 1),
+                      UIColor(red: 76/2, green: 61/255, blue: 61/255, alpha: 1),
+                      UIColor(red: 139/255, green: 30/255, blue: 63/255, alpha: 1),
+                      UIColor(red: 18/255, green: 41/255, blue: 50/255, alpha: 1),
+        ]
+        
         let data = self.unit.value[indexPath.row]
-        cell.fillData(title: data.title )
+        cell.fillData(title: data.title, backgroundColor: colors[indexPath.row])
         return cell
     }
     

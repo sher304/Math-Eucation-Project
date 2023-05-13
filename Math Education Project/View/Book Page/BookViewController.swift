@@ -23,7 +23,7 @@ class BookViewController: UIViewController {
     
     var presenter: BookPresenterDelegate!
 
-    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + CGFloat((self.topic.value.first?.examples.count ?? 5) * 290) + 530)
+    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + 530)
 
     
     private lazy var scrollV: UIScrollView = {
@@ -136,13 +136,15 @@ class BookViewController: UIViewController {
     }
     
     private func setupConstraints(){
+        view.backgroundColor = .white
+        
         view.addSubview(scrollV)
         scrollV.addSubview(contentView)
         
         contentView.addSubview(navigationParentView)
         navigationParentView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(55)
+            make.top.equalTo(contentView.safeAreaLayoutGuide)
             make.height.equalTo(63)
         }
         
@@ -251,6 +253,9 @@ extension BookViewController: UICollectionViewDataSource, UICollectionViewDelega
 
 extension BookViewController: BookViewDelegate{
     func getTopic(topic: [SingleTopic]){
+        let topicCount = CGFloat((topic.first?.examples.first?.exampleNumbers.count ?? 5) * 290)
+        self.scrollV.contentSize = CGSize(width: self.view.frame.width,
+                                          height: self.view.frame.height + topicCount + 230)
         self.topic.value = topic
         if topic.first?.quizes.first?.id != nil{
             self.quizIcon.isHidden = false
