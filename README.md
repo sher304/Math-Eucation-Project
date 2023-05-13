@@ -28,9 +28,10 @@ The application uses the delegation pattern to communicate between view controll
 
 
 
-Home Screen
+<h1>Home Screen</h1>
 
-<img src="https://github.com/sher304/Math-Eucation-Project/assets/87121837/8d8dd984-e724-46c9-accb-53752d8f736b" alt="Girl in a jacket" width="300" height="600">
+https://github.com/sher304/Math-Eucation-Project/assets/87121837/ce52b88a-7e12-4c78-b536-d60fca27b4ad
+
 
 Book Screen
 <img src="https://user-images.githubusercontent.com/87121837/234064373-5b1330e4-54c7-4c78-9f02-e64a5378a0ac.png" alt="Girl in a jacket" width="300" height="600">
