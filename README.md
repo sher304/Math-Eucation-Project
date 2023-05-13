@@ -30,26 +30,19 @@ The application uses the delegation pattern to communicate between view controll
 
 <h1>Home Screen</h1>
 
-https://github.com/sher304/Math-Eucation-Project/assets/87121837/ce52b88a-7e12-4c78-b536-d60fca27b4ad
-
+<img src="https://github.com/sher304/Math-Eucation-Project/assets/87121837/6d4f7d8e-80f1-48a4-95ff-92056145d239" alt="Girl in a jacket" width="300" height="600">
 
 
 <h1>Units of Course Screen</h1>
-https://github.com/sher304/Math-Eucation-Project/assets/87121837/be6e3e39-bd28-4af4-b0c3-126b0c5f564b
 
 
-Topics Screen
+<img src="https://github.com/sher304/Math-Eucation-Project/assets/87121837/159b36c5-e17f-48c2-bde0-1d71473987f3" alt="Girl in a jacket" width="300" height="600">
 
-<img src="https://user-images.githubusercontent.com/87121837/234062969-b1b9baf8-d002-4679-8478-8c30f10c81df.png" alt="Girl in a jacket" width="300" height="600">
+<h1>Topics Screen</h1>
 
-Quiz Screen
+<h1>Quiz Screen</h1>
 
-<img src="https://user-images.githubusercontent.com/87121837/234064661-eb4db75f-824c-4582-b2b1-eec0b7051e40.png" alt="Girl in a jacket" width="300" height="600">
-
-Quiz Result Screen
-
-<img src="https://user-images.githubusercontent.com/87121837/234064740-0f1e04f7-aedf-417d-a447-da36ad5ad7fa.png" alt="Girl in a jacket" width="300" height="600">
-
+<h1>Quiz Result Screen</h1>
 
 <h1>Conclusion</h1>
 
