@@ -33,10 +33,12 @@ The application uses the delegation pattern to communicate between view controll
 https://github.com/sher304/Math-Eucation-Project/assets/87121837/ce52b88a-7e12-4c78-b536-d60fca27b4ad
 
 
-Book Screen
-<img src="https://user-images.githubusercontent.com/87121837/234064373-5b1330e4-54c7-4c78-9f02-e64a5378a0ac.png" alt="Girl in a jacket" width="300" height="600">
 
-Topic Screen
+<h1>Units of Course Screen</h1>
+https://github.com/sher304/Math-Eucation-Project/assets/87121837/be6e3e39-bd28-4af4-b0c3-126b0c5f564b
+
+
+Topics Screen
 
 <img src="https://user-images.githubusercontent.com/87121837/234062969-b1b9baf8-d002-4679-8478-8c30f10c81df.png" alt="Girl in a jacket" width="300" height="600">
 
