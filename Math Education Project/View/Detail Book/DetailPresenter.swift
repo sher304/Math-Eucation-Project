@@ -17,14 +17,12 @@ class DetailPresenter: DetailPresenterDelegate{
     
     private weak var view: DetailViewDelegate?
     
-    var delegate: BookPresenterDelegate!
     let defautls = UserDefaults.standard
     
     required init(view: DetailViewController){
         self.view = view
     }
     
-    //MARK: TO DO MAKE NEW SCREEN OF TOPIC 
     func viewDidLoad(){
         let unitId = defautls.integer(forKey: "unitID")
         APiAuth().getUnit { data in
@@ -41,10 +39,4 @@ class DetailPresenter: DetailPresenterDelegate{
     func getUnitId(id: Int){
         defautls.set(id, forKey: "unitID")
     }
-    
-    func getById(id: Int){
-        UserDefaults.resetStandardUserDefaults()
-        delegate.getId(id: id)
-    }
-
 }

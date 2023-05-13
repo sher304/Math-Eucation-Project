@@ -13,6 +13,10 @@ class MenuDependensy{
         let menuVC = MenuViewController()
         let presenter = MenuPresenter(view: menuVC)
         menuVC.presenter = presenter
+        
+        let homeVC = HomeViewController()
+        let delegate = HomePresneter(homeView: homeVC)
+        presenter.homeDelegate = delegate
         return menuVC
     }
 }

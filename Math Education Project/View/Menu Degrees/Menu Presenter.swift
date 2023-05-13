@@ -9,18 +9,21 @@ import Foundation
 
 protocol MenuPresenterDelegate{
     init(view: MenuViewDelegate)
-    func viewDidLoad()
+    func getCourseId(id: Int)
 }
 
 class MenuPresenter: MenuPresenterDelegate{
     
     private weak var view: MenuViewDelegate?
+    var homeDelegate: HomePresenterDelegate!
     
     required init(view: MenuViewDelegate) {
         self.view = view
     }
     
-    func viewDidLoad(){
-                
+    func getCourseId(id: Int){
+        UserDefaults.resetStandardUserDefaults()
+        homeDelegate.getCourseId(id: id)
     }
+
 }

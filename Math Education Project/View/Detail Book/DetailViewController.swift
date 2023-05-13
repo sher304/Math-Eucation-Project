@@ -76,15 +76,6 @@ class DetailViewController: UIViewController {
         return label
     }()
     
-    
-    private lazy var degreeTitle: UILabel = {
-        let label = UILabel()
-        label.text = "1 класс"
-        label.font = .systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
-        return label
-    }()
-    
     private lazy var aboutCourse: UILabel = {
         let label = UILabel()
         label.text = "Об курсе"
@@ -95,7 +86,6 @@ class DetailViewController: UIViewController {
     
     private lazy var descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Описание"
         label.font = .systemFont(ofSize: 24, weight: .semibold)
         label.textColor = UIColor(red: 42/255, green: 67/255, blue: 119/255, alpha: 1)
         return label
@@ -221,6 +211,24 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate{
 extension DetailViewController: DetailViewDelegate{
     func fetchTopics(unit: [Unit]){
         DispatchQueue.main.async {
+            
+            switch unit.first?.course{
+            case 9:
+                self.descriptionLabel.text = "1 класс"
+            case 11:
+                self.descriptionLabel.text = "2 класс"
+            case 12:
+                self.descriptionLabel.text = "3 класс"
+            case 13:
+                self.descriptionLabel.text = "4 класс"
+            case 14:
+                self.descriptionLabel.text = "5 класс"
+            case 15:
+                self.descriptionLabel.text = "6 класс"
+            default:
+                break
+            }
+            
             self.unit.value = unit
             self.coursesTable.reloadData()
         }
@@ -229,7 +237,7 @@ extension DetailViewController: DetailViewDelegate{
 
 extension DetailViewController: DetailCellDelegate{
     func didTapped(id: Int) {
-        self.navigationController?.pushViewController(BookDependensy.build(), animated: true)
+        self.navigationController?.pushViewController(TopicDependensy.build(), animated: true)
         presenter.getUnitId(id: id)
     }
 }

@@ -11,7 +11,7 @@ protocol HomePresenterDelegate{
     init(homeView: HomeViewDelegate)
     func viewDidLoad()
     func getUnitId(id: Int)
-    
+    func getCourseId(id: Int)
 }
 
 
@@ -21,6 +21,8 @@ class HomePresneter: HomePresenterDelegate{
     var delegate: DetailPresenterDelegate!
     
     var courses = Dynamic(Course())
+    
+    let defautls = UserDefaults.standard
     
     func viewDidLoad(){
         APiAuth().getAllCourses { data in
@@ -41,6 +43,10 @@ class HomePresneter: HomePresenterDelegate{
     func getUnitId(id: Int){
         UserDefaults.resetStandardUserDefaults()
         delegate.getUnitId(id: id)
+    }
+    
+    func getCourseId(id: Int){
+        defautls.set(id, forKey: "courseId")
     }
     
 }
