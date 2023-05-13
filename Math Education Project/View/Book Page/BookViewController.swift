@@ -22,8 +22,7 @@ class BookViewController: UIViewController {
     var topic = Dynamic([SingleTopic]())
     
     var presenter: BookPresenterDelegate!
-    
-//    private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height * CGFloat((self.topic.value.first?.examples.count ?? 4) * 290) + 230)
+
     private lazy var contentSize = CGSize(width: view.frame.width, height: view.frame.height + CGFloat((self.topic.value.first?.examples.count ?? 5) * 290) + 530)
 
     
@@ -97,6 +96,14 @@ class BookViewController: UIViewController {
         view.addTopShadow()
         
         return view
+    }()
+    
+    private lazy var stackView: UIStackView = {
+        let stackV = UIStackView(arrangedSubviews: [previusButton, nextButton])
+        stackV.axis = .horizontal
+        stackV.distribution = .fillEqually
+        stackV.spacing = 10
+        return stackV
     }()
     
     private lazy var previusButton: UIButton = {
@@ -174,20 +181,12 @@ class BookViewController: UIViewController {
             make.leading.trailing.equalToSuperview()
         }
         
-        bottomParentView.addSubview(previusButton)
-        previusButton.snp.makeConstraints { make in
+        bottomParentView.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
             make.leading.equalTo(20)
-            make.top.equalTo(17)
-            make.bottom.equalTo(-16)
-            make.width.equalTo(167)
-        }
-        
-        bottomParentView.addSubview(nextButton)
-        nextButton.snp.makeConstraints { make in
-            make.leading.equalTo(previusButton.snp.trailing).offset(15)
-            make.top.equalTo(17)
-            make.bottom.equalTo(-16)
-            make.width.equalTo(167)
+            make.trailing.equalTo(-20)
+            make.top.equalTo(15)
+            make.bottom.equalTo(-20)
         }
     }
     
@@ -256,17 +255,6 @@ extension BookViewController: BookViewDelegate{
         if topic.first?.quizes.first?.id != nil{
             self.quizIcon.isHidden = false
         }
-        print(self.topic.value.first?.examples.first?.exampleNumbers.first)
-//        print(self.scrollV.contentSize)
-//        if ((topic.first?.examples.isEmpty) != nil){
-//            self.contentSize = CGSize(width: view.frame.width, height: view.frame.height + 340)
-//            self.scrollV.contentSize = contentSize
-//            self.scrollV.updateConstraintsIfNeeded()
-//            print(self.scrollV.contentSize)
-//        }else{
-//            print(self.scrollV.contentSize)
-//            self.scrollV.updateConstraintsIfNeeded()
-//        }
         self.bookCollection.reloadData()
     }
 }
