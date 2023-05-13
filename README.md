@@ -39,8 +39,7 @@ The application uses the delegation pattern to communicate between view controll
 <img src="https://github.com/sher304/Math-Eucation-Project/assets/87121837/5a04e57f-3476-4d97-a911-1b81b70db189" alt="Girl in a jacket" width="300" height="600">
 
 <h1>Quiz Screen</h1>
-
-<h1>Quiz Result Screen</h1>
+<img src="https://github.com/sher304/Math-Eucation-Project/assets/87121837/5561da09-5b93-43da-945d-fae06b817451" alt="Girl in a jacket" width="300" height="600">
 
 <h1>Conclusion</h1>
 
