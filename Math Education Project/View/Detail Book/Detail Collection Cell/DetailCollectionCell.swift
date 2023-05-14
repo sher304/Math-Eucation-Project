@@ -36,8 +36,9 @@ class DetailCollectionCell: UICollectionViewCell{
         
     }
     
-    public func fillData(title: String){
+    public func fillData(title: String, backgroundColor: UIColor){
         self.chapterLabel.text = title
+        self.parentView.backgroundColor = backgroundColor
     }
     
     private func setupConstraints(){

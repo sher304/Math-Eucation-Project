@@ -102,7 +102,7 @@ class HomeViewController: UIViewController {
         contentView.addSubview(navigationParentView)
         navigationParentView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(55)
+            make.top.equalTo(contentView.safeAreaLayoutGuide)
             make.height.equalTo(63)
         }
         
@@ -158,9 +158,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let colors = [UIColor(red: 219/255, green: 76/255, blue: 64/266, alpha: 1),
+                      UIColor(red: 76/2, green: 61/255, blue: 61/255, alpha: 1),
+                      UIColor(red: 85/2, green: 61/255, blue: 54/255, alpha: 1),
+                     UIColor(red: 139/255, green: 30/255, blue: 63/255, alpha: 1),
+                     UIColor(red: 18/255, green: 41/255, blue: 50/255, alpha: 1),
+                     UIColor(red: 44/255, green: 81/255, blue: 76/255, alpha: 1),
+                     UIColor(red: 44/255, green: 81/255, blue: 76/255, alpha: 1)]
+        
         let cell = CustomTableViewCell()
         let data = courses.value[indexPath.row]
-        cell.fillData(title: data.title, image: data.cover)
+        cell.fillData(title: data.title, image: colors[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }

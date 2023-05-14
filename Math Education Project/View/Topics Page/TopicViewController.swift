@@ -71,7 +71,7 @@ class TopicViewController: UIViewController {
         view.addSubview(navigationParentView)
         navigationParentView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(55)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(63)
         }
         

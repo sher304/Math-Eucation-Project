@@ -101,6 +101,23 @@ class CustomCollectionCell: UICollectionViewCell{
         return button
     }()
     
+    private lazy var upperStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [answerOne, answerThree])
+        stackView.distribution = .fillEqually
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    private lazy var downStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [answerTwo, answerFour])
+        stackView.distribution = .fillEqually
+        stackView.axis = .horizontal
+        stackView.spacing = 10
+        return stackView
+    }()
+    
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         self.answerOne.isEnabled = true
@@ -146,37 +163,51 @@ class CustomCollectionCell: UICollectionViewCell{
             make.top.equalTo(contentView.safeAreaLayoutGuide).offset(40)
         }
         
-        contentView.addSubview(answerOne)
-        answerOne.snp.makeConstraints { make in
+        
+        contentView.addSubview(upperStackView)
+        upperStackView.snp.makeConstraints { make in
             make.leading.equalTo(20)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(90)
-            make.width.equalTo(170)
-        }
-        
-        contentView.addSubview(answerTwo)
-        answerTwo.snp.makeConstraints { make in
-            make.leading.equalTo(answerOne)
-            make.top.equalTo(answerOne.snp.bottom).offset(30)
-            make.height.equalTo(90)
-            make.width.equalTo(170)
-        }
-        
-        contentView.addSubview(answerThree)
-        answerThree.snp.makeConstraints { make in
             make.trailing.equalTo(-20)
-            make.centerY.equalTo(answerOne)
-            make.height.equalTo(90)
-            make.width.equalTo(170)
+            make.top.equalTo(questionTitle.snp.bottom).offset(40)
         }
         
-        contentView.addSubview(answerFour)
-        answerFour.snp.makeConstraints { make in
-            make.trailing.equalTo(answerThree)
-            make.centerY.equalTo(answerTwo)
-            make.height.equalTo(90)
-            make.width.equalTo(170)
+//        contentView.addSubview(answerOne)
+//        answerOne.snp.makeConstraints { make in
+//            make.leading.equalTo(20)
+//            make.centerY.equalToSuperview()
+//            make.height.equalTo(90)
+//            make.width.equalTo(170)
+//        }
+        
+//        contentView.addSubview(answerTwo)
+//        answerTwo.snp.makeConstraints { make in
+//            make.leading.equalTo(answerOne)
+//            make.top.equalTo(answerOne.snp.bottom).offset(30)
+//            make.height.equalTo(90)
+//            make.width.equalTo(170)
+//        }
+        
+        contentView.addSubview(downStackView)
+        downStackView.snp.makeConstraints { make in
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
+            make.top.equalTo(upperStackView.snp.bottom).offset(10)
         }
+//        contentView.addSubview(answerThree)
+//        answerThree.snp.makeConstraints { make in
+//            make.trailing.equalTo(-20)
+//            make.centerY.equalTo(answerOne)
+//            make.height.equalTo(90)
+//            make.width.equalTo(170)
+//        }
+//
+//        contentView.addSubview(answerFour)
+//        answerFour.snp.makeConstraints { make in
+//            make.trailing.equalTo(answerThree)
+//            make.centerY.equalTo(answerTwo)
+//            make.height.equalTo(90)
+//            make.width.equalTo(170)
+//        }
     }
     
     @objc func answerDidSelected(sender: UIButton){

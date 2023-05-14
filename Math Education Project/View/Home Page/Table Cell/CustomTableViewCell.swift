@@ -43,10 +43,10 @@ class CustomTableViewCell: UITableViewCell {
 
     }
     
-    public func fillData(title: String, image: String){
+    public func fillData(title: String, image: UIColor){
         DispatchQueue.main.async {
             self.degreeLabel.text = title.replacingOccurrences(of: "Математика", with: "").trimmingCharacters(in: .whitespaces)
-            self.parentView.kf.setImage(with: URL(string: image))
+            self.parentView.backgroundColor = image
         }
     }
     
