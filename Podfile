@@ -9,4 +9,6 @@ target 'Math Education Project' do
 	pod 'SnapKit'
 	pod 'Alamofire'
 	pod 'Kingfisher'
+	pod 'RxSwift'
+	pod 'RxCocoa'
 end

@@ -6,12 +6,15 @@
 //
 
 import Foundation
+import RxSwift
+
 
 protocol BookPresenterDelegate{
     init(view: BookViewDelegate)
     func viewDidLoad()
     func getId(id: Int)
     func getQuizId(id: Int)
+    var topicSubject: BehaviorSubject<[SingleTopic]> { get set }
 }
 
 class BookPresenter: BookPresenterDelegate{
@@ -20,6 +23,9 @@ class BookPresenter: BookPresenterDelegate{
     var quizPresenter: QuizPresenterDelegate!
     
     let defautls = UserDefaults.standard
+    
+    var topicSubject = BehaviorSubject<[SingleTopic]>(value: [SingleTopic]())
+    
     
     required init(view: BookViewDelegate){
         self.view = view
@@ -30,7 +36,7 @@ class BookPresenter: BookPresenterDelegate{
         APiAuth().getTopics(id: id) { data in
             switch data{
             case.success(let data):
-                self.view?.getTopic(topic: [data])
+                self.topicSubject.onNext([data])
                 break
             case.failure(_):
                 break
