@@ -7,6 +7,8 @@
 
 import UIKit
 import Kingfisher
+import RxCocoa
+import RxSwift
 import SnapKit
 
 
@@ -14,8 +16,12 @@ class CustomBookCell: UICollectionViewCell{
     
     static let identifier = "CustomCell"
     
+    let disposeBag = DisposeBag()
+    
     var delegate: BookCellDelegate!
     var exmaplesData = Dynamic([Example]())
+    
+    var exampleDataRx = BehaviorSubject<[Example]>(value: [Example]())
     
     private lazy var topParentView: UIView = {
         let view = UIView()
@@ -46,7 +52,7 @@ class CustomBookCell: UICollectionViewCell{
         label.textAlignment = .center
         return label
     }()
-
+    
     private lazy var theoryLabel: UILabel = {
         let label = UILabel()
         label.text = "Теория"
@@ -61,7 +67,6 @@ class CustomBookCell: UICollectionViewCell{
         imageV.backgroundColor = .systemGray4
         imageV.layer.cornerRadius = 15
         imageV.layer.masksToBounds = true
-        imageV.isHidden = true
         return imageV
     }()
     
@@ -79,9 +84,9 @@ class CustomBookCell: UICollectionViewCell{
         
         let collectionV = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionV.register(CustomExamplesCell.self, forCellWithReuseIdentifier: CustomExamplesCell.identifier)
-        collectionV.delegate = self
-        collectionV.dataSource = self
-        collectionV.isScrollEnabled = false
+        //        collectionV.delegate = self
+        //        collectionV.dataSource = self
+        //        collectionV.isScrollEnabled = false
         return collectionV
     }()
     
@@ -90,6 +95,7 @@ class CustomBookCell: UICollectionViewCell{
     override func layoutSubviews() {
         super.layoutSubviews()
         setupCostraints()
+        initCollection()
         
     }
     
@@ -97,18 +103,11 @@ class CustomBookCell: UICollectionViewCell{
                          example: [Example], delegate: BookCellDelegate){
         self.delegate = delegate
         DispatchQueue.main.async {
+            //            self.exmaplesData.value = example
+            self.exampleDataRx.onNext(example)
             self.headerTitle.text = title
             self.theoryLabel.text = theory
-            if mainImage != ""{
-                self.mainImage.kf.setImage(with: URL(string: mainImage ?? ""))
-            }else{
-                self.mainImage.isHidden = true
-            }
-            
-            if example.isEmpty{
-                self.expampleLabel.isHidden = true
-            }
-            self.exmaplesData.value = example
+            self.mainImage.kf.setImage(with: URL(string: mainImage ?? ""))
             self.imagesCollection.reloadData()
         }
     }
@@ -172,23 +171,57 @@ class CustomBookCell: UICollectionViewCell{
     }
 }
 
-extension CustomBookCell: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.exmaplesData.value.first?.examplePhotos.count ?? 0
-    }
+extension CustomBookCell: UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomExamplesCell.identifier, for: indexPath) as? CustomExamplesCell else { return CustomExamplesCell()}
-        let imagesData = self.exmaplesData.value.first?.examplePhotos[indexPath.row].photo ?? "nil"
-        let data = self.exmaplesData.value.first
-        if indexPath.row < data?.exampleNumbers.count ?? 0{
-            cell.setExmapleImage(image: imagesData,
-                                 text: data?.exampleNumbers[indexPath.row].text ?? "")
-        }
-        return cell
-    }
-    
+    //    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        return self.exmaplesData.value.count
+    //    }
+    //
+    //    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomExamplesCell.identifier, for: indexPath) as? CustomExamplesCell else { return CustomExamplesCell()}
+    //        let data = self.exmaplesData.value[indexPath.row]
+    //        print("")
+    //        print("")
+    //        print("")
+    //        print("")
+    //        print(data.examplePhotos, "MAIN IMAGE")
+    //        print(data)
+    //        print("")
+    //        print("")
+    //        print("")
+    //        print("")
+    //        print("")
+    //        if indexPath.row < data.examplePhotos.count{
+    //            cell.setExmapleImage(image: data.examplePhotos[indexPath.row].photo,
+    //                                 text: data.exampleNumbers[indexPath.row].text )
+    //        }else{
+    //            cell.setExmapleImage(image: "", text: data.exampleNumbers[indexPath.row].text)
+    //        }
+    //        return cell
+    //    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.contentView.frame.width - 20, height: 290)
     }
+}
+
+
+extension CustomBookCell{
+    
+    private func initCollection(){
+        
+        self.imagesCollection.rx.setDelegate(self)
+        
+        var topicSubscriber: Observable<[Example]>{
+            return self.exampleDataRx.asObservable()
+        }
+
+        topicSubscriber.bind(to: self.imagesCollection.rx.items(cellIdentifier: CustomExamplesCell.identifier, cellType: CustomExamplesCell.self)) {indexPath, model, cell in
+            if model.examplePhotos.count > indexPath {
+                cell.setExmapleImage(image: model.examplePhotos[indexPath].photo, text: model.exampleNumbers[indexPath].text)
+            }else{
+                cell.setExmapleImage(image: "moIMAGE", text: model.exampleNumbers[indexPath].text)
+            }
+        }.disposed(by: disposeBag)
+    }
+    
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SnapKit
 
 protocol BookViewDelegate: AnyObject{
@@ -18,6 +20,8 @@ protocol BookCellDelegate {
 }
 
 class BookViewController: UIViewController {
+    
+    let dispiseBag = DisposeBag()
     
     var topic = Dynamic([SingleTopic]())
     
@@ -82,8 +86,6 @@ class BookViewController: UIViewController {
         collectionV.isPagingEnabled = true
         collectionV.isScrollEnabled = false
         collectionV.showsHorizontalScrollIndicator = false
-        collectionV.delegate = self
-        collectionV.dataSource = self
         return collectionV
     }()
     
@@ -131,6 +133,7 @@ class BookViewController: UIViewController {
         super.viewDidLoad()
         presenter.viewDidLoad()
         setupConstraints()
+        initCollecionView()
         enableBackSwipe()
         
     }
@@ -231,31 +234,17 @@ class BookViewController: UIViewController {
     }
 }
 
-extension BookViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.topic.value.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomBookCell.identifier, for: indexPath) as? CustomBookCell else { return CustomBookCell() }
-        let data = self.topic.value[indexPath.row]
-        cell.fillData(title: data.title, theory: data.text, mainImage: data.photos.first?.photo , example: data.examples, delegate: self)
-        return cell
-    }
-    
+extension BookViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: bookCollection.frame.width, height: bookCollection.frame.height - 15)
     }
-    
-    
 }
 
 extension BookViewController: BookViewDelegate{
     func getTopic(topic: [SingleTopic]){
         let topicCount = CGFloat((topic.first?.examples.first?.exampleNumbers.count ?? 5) * 290)
         self.scrollV.contentSize = CGSize(width: self.view.frame.width,
-                                          height: self.view.frame.height + topicCount + 230)
+                                          height: self.view.frame.height + topicCount + 930)
         self.topic.value = topic
         if topic.first?.quizes.first?.id != nil{
             self.quizIcon.isHidden = false
@@ -269,4 +258,22 @@ extension BookViewController: BookCellDelegate{
     func backDidTapped() {
         self.navigationController?.popViewController(animated: true)
     }
+}
+
+
+extension BookViewController {
+    
+    private func initCollecionView(){
+        var topicSubscriber: Observable<[SingleTopic]>{
+            return presenter.topicSubject.asObservable()
+        }
+        
+        self.bookCollection.rx.setDelegate(self).disposed(by: dispiseBag)
+        
+        topicSubscriber.bind(to: bookCollection.rx.items(cellIdentifier: CustomBookCell.identifier, cellType: CustomBookCell.self)){ indexPath, model, cell in
+            print(model)
+            cell.fillData(title: model.title, theory: model.text, mainImage: model.photos.first?.photo, example: model.examples, delegate: self)
+        }
+    }
+    
 }
